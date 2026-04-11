@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensory: Eyes & Ears — Nursing Notes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+  :root {
+    --bg: #f7f4ef;
+    --bg-card: #faf8f4;
+    --bg-card-hover: #f2ede5;
+    --ink: #1a1714;
+    --ink-muted: #5a534a;
+    --ink-light: #8a8178;
+    --red: #8b1a1a;
+    --red-light: #fdf0f0;
+    --red-mid: #c0392b;
+    --green: #1a5c2e;
+    --green-light: #f0f7f2;
+    --green-mid: #27ae60;
+    --navy: #1a2b5c;
+    --navy-light: #eef1f9;
+    --brown: #6b3a1f;
+    --brown-light: #faf3ec;
+    --purple: #4a1a6b;
+    --purple-light: #f5f0fa;
+    --gold: #b8860b;
+    --gold-light: #fdf8ec;
+    --teal: #0d5c63;
+    --teal-light: #eaf5f6;
+    --border: #ddd8d0;
+    --shadow: rgba(26,23,20,0.06);
+    --radius: 10px;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Syne', sans-serif;
+    --serif: 'Lora', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.78;
+    font-size: 16px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 26px 32px 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.2);
+  }
+  .header-inner { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+  .site-header h1 {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(1.05rem, 3vw, 1.55rem);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+  .site-header .subtitle {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: #a09888;
+    margin-top: 5px;
+    letter-spacing: 0.08em;
+  }
+  .header-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .header-pill {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid #4a4540;
+    color: #a09888;
+  }
+
+  /* ── Tab nav ── */
+  .tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    padding: 12px 32px 0;
+    background: var(--ink);
+    border-bottom: 3px solid #2e2a25;
+  }
+  .tab-btn {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    color: #6a6258;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: background 0.14s, color 0.14s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { background: #2e2a25; color: #e0d8cc; }
+  .tab-btn.active { background: var(--bg); color: var(--ink); font-weight: 700; }
+  .tab-group-label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4a4540;
+    padding: 12px 10px 4px;
+    align-self: flex-end;
+  }
+
+  /* ── Tab content ── */
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+  .content-wrap { max-width: 1100px; margin: 0 auto; padding: 36px 28px 80px; }
+
+  /* ── Typography ── */
+  .section-title {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.07em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  .subsection-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.08rem;
+    margin: 30px 0 12px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subsection-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    border-left: 5px solid;
+    box-shadow: 0 1px 5px var(--shadow);
+    transition: box-shadow 0.18s, transform 0.18s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(26,23,20,0.1); transform: translateY(-1px); }
+  .card.red    { border-left-color: var(--red); }
+  .card.green  { border-left-color: var(--green); }
+  .card.navy   { border-left-color: var(--navy); }
+  .card.brown  { border-left-color: var(--brown); }
+  .card.purple { border-left-color: var(--purple); }
+  .card.gold   { border-left-color: var(--gold); }
+  .card.teal   { border-left-color: var(--teal); }
+
+  .card-label {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card.red    .card-label { color: var(--red); }
+  .card.green  .card-label { color: var(--green); }
+  .card.navy   .card-label { color: var(--navy); }
+  .card.brown  .card-label { color: var(--brown); }
+  .card.purple .card-label { color: var(--purple); }
+  .card.gold   .card-label { color: var(--gold); }
+  .card.teal   .card-label { color: var(--teal); }
+
+  .card-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.03rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .card p  { font-size: 0.93rem; color: var(--ink-muted); margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul { padding-left: 20px; font-size: 0.93rem; color: var(--ink-muted); }
+  .card ul li { margin-bottom: 4px; }
+  .card strong { color: var(--ink); }
+
+  /* ── Alert boxes ── */
+  .alert {
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-left: 5px solid;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .alert-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .alert-danger { background: var(--red-light); border-left-color: var(--red-mid); }
+  .alert-danger .alert-label { color: var(--red-mid); }
+  .alert-info   { background: var(--navy-light); border-left-color: var(--navy); }
+  .alert-info   .alert-label { color: var(--navy); }
+  .alert-pearl  { background: var(--green-light); border-left-color: var(--green-mid); }
+  .alert-pearl  .alert-label { color: var(--green); }
+  .alert-gold   { background: var(--gold-light); border-left-color: var(--gold); }
+  .alert-gold   .alert-label { color: var(--gold); }
+
+  /* ── Grids ── */
+  .two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 12px 0; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 13px; margin: 12px 0; }
+  @media (max-width: 750px) { .two-col { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .three-col { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .three-col { grid-template-columns: 1fr; } }
+
+  /* ── Lab tables ── */
+  .lab-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.89rem; }
+  .lab-table th {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom: 2px solid var(--border);
+    padding: 9px 12px;
+    text-align: left;
+    background: var(--bg);
+  }
+  .lab-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .lab-table tr:last-child td { border-bottom: none; }
+  .lab-table tr:hover td { background: var(--bg-card-hover); }
+  .lab-badge {
+    font-family: var(--mono);
+    font-size: 0.71rem;
+    font-weight: 600;
+    background: var(--green-light);
+    color: var(--green);
+    border: 1px solid #b2d8be;
+    border-radius: 4px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .lab-badge.warn { background: var(--gold-light); color: var(--gold); border-color: #ddc884; }
+  .lab-badge.danger { background: var(--red-light); color: var(--red); border-color: #e8b0b0; }
+  .lab-name { font-family: var(--serif); font-weight: 600; }
+  .lab-meaning { color: var(--ink-muted); font-size: 0.84rem; }
+
+  /* ── Medication table ── */
+  .med-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.87rem; }
+  .med-table th {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--ink);
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .med-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .med-table tr:hover td { background: var(--bg-card-hover); }
+  .drug-name  { font-family: var(--mono); font-weight: 600; color: var(--navy); font-size: 0.83rem; }
+  .drug-class { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-muted); }
+
+  /* ── Mind maps ── */
+  .mind-map-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 1px 5px var(--shadow);
+  }
+  .mind-map-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.97rem;
+    color: var(--ink);
+    transition: background 0.14s;
+    gap: 10px;
+  }
+  .mind-map-trigger:hover { background: var(--bg-card-hover); }
+  .mm-icon { font-family: var(--mono); font-size: 0.82rem; color: var(--ink-muted); transition: transform 0.22s; flex-shrink: 0; }
+  .mind-map-trigger.open .mm-icon { transform: rotate(90deg); }
+  .mm-badge {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--purple-light);
+    color: var(--purple);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-left: auto;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .mind-map-body { display: none; padding: 0 20px 20px; }
+  .mind-map-body.open { display: block; }
+  .mm-root { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 12px; }
+  .mm-branch { background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; flex: 1 1 185px; min-width: 160px; }
+  .mm-branch-head { font-family: var(--sans); font-weight: 700; font-size: 0.78rem; padding: 8px 12px; border-radius: 6px 6px 0 0; letter-spacing: 0.02em; }
+  .mm-branch.red    .mm-branch-head { background: var(--red-light);    color: var(--red);    border-bottom: 1.5px solid #e8c0c0; }
+  .mm-branch.green  .mm-branch-head { background: var(--green-light);  color: var(--green);  border-bottom: 1.5px solid #b2d8be; }
+  .mm-branch.navy   .mm-branch-head { background: var(--navy-light);   color: var(--navy);   border-bottom: 1.5px solid #c0ccee; }
+  .mm-branch.brown  .mm-branch-head { background: var(--brown-light);  color: var(--brown);  border-bottom: 1.5px solid #d4c0a8; }
+  .mm-branch.purple .mm-branch-head { background: var(--purple-light); color: var(--purple); border-bottom: 1.5px solid #c8aae0; }
+  .mm-branch.gold   .mm-branch-head { background: var(--gold-light);   color: var(--gold);   border-bottom: 1.5px solid #ddc884; }
+  .mm-branch.teal   .mm-branch-head { background: var(--teal-light);   color: var(--teal);   border-bottom: 1.5px solid #9dcdd1; }
+  .mm-branch ul { list-style: none; padding: 8px 12px 10px; margin: 0; }
+  .mm-branch ul li { font-size: 0.8rem; color: var(--ink-muted); padding: 2px 0; border-bottom: 1px solid #eee9e2; }
+  .mm-branch ul li:last-child { border-bottom: none; }
+  .mm-branch ul li::before { content: "→ "; color: var(--ink-light); }
+
+  /* ── Step boxes ── */
+  .step-box {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+  }
+  .step-num {
+    font-family: var(--mono); font-weight: 700; font-size: 1rem;
+    color: var(--bg); background: var(--ink);
+    border-radius: 50%; width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .step-content p { font-size: 0.91rem; color: var(--ink-muted); margin-top: 3px; }
+  .step-title { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; }
+
+  /* ── Anatomy diagram boxes ── */
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .anatomy-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .anatomy-icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .anatomy-name { font-family: var(--sans); font-weight: 700; font-size: 0.82rem; color: var(--ink); margin-bottom: 4px; }
+  .anatomy-desc { font-family: var(--serif); font-size: 0.78rem; color: var(--ink-muted); }
+
+  /* ── Compare table ── */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.87rem; }
+  .compare-table th {
+    font-family: var(--sans); font-weight: 700; font-size: 0.82rem;
+    padding: 10px 14px; text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  .compare-table th:first-child { background: var(--bg); color: var(--ink-muted); }
+  .compare-table th.col-a { background: var(--red-light); color: var(--red); }
+  .compare-table th.col-b { background: var(--navy-light); color: var(--navy); }
+  .compare-table th.col-c { background: var(--green-light); color: var(--green); }
+  .compare-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .compare-table tr:hover td { background: var(--bg-card-hover); }
+  .compare-table .row-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── IOP gauge visual ── */
+  .iop-bar-wrap { margin: 14px 0; }
+  .iop-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+  .iop-bar { height: 22px; border-radius: 11px; display: flex; overflow: hidden; border: 1px solid var(--border); }
+  .iop-seg { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; color: white; }
+  .iop-seg.normal  { background: var(--green-mid); flex: 21; }
+  .iop-seg.suspect { background: var(--gold); flex: 8; }
+  .iop-seg.high    { background: var(--red-mid); flex: 15; }
+  .iop-ticks { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.62rem; color: var(--ink-light); padding: 2px 0; }
+
+  /* ── Hearing test ── */
+  .weber-rinne { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+  .test-box {
+    flex: 1 1 220px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .test-name { font-family: var(--sans); font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; }
+  .test-row { display: flex; gap: 8px; margin-bottom: 6px; align-items: flex-start; }
+  .test-result { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 3px; flex-shrink: 0; }
+  .res-normal   { background: var(--green-light); color: var(--green); }
+  .res-conduct  { background: var(--brown-light); color: var(--brown); }
+  .res-sensor   { background: var(--navy-light); color: var(--navy); }
+  .test-row p { font-size: 0.82rem; color: var(--ink-muted); }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #c0b8ae; border-radius: 3px; }
+
+  /* ── Divider ── */
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  /* ── Overflow tables ── */
+  .table-scroll { overflow-x: auto; }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .site-header { padding: 16px 16px 12px; }
+    .tab-nav { padding: 8px 14px 0; }
+    .tab-btn { font-size: 0.63rem; padding: 6px 9px; }
+    .content-wrap { padding: 20px 14px 60px; }
+    .anatomy-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="site-header">
+  <h1>Sensory System: Eyes &amp; Ears</h1>
+  <div class="subtitle">Pathopharmacology · Nursing Notes · Prof. Samantha Sangsanoi, PhD, MSN, RN, CCRN</div>
+  <div class="header-pills">
+    <span class="header-pill">👁 Eyes</span>
+    <span class="header-pill">👂 Ears</span>
+    <span class="header-pill">NCLEX Pearls</span>
+    <span class="header-pill">Meds</span>
+    <span class="header-pill">Lab Values</span>
+  </div>
+</header>
+
+<!-- ══════════ TAB NAV ══════════ -->
+<nav class="tab-nav" role="tablist">
+  <span class="tab-group-label">👁 Eyes</span>
+  <button class="tab-btn active" onclick="switchTab('eye-anatomy')">Anatomy</button>
+  <button class="tab-btn" onclick="switchTab('cataracts')">Cataracts</button>
+  <button class="tab-btn" onclick="switchTab('glaucoma')">Glaucoma</button>
+  <button class="tab-btn" onclick="switchTab('other-eye')">Other Eye Dx</button>
+  <span class="tab-group-label">👂 Ears</span>
+  <button class="tab-btn" onclick="switchTab('ear-anatomy')">Anatomy</button>
+  <button class="tab-btn" onclick="switchTab('otitis')">Otitis</button>
+  <button class="tab-btn" onclick="switchTab('hearing-loss')">Hearing Loss</button>
+  <button class="tab-btn" onclick="switchTab('meniere')">Ménière's</button>
+  <span class="tab-group-label">Reference</span>
+  <button class="tab-btn" onclick="switchTab('labs')">Lab Values</button>
+  <button class="tab-btn" onclick="switchTab('meds')">Medications</button>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: EYE ANATOMY
+══════════════════════════════════════════════════════════ -->
+<div id="tab-eye-anatomy" class="tab-pane active">
+<div class="content-wrap">
+
+  <div class="section-title">Anatomy of the Eye</div>
+  <div class="section-desc">Structure · Function · Physiology of Vision</div>
+
+  <div class="card navy">
+    <div class="card-label">Overview</div>
+    <div class="card-title">Primary Functions of the Eyes</div>
+    <div class="two-col">
+      <ul>
+        <li>Detecting visual stimuli (photoreception)</li>
+        <li>Conveying information to the brain via the <strong>optic nerve (CN II)</strong></li>
+        <li>Maintaining the <strong>circadian rhythm</strong> via retinal light exposure</li>
+        <li>Allowing eyesight by reacting to visible light</li>
+      </ul>
+      <ul>
+        <li>Contributing to balance and spatial orientation</li>
+        <li>Allowing light to enter and projecting it onto the retina</li>
+        <li><strong>Cone cells</strong> — detect color (daylight / photopic vision)</li>
+        <li><strong>Rod cells</strong> — detect low-light contrast (scotopic vision)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-title">Structures of the Eye</div>
+  <div class="anatomy-grid">
+    <div class="anatomy-item"><div class="anatomy-icon">🔵</div><div class="anatomy-name">Cornea</div><div class="anatomy-desc">Transparent anterior covering; primary refractive surface (provides ~70% of focusing power)</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">⚪</div><div class="anatomy-name">Sclera</div><div class="anatomy-desc">White fibrous outer coat; protective; continuous with cornea at limbus</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🟤</div><div class="anatomy-name">Iris</div><div class="anatomy-desc">Pigmented diaphragm; controls pupil size (mydriasis/miosis) to regulate light entry</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">⚫</div><div class="anatomy-name">Pupil</div><div class="anatomy-desc">Opening in iris; dilates in low light (CN III), constricts in bright light</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🔷</div><div class="anatomy-name">Lens</div><div class="anatomy-desc">Biconvex crystalline structure; changes shape for near/far focus (accommodation); site of cataracts</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🟡</div><div class="anatomy-name">Retina</div><div class="anatomy-desc">Inner neural layer; contains rods (peripheral/night vision) and cones (central/color vision)</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🟠</div><div class="anatomy-name">Macula / Fovea</div><div class="anatomy-desc">Central retina; highest cone density; responsible for sharp central vision</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🔴</div><div class="anatomy-name">Optic Disc</div><div class="anatomy-desc">"Blind spot"; where optic nerve exits; no photoreceptors; cup-to-disc ratio monitored in glaucoma</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">💧</div><div class="anatomy-name">Aqueous Humor</div><div class="anatomy-desc">Clear fluid in anterior/posterior chambers; produced by ciliary body; drained via trabecular meshwork; maintains IOP</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🫧</div><div class="anatomy-name">Vitreous Humor</div><div class="anatomy-desc">Gel-like substance filling posterior segment; maintains eye shape</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🩸</div><div class="anatomy-name">Choroid</div><div class="anatomy-desc">Vascular middle layer (uvea); supplies nutrition to retinal pigment epithelium</div></div>
+    <div class="anatomy-item"><div class="anatomy-icon">🔗</div><div class="anatomy-name">Ciliary Body</div><div class="anatomy-desc">Produces aqueous humor; contains ciliary muscle for lens accommodation (via zonular fibers)</div></div>
+  </div>
+
+  <div class="subsection-title">Pathway of Light &amp; Vision</div>
+  <div class="step-box"><div class="step-num">1</div><div class="step-content"><div class="step-title">Light enters the cornea</div><p>Cornea provides majority of refraction (~70% of total focusing power).</p></div></div>
+  <div class="step-box"><div class="step-num">2</div><div class="step-content"><div class="step-title">Passes through pupil &amp; lens</div><p>Iris adjusts pupil size. Lens fine-tunes focus via accommodation (ciliary muscle contraction → lens rounds up for near; relaxation → lens flattens for far).</p></div></div>
+  <div class="step-box"><div class="step-num">3</div><div class="step-content"><div class="step-title">Image projected onto retina</div><p>Light stimulates rods (dim light, periphery) and cones (color, central). Image is inverted and reversed.</p></div></div>
+  <div class="step-box"><div class="step-num">4</div><div class="step-content"><div class="step-title">Optic nerve transmission</div><p>Electrical signals travel via CN II → optic chiasm (nasal fibers cross) → optic tracts → lateral geniculate nucleus (thalamus).</p></div></div>
+  <div class="step-box"><div class="step-num">5</div><div class="step-content"><div class="step-title">Visual cortex processing</div><p>Signals reach occipital lobe (primary visual cortex, V1) → processed into perception of shape, color, motion, and depth.</p></div></div>
+
+  <div class="subsection-title">Intraocular Pressure (IOP)</div>
+  <div class="card teal">
+    <div class="card-label">IOP Overview</div>
+    <div class="card-title">Normal Range &amp; Clinical Significance</div>
+    <p>IOP is determined by the balance between aqueous humor production (ciliary body) and drainage (trabecular meshwork → Schlemm's canal). <strong>Normal IOP: 10–21 mmHg.</strong></p>
+    <div class="iop-bar-wrap">
+      <div class="iop-label">IOP Ranges (mmHg)</div>
+      <div class="iop-bar">
+        <div class="iop-seg normal">Normal (10–21)</div>
+        <div class="iop-seg suspect">Suspect (22–29)</div>
+        <div class="iop-seg high">Glaucoma Risk (≥30)</div>
+      </div>
+      <div class="iop-ticks"><span>10</span><span>21</span><span>29</span><span>40+</span></div>
+    </div>
+    <p>Elevated IOP compresses the optic nerve → progressive ganglion cell death → peripheral vision loss → central vision loss if untreated.</p>
+  </div>
+
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl</span>
+    Cranial nerve II (optic nerve) carries visual information. CN III (oculomotor) controls pupil constriction, eyelid elevation, and most extraocular movements. A fixed, dilated pupil indicates CN III compression — a neurological emergency.
+  </div>
+  <div class="alert alert-info">
+    <span class="alert-label">📖 Assessment Tip</span>
+    Normal visual acuity is <strong>20/20</strong>. The first number is the testing distance (20 feet); the second is the distance a person with normal vision can read that line. 20/200 = legally blind. Always test each eye separately; document which eye is tested.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: CATARACTS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-cataracts" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Cataracts</div>
+  <div class="section-desc">Lens Opacity · Age-Related · Surgical Management</div>
+
+  <div class="alert alert-info">
+    <span class="alert-label">📖 Definition</span>
+    A cataract is a <strong>clouding of the crystalline lens</strong> of the eye that is normally transparent. It causes progressive, painless loss of vision. Like looking through a "frosty or fogged-up window." The leading cause of reversible blindness worldwide.
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Cataracts Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Risk Factors / Etiology</div>
+          <ul>
+            <li>Aging (most common; age &gt;55)</li>
+            <li>Diabetes mellitus (osmotic lens swelling)</li>
+            <li>Family history</li>
+            <li>Obesity</li>
+            <li>Hypertension</li>
+            <li>Smoking</li>
+            <li>UV light exposure</li>
+            <li>Eye trauma / prior surgery</li>
+            <li>Long-term corticosteroid use</li>
+            <li>Myotonic dystrophy</li>
+            <li>Congenital (TORCH infections)</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Pathophysiology</div>
+          <ul>
+            <li>Oxidative damage to lens proteins</li>
+            <li>Lens fibers lose transparency</li>
+            <li>Protein aggregation → opacification</li>
+            <li>Nuclear sclerosis (yellowing/hardening)</li>
+            <li>Cortical spokes (spoke-like opacities)</li>
+            <li>Posterior subcapsular (PSC) — steroids</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Symptoms</div>
+          <ul>
+            <li>Blurred / hazy vision (painless)</li>
+            <li>Glare / halos around lights</li>
+            <li>Difficulty reading / driving at night</li>
+            <li>Fading or yellowing of colors</li>
+            <li>Double vision in one eye</li>
+            <li>Frequent prescription changes</li>
+            <li>"Second sight" (temporary improvement)</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Diagnostics</div>
+          <ul>
+            <li>Slit-lamp biomicroscopy (gold standard)</li>
+            <li>Visual acuity testing (Snellen chart)</li>
+            <li>Dilated fundus exam</li>
+            <li>Retinal exam (rule out other cause)</li>
+            <li>Refraction exam</li>
+            <li>Tonometry (IOP)</li>
+          </ul>
+        </div>
+        <div class="mm-branch purple">
+          <div class="mm-branch-head">Non-Surgical Management</div>
+          <ul>
+            <li>Updated eyeglass prescription</li>
+            <li>Magnifying lenses</li>
+            <li>Improved home lighting</li>
+            <li>Anti-glare sunglasses / brimmed hat</li>
+            <li>Limit night driving</li>
+            <li>Monitor for worsening</li>
+          </ul>
+        </div>
+        <div class="mm-branch gold">
+          <div class="mm-branch-head">Surgical Treatment</div>
+          <ul>
+            <li>Phacoemulsification (most common)</li>
+            <li>Ultrasound breaks up lens</li>
+            <li>Lens aspirated through small incision</li>
+            <li>IOL (intraocular lens) implanted</li>
+            <li>Extracapsular extraction (ECCE)</li>
+            <li>Laser-assisted cataract surgery</li>
+          </ul>
+        </div>
+        <div class="mm-branch teal">
+          <div class="mm-branch-head">Complications</div>
+          <ul>
+            <li>Posterior capsule opacification (PCO)</li>
+            <li>Infection (endophthalmitis)</li>
+            <li>Glaucoma</li>
+            <li>Retinal detachment</li>
+            <li>Corneal edema</li>
+            <li>IOL dislocation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Pharmacological Management</div>
+  <div class="card red">
+    <div class="card-label">Post-Operative Eye Drops</div>
+    <div class="card-title">Standard Post-Cataract Surgery Regimen</div>
+    <div class="three-col">
+      <div>
+        <p><strong>Steroid Eye Drops</strong></p>
+        <ul>
+          <li>Prednisolone acetate</li>
+          <li>Difluprednate (Durezol)</li>
+          <li>Loteprednol etabonate</li>
+          <li>Rimexolone</li>
+          <li><em>Duration: 2–6 weeks post-op</em></li>
+          <li>Purpose: Reduce post-op inflammation</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Antibiotic Eye Drops</strong></p>
+        <ul>
+          <li>Moxifloxacin (Vigamox)</li>
+          <li>Ciprofloxacin</li>
+          <li>Ofloxacin</li>
+          <li><em>Duration: ~1 week post-op</em></li>
+          <li>Purpose: Prevent endophthalmitis</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>NSAIDs</strong></p>
+        <ul>
+          <li>Bromfenac (Prolensa)</li>
+          <li>Ketorolac (Acular)</li>
+          <li>Nepafenac (Nevanac)</li>
+          <li>Purpose: Pain, inflammation, prevent cystoid macular edema (CME)</li>
+          <li>Mydriatics: Phenylephrine, homatropine (dilate pupil, improve visualization)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card navy">
+    <div class="card-label">Preventive Pharmacology</div>
+    <div class="card-title">Aldose Reductase Inhibitors</div>
+    <p>In <strong>diabetic patients</strong>, excess glucose is converted to sorbitol via aldose reductase in the lens. Sorbitol accumulation → osmotic swelling → lens opacity. Aldose reductase inhibitors may help <strong>prevent or delay diabetic cataracts</strong> by blocking this pathway. (Currently investigational in humans; well-established in animal models.)</p>
+  </div>
+
+  <div class="subsection-title">Pre &amp; Post-Operative Nursing Care</div>
+  <div class="two-col">
+    <div class="card green">
+      <div class="card-label">Pre-Operative Nursing</div>
+      <ul>
+        <li>Obtain baseline visual acuity (document both eyes)</li>
+        <li>Administer dilating drops as ordered (phenylephrine, tropicamide)</li>
+        <li>Confirm NPO status (surgery usually under local/MAC anesthesia)</li>
+        <li>Assess for anticoagulant use (warfarin/aspirin may be held)</li>
+        <li>Educate patient: outpatient procedure, local anesthesia, eye patch post-op</li>
+        <li>Confirm allergies — especially latex and iodine</li>
+      </ul>
+    </div>
+    <div class="card brown">
+      <div class="card-label">Post-Operative Nursing</div>
+      <ul>
+        <li>Apply <strong>eye shield/patch</strong> — protect from rubbing or bumping</li>
+        <li>Teach correct eye drop administration order: wait 5 minutes between drops</li>
+        <li>HOB elevated 30–45°; sleep on non-operative side</li>
+        <li>No bending below waist, straining, heavy lifting (&gt;10 lbs) for several weeks</li>
+        <li>Avoid rubbing eye — risk of wound dehiscence</li>
+        <li>Report: sudden vision loss, severe pain, increasing redness → endophthalmitis</li>
+        <li>Wear sunglasses outdoors (photosensitivity post-op)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">🚨 Safety Alert — Post-Op Endophthalmitis</span>
+    <strong>Endophthalmitis</strong> is a rare but devastating post-cataract surgical infection. Signs: sudden severe eye pain, vision loss, hypopyon (pus in anterior chamber), pronounced redness. Onset typically 1–7 days post-op. Requires EMERGENT intravitreal antibiotic injection. Teach patient to seek immediate care if these signs develop — delay can result in permanent blindness.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl</span>
+    <strong>Eye drop order matters:</strong> If multiple drops are prescribed, wait <strong>5 minutes</strong> between each drop. Administer drops from least viscous to most viscous. The lower conjunctival sac holds only ~0.3 mL — instilling more than one drop at a time causes overflow, not better absorption. Never touch the dropper tip to the eye or any surface.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl</span>
+    Post-cataract patients should <strong>NOT</strong>: rub the eye, bend over (↑ IOP), perform Valsalva, lift heavy objects, or wear tight collars. These all increase IOP and risk wound dehiscence. <strong>Activity is restricted for 4–6 weeks.</strong>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: GLAUCOMA
+══════════════════════════════════════════════════════════ -->
+<div id="tab-glaucoma" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Glaucoma</div>
+  <div class="section-desc">Elevated IOP · Optic Nerve Damage · Irreversible Vision Loss</div>
+
+  <div class="alert alert-info">
+    <span class="alert-label">📖 Definition</span>
+    Glaucoma is a group of eye conditions that damage the <strong>optic nerve</strong>, often associated with elevated intraocular pressure (IOP). It is the <strong>leading cause of irreversible blindness</strong> worldwide. Peripheral (side) vision is lost first, and central vision last — by the time symptoms are noticed, significant damage has occurred. Early detection is critical.
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Glaucoma Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Risk Factors</div>
+          <ul>
+            <li>High IOP (&gt;21 mmHg)</li>
+            <li>Age &gt;40</li>
+            <li>African, Hispanic, Asian heritage</li>
+            <li>Family history</li>
+            <li>Diabetes mellitus</li>
+            <li>Hypertension</li>
+            <li>Poor blood circulation</li>
+            <li>Thin central corneas</li>
+            <li>Optic nerve thinning</li>
+            <li>Migraine history</li>
+            <li>Long-term steroid use (eye drops)</li>
+            <li>Prior eye injury</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Types of Glaucoma</div>
+          <ul>
+            <li><strong>Open-angle (primary)</strong> — most common, slow/silent, trabecular meshwork dysfunction</li>
+            <li><strong>Angle-closure (acute)</strong> — sudden, painful, emergency — iris blocks drainage angle</li>
+            <li><strong>Normal-tension</strong> — optic nerve damage despite normal IOP</li>
+            <li><strong>Secondary</strong> — due to trauma, steroids, inflammation</li>
+            <li><strong>Congenital</strong> — present at birth, improper development</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Symptoms — Open Angle</div>
+          <ul>
+            <li>Asymptomatic for years (silent thief)</li>
+            <li>Gradual peripheral vision loss</li>
+            <li>Tunnel vision (late)</li>
+            <li>No pain</li>
+            <li>Discovered on routine eye exam</li>
+          </ul>
+        </div>
+        <div class="mm-branch red" style="border-left-color:var(--red-mid)">
+          <div class="mm-branch-head">Symptoms — Acute Angle Closure</div>
+          <ul>
+            <li>Sudden, severe eye pain</li>
+            <li>Headache, nausea, vomiting</li>
+            <li>Halos around lights</li>
+            <li>Sudden vision blurring</li>
+            <li>Fixed mid-dilated pupil</li>
+            <li>Rock-hard eye on palpation</li>
+            <li>Conjunctival injection</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Diagnostics</div>
+          <ul>
+            <li>Tonometry — IOP measurement</li>
+            <li>Gonioscopy — inspect drainage angle</li>
+            <li>Ophthalmoscopy — optic nerve exam</li>
+            <li>Visual field testing (perimetry)</li>
+            <li>OCT — optic nerve imaging</li>
+            <li>Pachymetry — corneal thickness</li>
+            <li>Cup-to-disc ratio (&gt;0.6 = suspicious)</li>
+          </ul>
+        </div>
+        <div class="mm-branch purple">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>Eye drops (first-line)</li>
+            <li>Laser trabeculoplasty (SLT)</li>
+            <li>Laser iridotomy (angle-closure)</li>
+            <li>Trabeculectomy (surgical)</li>
+            <li>Drainage implants (tubes/shunts)</li>
+            <li>MIGS (minimally invasive glaucoma surgery)</li>
+          </ul>
+        </div>
+        <div class="mm-branch gold">
+          <div class="mm-branch-head">Complications</div>
+          <ul>
+            <li>Irreversible blindness</li>
+            <li>Tunnel vision progressing to total loss</li>
+            <li>Optic atrophy</li>
+            <li>Psychological impact / depression</li>
+            <li>Falls / injury (peripheral vision loss)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Glaucoma Eye Drop Medications — Classes</div>
+
+  <div class="card green">
+    <div class="card-label">1st Line — Prostaglandin Analogs (PGAs)</div>
+    <div class="card-title">Increase Uveoscleral Aqueous Outflow</div>
+    <p><strong>Drugs:</strong> Latanoprost (Xalatan), Travoprost (Travatan Z), Bimatoprost (Lumigan), Tafluprost (Zioptan), Latanoprostene bunod (Vyzulta)</p>
+    <p><strong>Mechanism:</strong> Stimulate prostaglandin FP receptors → increase uveoscleral outflow of aqueous humor → ↓ IOP by 25–35%.</p>
+    <p><strong>Dosing:</strong> Once daily (evening preferred — better IOP lowering).</p>
+    <p><strong>Key Side Effects:</strong> Increased iris pigmentation (permanent), eyelash growth/darkening (hypertrichosis), periorbital fat atrophy, conjunctival hyperemia (redness).</p>
+    <p><strong>Nursing:</strong> Warn patients of cosmetic changes — especially if using only one eye. Apply light pressure to lacrimal sac (punctal occlusion) for 1–2 min post-instillation to ↓ systemic absorption.</p>
+  </div>
+
+  <div class="card navy">
+    <div class="card-label">Beta-Blockers</div>
+    <div class="card-title">Decrease Aqueous Humor Production</div>
+    <p><strong>Drugs:</strong> Timolol (Timoptic), Betaxolol (Betoptic), Levobunolol (Betagan)</p>
+    <p><strong>Mechanism:</strong> Block β-adrenergic receptors on ciliary epithelium → ↓ aqueous production → ↓ IOP by 20–25%.</p>
+    <p><strong>Key Side Effects (systemic absorption):</strong> Bradycardia, hypotension, bronchoconstriction, depression, masking of hypoglycemia, fatigue.</p>
+    <p><strong>Nursing:</strong> <strong>CONTRAINDICATED</strong> in asthma, COPD, bradycardia, heart block. Betaxolol is cardioselective (β₁ only) — safer in mild lung disease but still use caution. Apply punctal occlusion. Monitor HR and BP.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card brown">
+      <div class="card-label">Alpha-2 Adrenergic Agonists</div>
+      <div class="card-title">↓ Production + ↑ Uveoscleral Outflow</div>
+      <p><strong>Drugs:</strong> Brimonidine (Alphagan P), Apraclonidine (Iopidine)</p>
+      <p><strong>Mechanism:</strong> Stimulate α₂ receptors → ↓ aqueous production + ↑ uveoscleral outflow.</p>
+      <p><strong>Side Effects:</strong> Drowsiness, dry mouth, ocular allergy (brimonidine — ~20% allergy rate with long-term use), conjunctival follicles, tachyphylaxis.</p>
+      <p><strong>Nursing:</strong> <strong>Contraindicated</strong> in children &lt;2 years (CNS depression, apnea). Caution with MAOIs and TCAs.</p>
+    </div>
+    <div class="card purple">
+      <div class="card-label">Carbonic Anhydrase Inhibitors (CAIs)</div>
+      <div class="card-title">Decrease Aqueous Production</div>
+      <p><strong>Topical:</strong> Dorzolamide (Trusopt), Brinzolamide (Azopt)</p>
+      <p><strong>Oral:</strong> Acetazolamide (Diamox), Methazolamide</p>
+      <p><strong>Mechanism:</strong> Block carbonic anhydrase in ciliary epithelium → ↓ bicarbonate and Na⁺ transport → ↓ aqueous secretion.</p>
+      <p><strong>Side Effects (oral):</strong> Metabolic acidosis, hypokalemia, kidney stones, fatigue, paresthesias. Cross-react with sulfa allergy.</p>
+      <p><strong>Nursing:</strong> Ask about sulfonamide allergy. Encourage hydration (prevent stones). Monitor electrolytes with oral CAIs.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card red">
+      <div class="card-label">Miotics (Cholinergics)</div>
+      <div class="card-title">Increase Trabecular Outflow</div>
+      <p><strong>Drug:</strong> Pilocarpine (Pilopine)</p>
+      <p><strong>Mechanism:</strong> Stimulate muscarinic M3 receptors → ciliary muscle contraction → opens trabecular meshwork → ↑ aqueous outflow.</p>
+      <p><strong>Side Effects:</strong> Miosis (poor night vision), brow ache, induced myopia, retinal detachment risk.</p>
+      <p><strong>Nursing:</strong> Warn about difficulty driving at night. Used for angle-closure emergencies. Less used now due to side effects.</p>
+    </div>
+    <div class="card teal">
+      <div class="card-label">ROCK Inhibitors</div>
+      <div class="card-title">Increase Uveoscleral &amp; Trabecular Outflow</div>
+      <p><strong>Drugs:</strong> Netarsudil (Rhopressa), Netarsudil/Latanoprost (Rocklatan)</p>
+      <p><strong>Mechanism:</strong> Inhibit Rho-associated kinase (ROCK) → ↓ actin/myosin contraction in trabecular meshwork → ↑ outflow + ↓ aqueous production.</p>
+      <p><strong>Side Effects:</strong> Conjunctival hyperemia (very common), corneal verticillata, subconjunctival hemorrhage.</p>
+      <p><strong>Nursing:</strong> Newest class; once daily. Warn about redness — usually harmless but concerning to patients.</p>
+    </div>
+  </div>
+
+  <div class="subsection-title">Side Effects of All Glaucoma Eye Drops</div>
+  <div class="card gold">
+    <div class="card-label">Systemic Side Effects — Know These for NCLEX</div>
+    <ul>
+      <li>Stinging / itching sensation (all drops)</li>
+      <li>Red eyes / periocular skin redness</li>
+      <li>Changes in pulse and heartbeat (beta-blockers — bradycardia)</li>
+      <li>Changes in energy level / fatigue (beta-blockers)</li>
+      <li>Changes in breathing — <strong>bronchoconstriction</strong> (beta-blockers: CAUTION in asthma/COPD)</li>
+      <li>Dry mouth (alpha agonists)</li>
+      <li>Blurred vision (miotics/carbonic anhydrase inhibitors)</li>
+      <li>Eyelash growth / darkening (prostaglandins)</li>
+      <li>Changes in iris/eyelid pigmentation (prostaglandins — permanent iris darkening)</li>
+    </ul>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">🚨 Acute Angle-Closure Glaucoma — MEDICAL EMERGENCY</span>
+    Sudden severe eye pain + headache + nausea/vomiting + fixed mid-dilated pupil + halos around lights + sudden blurred vision = <strong>Acute Angle-Closure Glaucoma</strong>. IOP can exceed 60 mmHg. Treatment must begin within hours to prevent permanent blindness. Intervention: IV acetazolamide, IV mannitol (osmotic), pilocarpine, topical beta-blocker, and emergent laser iridotomy.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl</span>
+    Glaucoma is the <strong>"silent thief of sight"</strong> — open-angle glaucoma has no symptoms until significant irreversible damage has occurred. Peripheral vision is lost first (arcuate scotoma), then progresses to tunnel vision. <strong>Regular eye exams are the only way to diagnose early</strong> — a pressure screening alone is NOT sufficient.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Punctal Occlusion</span>
+    Teach patients to apply <strong>nasolacrimal occlusion (punctal occlusion)</strong> after eye drops: press on the inner corner of the closed eye for 1–2 minutes. This reduces nasolacrimal drainage, minimizing systemic absorption — especially critical with <strong>beta-blocker eye drops</strong> to prevent bradycardia and bronchoconstriction.
+  </div>
+  <div class="alert alert-danger">
+    <span class="alert-label">⚠ Safety — Atropine &amp; Angle-Closure Risk</span>
+    Anticholinergic drugs (atropine, scopolamine, antihistamines, TCAs) cause pupil dilation → can precipitate acute angle-closure glaucoma in susceptible patients. <strong>Always assess for history of glaucoma before administering anticholinergics or anything that causes mydriasis.</strong> Use with extreme caution in undiagnosed narrow angles.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: OTHER EYE DISORDERS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-other-eye" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Other Eye Disorders</div>
+  <div class="section-desc">Macular Degeneration · Diabetic Retinopathy · Retinal Detachment · Conjunctivitis</div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Macular Degeneration (AMD) Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Etiology / Risk Factors</div>
+          <ul>
+            <li>Age &gt;55 (most important)</li>
+            <li>Smoking (doubles risk)</li>
+            <li>Family history / genetics (CFH gene)</li>
+            <li>Obesity, hypertension</li>
+            <li>UV exposure</li>
+            <li>Light iris color</li>
+            <li>Female sex</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Types</div>
+          <ul>
+            <li><strong>Dry (atrophic)</strong> — 80–90%; drusen deposits; slow progression; no cure</li>
+            <li><strong>Wet (neovascular)</strong> — 10–20%; abnormal new blood vessel growth (CNV); rapid central vision loss; treatable</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Symptoms</div>
+          <ul>
+            <li>Central vision blurring</li>
+            <li>Metamorphopsia (distorted straight lines)</li>
+            <li>Scotoma (central blind spot)</li>
+            <li>Peripheral vision preserved</li>
+            <li>Colors appear faded</li>
+            <li>Difficulty reading (central vision loss)</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Diagnosis</div>
+          <ul>
+            <li>Amsler grid (wavy/distorted lines = positive)</li>
+            <li>Dilated fundus exam (drusen)</li>
+            <li>Fluorescein angiography</li>
+            <li>OCT (optical coherence tomography)</li>
+          </ul>
+        </div>
+        <div class="mm-branch purple">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>Dry: AREDS2 vitamins (C, E, zinc, lutein, zeaxanthin)</li>
+            <li>Wet: Anti-VEGF injections (ranibizumab/Lucentis, bevacizumab/Avastin, aflibercept/Eylea)</li>
+            <li>Laser photocoagulation (wet)</li>
+            <li>Low vision aids</li>
+            <li>Stop smoking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Diabetic Retinopathy Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Pathophysiology</div>
+          <ul>
+            <li>Chronic hyperglycemia → microvascular damage</li>
+            <li>Basement membrane thickening</li>
+            <li>Pericyte loss → microaneurysms</li>
+            <li>Vessel leakage → macular edema</li>
+            <li>Retinal ischemia → neovascularization</li>
+            <li>New vessels fragile → vitreous hemorrhage</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Classification</div>
+          <ul>
+            <li><strong>NPDR</strong> (non-proliferative): microaneurysms, hemorrhages, hard exudates</li>
+            <li><strong>PDR</strong> (proliferative): neovascularization, vitreous hemorrhage, traction RD</li>
+            <li><strong>DME</strong>: diabetic macular edema (any stage)</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Symptoms</div>
+          <ul>
+            <li>Often asymptomatic (NPDR)</li>
+            <li>Floaters (vitreous hemorrhage)</li>
+            <li>Blurred vision</li>
+            <li>Sudden vision loss (hemorrhage)</li>
+            <li>Dark spots / patches</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>Tight glycemic control (HbA1c &lt;7%)</li>
+            <li>BP control (&lt;130/80)</li>
+            <li>Anti-VEGF injections (DME/PDR)</li>
+            <li>Focal laser photocoagulation (DME)</li>
+            <li>Pan-retinal photocoagulation (PRP) for PDR</li>
+            <li>Vitrectomy (vitreous hemorrhage / traction RD)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Retinal Detachment Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Causes / Types</div>
+          <ul>
+            <li><strong>Rhegmatogenous</strong> — retinal tear allows fluid under retina (most common)</li>
+            <li><strong>Tractional</strong> — fibrous bands pull retina (diabetic PDR)</li>
+            <li><strong>Exudative</strong> — fluid accumulates without tear (inflammation)</li>
+            <li>Risk: myopia, trauma, cataract surgery, age, family history</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Classic Symptoms</div>
+          <ul>
+            <li>Sudden onset of floaters (shower of floaters)</li>
+            <li>Flashes of light (photopsia)</li>
+            <li>"Curtain" or "shadow" over visual field</li>
+            <li>Painless</li>
+            <li>Progressive visual field loss</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>Laser photocoagulation (retinal tears)</li>
+            <li>Cryotherapy</li>
+            <li>Pneumatic retinopexy (gas bubble)</li>
+            <li>Scleral buckle</li>
+            <li>Vitrectomy</li>
+            <li>Bed rest / face-down positioning (after gas bubble)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Conjunctivitis (Pink Eye)</div>
+  <div class="three-col">
+    <div class="card red">
+      <div class="card-label">Bacterial Conjunctivitis</div>
+      <p>Purulent yellow-green discharge, crusting on lashes (eyelids stuck shut in AM), unilateral→bilateral, no itch. <strong>Treatment:</strong> Topical antibiotics (fluoroquinolone drops). Highly contagious — contact precautions.</p>
+    </div>
+    <div class="card navy">
+      <div class="card-label">Viral Conjunctivitis</div>
+      <p>Watery/clear discharge, redness, gritty sensation, often associated with URI. Usually follows cold. <strong>Treatment:</strong> Supportive (cool compresses, artificial tears). Self-limiting. Most contagious type — strict hand hygiene.</p>
+    </div>
+    <div class="card green">
+      <div class="card-label">Allergic Conjunctivitis</div>
+      <p>Bilateral, intense <strong>itching</strong> (hallmark), watery/mucoid discharge, associated with allergic rhinitis, seasonal. <strong>Treatment:</strong> Topical antihistamines/mast cell stabilizers (ketotifen, olopatadine), avoid allergen.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">🚨 Retinal Detachment — Ophthalmic Emergency</span>
+    "Curtain coming down over vision" + shower of floaters + photopsia = <strong>retinal detachment until proven otherwise</strong>. This is a medical emergency — the retina must be reattached within hours (especially if macula is still on/attached). <strong>Do NOT delay — call ophthalmology STAT.</strong>
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Conjunctivitis Key Differentiator</span>
+    <strong>Itching</strong> = allergic. <strong>Purulent discharge</strong> = bacterial. <strong>Watery/clear with URI</strong> = viral. All three can cause redness. The key differentiator for NCLEX is: <em>itching is the hallmark of allergic conjunctivitis.</em>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: EAR ANATOMY
+══════════════════════════════════════════════════════════ -->
+<div id="tab-ear-anatomy" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Anatomy of the Ear</div>
+  <div class="section-desc">Outer · Middle · Inner Ear · Auditory &amp; Vestibular Pathways</div>
+
+  <div class="card navy">
+    <div class="card-label">Overview — Three Divisions</div>
+    <div class="card-title">Structural Anatomy</div>
+    <div class="three-col">
+      <div>
+        <p><strong>Outer Ear</strong></p>
+        <ul>
+          <li>Auricle (pinna) — collects sound</li>
+          <li>External auditory canal (EAC) — 2.5 cm, S-shaped</li>
+          <li>Cerumen (earwax) — protective, antimicrobial</li>
+          <li>Tympanic membrane (eardrum) — vibrates in response to sound; boundary between outer and middle ear</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Middle Ear</strong></p>
+        <ul>
+          <li>Tympanic cavity — air-filled space</li>
+          <li>Ossicles: <strong>malleus, incus, stapes</strong> — amplify and transmit vibrations</li>
+          <li>Eustachian (auditory) tube — connects to nasopharynx; equalizes pressure; allows drainage</li>
+          <li>Oval window — stapes footplate transmits vibration to inner ear</li>
+          <li>Round window — pressure relief</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Inner Ear</strong></p>
+        <ul>
+          <li>Cochlea — hearing (organ of Corti contains hair cells)</li>
+          <li>Semicircular canals (3) — rotational balance</li>
+          <li>Utricle &amp; saccule (otolith organs) — linear acceleration/gravity</li>
+          <li>CN VIII (vestibulocochlear) — carries auditory (cochlear) and balance (vestibular) signals to brainstem</li>
+          <li>Endolymph &amp; perilymph — fluid compartments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Sound Transmission Pathway</div>
+  <div class="step-box"><div class="step-num">1</div><div class="step-content"><div class="step-title">Sound waves collected by auricle</div><p>Funneled into the external auditory canal (EAC).</p></div></div>
+  <div class="step-box"><div class="step-num">2</div><div class="step-content"><div class="step-title">Tympanic membrane vibrates</div><p>Sound waves cause the eardrum to vibrate at the same frequency as the sound wave.</p></div></div>
+  <div class="step-box"><div class="step-num">3</div><div class="step-content"><div class="step-title">Ossicular chain amplification</div><p>Vibrations transmitted through malleus → incus → stapes. The ossicular chain amplifies sound by ~20-fold via lever mechanics and the area ratio of TM to oval window.</p></div></div>
+  <div class="step-box"><div class="step-num">4</div><div class="step-content"><div class="step-title">Oval window → cochlea</div><p>Stapes footplate moves oval window → creates fluid waves in cochlear perilymph (scala vestibuli).</p></div></div>
+  <div class="step-box"><div class="step-num">5</div><div class="step-content"><div class="step-title">Basilar membrane displacement</div><p>Traveling waves displace basilar membrane — different frequencies activate different locations (tonotopy): high-frequency = base; low-frequency = apex.</p></div></div>
+  <div class="step-box"><div class="step-num">6</div><div class="step-content"><div class="step-title">Hair cell stimulation → CN VIII</div><p>Organ of Corti hair cells bend → mechanotransduction → electrical signal → cochlear division of CN VIII → cochlear nucleus → auditory cortex (temporal lobe).</p></div></div>
+
+  <div class="subsection-title">Vestibular (Balance) System</div>
+  <div class="two-col">
+    <div class="card teal">
+      <div class="card-label">Semicircular Canals</div>
+      <div class="card-title">Rotational Acceleration</div>
+      <p>Three canals oriented in orthogonal planes (horizontal, anterior, posterior) detect angular rotation. Fluid (endolymph) movement bends cupula → stimulates hair cells → signals CN VIII vestibular branch.</p>
+    </div>
+    <div class="card green">
+      <div class="card-label">Otolith Organs (Utricle &amp; Saccule)</div>
+      <div class="card-title">Linear Acceleration &amp; Gravity</div>
+      <p>Contain calcium carbonate crystals (<strong>otoliths/otoconia</strong>) sitting on hair cell bundles. Gravity and linear movement shift otoliths → bend hair cells → balance signal. When otoliths are dislodged → BPPV.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — CN VIII</span>
+    Cranial Nerve VIII (vestibulocochlear / acoustic) has two divisions: <strong>cochlear</strong> (hearing) and <strong>vestibular</strong> (balance). Damage causes sensorineural hearing loss AND/OR vertigo. Ototoxic drugs (aminoglycosides, loop diuretics, cisplatin) damage CN VIII. Always <strong>assess hearing AND balance</strong> together when ototoxicity is suspected.
+  </div>
+  <div class="alert alert-info">
+    <span class="alert-label">📖 Eustachian Tube Function</span>
+    The Eustachian tube equalizes pressure between the middle ear and atmosphere and drains middle ear secretions. In children, it is shorter, more horizontal, and floppier → bacteria from the nasopharynx enter more easily → explains higher rate of <strong>otitis media in children</strong>. Dysfunction is the primary cause of middle ear pathology.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: OTITIS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-otitis" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Otitis — Ear Infections</div>
+  <div class="section-desc">Otitis Externa · Otitis Media · Chronic Suppurative Otitis Media</div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Otitis Externa ("Swimmer's Ear") Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Etiology</div>
+          <ul>
+            <li>Bacterial (Pseudomonas aeruginosa, S. aureus — most common)</li>
+            <li>Fungal (Aspergillus — "otomycosis")</li>
+            <li>Water exposure (swimming, showering)</li>
+            <li>Trauma (cotton swabs, ear buds)</li>
+            <li>Removal of cerumen (protective barrier)</li>
+            <li>Hearing aids / ear plugs</li>
+            <li>Diabetes, immunosuppression</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Classic Symptoms</div>
+          <ul>
+            <li><strong>Otalgia</strong> (ear pain — worse with tragus manipulation)</li>
+            <li>Pruritus (itching)</li>
+            <li>Aural fullness</li>
+            <li>Purulent/serous discharge (otorrhea)</li>
+            <li>Hearing loss (canal edema)</li>
+            <li>Tenderness on auricle movement</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Malignant (Necrotizing) OE</div>
+          <ul>
+            <li>Severe form in diabetics/immunocompromised</li>
+            <li>Pseudomonas invades surrounding bone</li>
+            <li>Skull base osteomyelitis</li>
+            <li>CN VII palsy (facial nerve)</li>
+            <li>Requires IV antibiotics + surgical debridement</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>Topical antibiotic drops (ciprofloxacin + dexamethasone = Ciprodex)</li>
+            <li>Acetic acid drops (VoSoL) — mild/prophylactic</li>
+            <li>Ear wick if canal severely swollen</li>
+            <li>Keep ear dry — no swimming/submersion</li>
+            <li>Oral antibiotics if severe/spreading cellulitis</li>
+            <li>Analgesics (NSAID/acetaminophen)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Otitis Media Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Etiology / Organisms</div>
+          <ul>
+            <li>S. pneumoniae (most common)</li>
+            <li>H. influenzae</li>
+            <li>M. catarrhalis</li>
+            <li>Viral (RSV, rhinovirus) — precede bacterial</li>
+            <li>Risk: children (age 6mo–2yr peak), daycare, secondhand smoke, bottle feeding, pacifier use</li>
+            <li>Eustachian tube dysfunction → fluid accumulation</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Symptoms</div>
+          <ul>
+            <li>Otalgia (ear pulling in infants)</li>
+            <li>Fever</li>
+            <li>Hearing loss (conductive)</li>
+            <li>Irritability / crying</li>
+            <li>Otorrhea if TM perforated</li>
+            <li>Bulging erythematous TM on otoscopy</li>
+            <li>Decreased TM mobility (pneumatic otoscopy)</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Types</div>
+          <ul>
+            <li><strong>AOM</strong> (acute otitis media) — acute infection, pain, fever</li>
+            <li><strong>OME</strong> (otitis media with effusion / "glue ear") — fluid without acute infection; most common cause of hearing loss in children</li>
+            <li><strong>CSOM</strong> (chronic suppurative) — persistent discharge through TM perforation &gt;6 weeks</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Treatment</div>
+          <ul>
+            <li>AOM &lt;2 yrs: amoxicillin 80–90mg/kg/day × 10 days</li>
+            <li>AOM &gt;2 yrs, mild: watchful waiting × 48–72 hr</li>
+            <li>Amoxicillin-clavulanate (Augmentin) if amoxicillin failure</li>
+            <li>Tympanocentesis if no response</li>
+            <li>Tympanostomy tubes (PE tubes) for recurrent OM or OME with hearing loss</li>
+          </ul>
+        </div>
+        <div class="mm-branch purple">
+          <div class="mm-branch-head">Complications</div>
+          <ul>
+            <li>Hearing loss (temporary → permanent)</li>
+            <li>TM perforation</li>
+            <li>Mastoiditis (mastoid air cells infected)</li>
+            <li>Meningitis</li>
+            <li>Brain abscess</li>
+            <li>Cholesteatoma</li>
+            <li>Facial nerve palsy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Key Differentiators</div>
+  <div class="table-scroll">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="col-a">Otitis Externa</th>
+        <th class="col-b">Otitis Media (AOM)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-label">Location</td><td>External auditory canal</td><td>Middle ear (behind TM)</td></tr>
+      <tr><td class="row-label">Key Sign</td><td>Tragus tenderness / pain with jaw movement</td><td>Bulging, red TM; no tragus tenderness</td></tr>
+      <tr><td class="row-label">Discharge</td><td>Purulent from canal</td><td>Only if TM perforates</td></tr>
+      <tr><td class="row-label">Fever</td><td>Minimal (unless malignant)</td><td>Common, especially in children</td></tr>
+      <tr><td class="row-label">Age Group</td><td>Swimmers, adults</td><td>Children (peak 6 mo–2 yr)</td></tr>
+      <tr><td class="row-label">Primary Organism</td><td>Pseudomonas, S. aureus</td><td>S. pneumoniae, H. influenzae</td></tr>
+      <tr><td class="row-label">Treatment</td><td>Topical antibiotic drops</td><td>Oral amoxicillin (or watchful wait)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">⚠ Mastoiditis — Complication of AOM</span>
+    Mastoiditis presents with post-auricular pain, erythema, swelling, and ear protrusion (pinna pushed forward and down). It is an extension of OM into the mastoid air cells. Requires IV antibiotics and possible mastoidectomy. Do NOT delay treatment — can progress to meningitis, sigmoid sinus thrombosis, or Bezold's abscess.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl</span>
+    When assessing the ear with an otoscope: <strong>pull the auricle up and back</strong> in adults (≥3 years) and <strong>down and back</strong> in children (&lt;3 years). This straightens the curved external auditory canal for better visualization of the tympanic membrane. A <strong>normal TM</strong> is pearly gray, translucent, with a cone of light (light reflex) at the 5 o'clock (right) or 7 o'clock (left) position.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: HEARING LOSS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-hearing-loss" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Hearing Loss</div>
+  <div class="section-desc">Conductive · Sensorineural · Mixed · Presbycusis · Ototoxicity</div>
+
+  <div class="two-col">
+    <div class="card brown">
+      <div class="card-label">Conductive Hearing Loss</div>
+      <div class="card-title">Sound Transmission Failure (Outer/Middle Ear)</div>
+      <p><strong>Causes:</strong> Cerumen impaction, otitis media (OME/AOM), TM perforation, ossicular chain damage, otosclerosis, foreign body, atresia.</p>
+      <p><strong>Key Features:</strong> Low-frequency loss; air-bone gap on audiogram; patient may speak softly (hears own voice well via bone conduction). Often <strong>reversible</strong>.</p>
+      <p><strong>Treatment:</strong> Address underlying cause — cerumen removal, PE tubes, ossiculoplasty, stapedectomy (otosclerosis).</p>
+    </div>
+    <div class="card navy">
+      <div class="card-label">Sensorineural Hearing Loss (SNHL)</div>
+      <div class="card-title">Hair Cell / CN VIII / Central Damage</div>
+      <p><strong>Causes:</strong> Presbycusis (aging), noise-induced, ototoxic drugs, Ménière's disease, acoustic neuroma, meningitis, congenital.</p>
+      <p><strong>Key Features:</strong> High-frequency loss first; no air-bone gap; difficulty understanding speech (especially in noise). Usually <strong>irreversible</strong>.</p>
+      <p><strong>Treatment:</strong> Hearing aids, cochlear implants (severe-profound), remove ototoxin, auditory rehabilitation.</p>
+    </div>
+  </div>
+
+  <div class="subsection-title">Weber &amp; Rinne Tests</div>
+  <div class="weber-rinne">
+    <div class="test-box">
+      <div class="test-name">Weber Test (512 Hz Tuning Fork — Forehead)</div>
+      <div class="test-row"><span class="test-result res-normal">Normal</span><p>Sound heard equally in both ears (midline)</p></div>
+      <div class="test-row"><span class="test-result res-conduct">Conductive</span><p>Sound <strong>lateralizes to affected ear</strong> (better bone conduction, no masking by background noise)</p></div>
+      <div class="test-row"><span class="test-result res-sensor">Sensorineural</span><p>Sound <strong>lateralizes to better (unaffected) ear</strong></p></div>
+    </div>
+    <div class="test-box">
+      <div class="test-name">Rinne Test (512 Hz — Mastoid vs Ear)</div>
+      <div class="test-row"><span class="test-result res-normal">Normal</span><p>Air conduction (AC) &gt; Bone conduction (BC) — positive Rinne</p></div>
+      <div class="test-row"><span class="test-result res-conduct">Conductive</span><p>BC &gt; AC — <strong>Negative Rinne</strong> (abnormal; bone conduction better because middle ear bypassed)</p></div>
+      <div class="test-row"><span class="test-result res-sensor">Sensorineural</span><p>AC &gt; BC (positive Rinne) — but both are reduced</p></div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Presbycusis — Age-Related Hearing Loss</div>
+  <div class="card purple">
+    <div class="card-label">Presbycusis</div>
+    <div class="card-title">Most Common Cause of Hearing Loss in Adults Over 65</div>
+    <div class="two-col">
+      <div>
+        <p><strong>Pathophysiology:</strong> Gradual loss of cochlear hair cells (especially basal turn — high frequency) and spiral ganglion neurons due to cumulative oxidative damage and vascular changes.</p>
+        <p><strong>Pattern:</strong> Bilateral, symmetrical, progressive high-frequency SNHL. Difficulty understanding speech (especially consonants like s, sh, f, th) in noisy environments.</p>
+      </div>
+      <div>
+        <p><strong>Management:</strong></p>
+        <ul>
+          <li>Hearing aids (first-line)</li>
+          <li>Cochlear implant (severe)</li>
+          <li>Communication strategies: face patient, speak clearly (don't shout), reduce background noise</li>
+          <li>Assistive listening devices (TV amplifiers, captioned phones)</li>
+          <li>Annual audiometry screening after age 65</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Ototoxic Medications</div>
+  <div class="card red">
+    <div class="card-label">⚠ Ototoxicity — Drug-Induced Hearing Loss</div>
+    <div class="card-title">Drugs That Damage CN VIII / Cochlear Hair Cells</div>
+    <div class="three-col">
+      <div>
+        <p><strong>Aminoglycoside Antibiotics</strong></p>
+        <ul>
+          <li>Gentamicin (vestibulotoxic)</li>
+          <li>Tobramycin</li>
+          <li>Amikacin (cochleotoxic)</li>
+          <li>Streptomycin (vestibulotoxic)</li>
+          <li>Neomycin (most ototoxic)</li>
+          <li>Mechanism: Free radical damage to outer hair cells</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Loop Diuretics</strong></p>
+        <ul>
+          <li>Furosemide (Lasix)</li>
+          <li>Ethacrynic acid (most ototoxic)</li>
+          <li>Bumetanide</li>
+          <li>Mechanism: Disrupt stria vascularis ion transport → ↓ endocochlear potential</li>
+          <li>Usually reversible with discontinuation</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Salicylates / Quinine / Chemo</strong></p>
+        <ul>
+          <li>Aspirin (high dose &gt;8g/day) — reversible tinnitus</li>
+          <li>Quinine</li>
+          <li>Cisplatin (highly ototoxic) — irreversible high-frequency SNHL</li>
+          <li>Carboplatin</li>
+          <li>Vancomycin (synergistic with aminoglycosides)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">⚠ Ototoxicity Monitoring</span>
+    Monitor patients on aminoglycosides or loop diuretics for: tinnitus (ringing in ears), hearing loss, and vertigo/balance changes. Check drug levels (aminoglycoside peak/trough). Report any new symptoms immediately — early discontinuation may prevent permanent damage. Audiometric baseline and serial testing recommended for high-risk patients (long-term aminoglycosides, cisplatin chemotherapy).
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Ototoxicity Mnemonic</span>
+    <strong>"ALAN"</strong> — Aminoglycosides, Loop diuretics, Aspirin (high-dose), Noise = main causes of SNHL/ototoxicity. When a patient on <strong>furosemide + gentamicin</strong> reports tinnitus → synergistic ototoxicity → notify provider STAT. Never administer two ototoxic drugs together without careful monitoring.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: MÉNIÈRE'S DISEASE
+══════════════════════════════════════════════════════════ -->
+<div id="tab-meniere" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Ménière's Disease &amp; Vestibular Disorders</div>
+  <div class="section-desc">Endolymphatic Hydrops · Vertigo · BPPV · Labyrinthitis</div>
+
+  <div class="alert alert-info">
+    <span class="alert-label">📖 Definition</span>
+    Ménière's disease is a disorder of the inner ear characterized by <strong>episodic vertigo, unilateral low-frequency sensorineural hearing loss, tinnitus, and aural fullness</strong> — the classic "tetrad." It results from endolymphatic hydrops (excess endolymph fluid) in the labyrinth, disrupting hair cell function.
+  </div>
+
+  <div class="mind-map-wrap">
+    <button class="mind-map-trigger" onclick="toggleMindMap(this)">
+      <span>🗺 Ménière's Disease Concept Map</span>
+      <span class="mm-badge">Mind Map</span>
+      <span class="mm-icon">▶</span>
+    </button>
+    <div class="mind-map-body">
+      <div class="mm-root">
+        <div class="mm-branch red">
+          <div class="mm-branch-head">Pathophysiology</div>
+          <ul>
+            <li>Excess endolymph accumulation (hydrops)</li>
+            <li>Increased endolymphatic pressure</li>
+            <li>Reissner's membrane distension</li>
+            <li>Periodic membrane rupture → endolymph/perilymph mixing</li>
+            <li>Potassium-rich endolymph bathes CN VIII → attacks</li>
+            <li>Heals → cycle repeats</li>
+          </ul>
+        </div>
+        <div class="mm-branch navy">
+          <div class="mm-branch-head">Classic Tetrad</div>
+          <ul>
+            <li><strong>1. Episodic vertigo</strong> — lasting 20 min–12 hr, severe, rotational</li>
+            <li><strong>2. Unilateral tinnitus</strong> — roaring/buzzing, low-pitched</li>
+            <li><strong>3. Fluctuating SNHL</strong> — low-frequency initially</li>
+            <li><strong>4. Aural fullness</strong> — pressure sensation in affected ear</li>
+          </ul>
+        </div>
+        <div class="mm-branch green">
+          <div class="mm-branch-head">Triggers</div>
+          <ul>
+            <li>High-sodium diet (↑ endolymph)</li>
+            <li>Caffeine</li>
+            <li>Alcohol</li>
+            <li>Stress</li>
+            <li>Fatigue</li>
+            <li>Hormonal fluctuations</li>
+            <li>Allergies</li>
+          </ul>
+        </div>
+        <div class="mm-branch brown">
+          <div class="mm-branch-head">Diagnosis</div>
+          <ul>
+            <li>Clinical diagnosis (AAO-HNS criteria)</li>
+            <li>Audiogram — low-frequency SNHL (early)</li>
+            <li>Electrocochleography (ECoG)</li>
+            <li>MRI — rule out acoustic neuroma</li>
+            <li>Vestibular function tests (VNG)</li>
+            <li>Glycerol dehydration test</li>
+          </ul>
+        </div>
+        <div class="mm-branch purple">
+          <div class="mm-branch-head">Medical Treatment</div>
+          <ul>
+            <li>Low-sodium diet (&lt;1500–2000 mg/day)</li>
+            <li>Thiazide diuretics (HCTZ) or triamterene — reduce endolymph</li>
+            <li>Vestibular suppressants during attacks (meclizine, diazepam)</li>
+            <li>Antiemetics (promethazine, ondansetron)</li>
+            <li>Intratympanic steroids (dexamethasone)</li>
+            <li>Betahistine (widely used outside US)</li>
+          </ul>
+        </div>
+        <div class="mm-branch gold">
+          <div class="mm-branch-head">Surgical / Procedural</div>
+          <ul>
+            <li>Intratympanic gentamicin (ablation)</li>
+            <li>Endolymphatic sac decompression/shunt</li>
+            <li>Vestibular nerve section (labyrinthectomy)</li>
+            <li>Reserved for refractory cases</li>
+          </ul>
+        </div>
+        <div class="mm-branch teal">
+          <div class="mm-branch-head">Nursing / Safety</div>
+          <ul>
+            <li>Fall prevention — vertigo risk</li>
+            <li>Sit/lie down during attacks</li>
+            <li>Avoid sudden head movements</li>
+            <li>Driving restrictions during active disease</li>
+            <li>Low-sodium diet education</li>
+            <li>Stress reduction techniques</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">BPPV — Benign Paroxysmal Positional Vertigo</div>
+  <div class="card teal">
+    <div class="card-label">Most Common Cause of Vertigo</div>
+    <div class="card-title">Displaced Otoconia in Semicircular Canals</div>
+    <div class="two-col">
+      <div>
+        <p><strong>Pathophysiology:</strong> Calcium carbonate crystals (otoconia/otoliths) dislodge from utricle macula and migrate into semicircular canals (usually posterior canal). Head movement causes crystals to move → inappropriate endolymph flow → brief rotational vertigo.</p>
+        <p><strong>Symptoms:</strong> Brief (<1 minute) episodes of intense vertigo triggered by specific head positions (lying down, rolling over, looking up). No hearing loss or tinnitus (distinguishes from Ménière's).</p>
+      </div>
+      <div>
+        <p><strong>Diagnosis:</strong> Dix-Hallpike test → positive if vertigo + rotational nystagmus with a latency period, fatiguability, and reversal on sitting up.</p>
+        <p><strong>Treatment:</strong> Canalith Repositioning Procedure (CRP) — <strong>Epley maneuver</strong> (most effective for posterior canal BPPV): series of head/body positions to guide crystals out of canal back to utricle. Single treatment effective in ~80% of cases. No medications needed for most patients.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Labyrinthitis vs. Vestibular Neuritis</div>
+  <div class="two-col">
+    <div class="card purple">
+      <div class="card-label">Labyrinthitis</div>
+      <p>Inflammation of the entire labyrinth (cochlea + vestibule). Causes: viral (herpes, influenza), bacterial (rare, from OM). Presents with: severe vertigo + sudden SNHL + tinnitus. Usually resolves in weeks but may leave permanent hearing loss.</p>
+    </div>
+    <div class="card green">
+      <div class="card-label">Vestibular Neuritis</div>
+      <p>Inflammation of vestibular portion of CN VIII only (no cochlear involvement). Causes: viral (post-URI, herpes). Presents with: severe sudden vertigo (days–weeks), nausea, vomiting — <strong>NO hearing loss</strong>. Treated with vestibular suppressants and corticosteroids.</p>
+    </div>
+  </div>
+
+  <div class="subsection-title">Tinnitus</div>
+  <div class="card gold">
+    <div class="card-label">Tinnitus — Ringing in the Ears</div>
+    <div class="card-title">Subjective vs. Objective Tinnitus</div>
+    <div class="two-col">
+      <div>
+        <p><strong>Subjective (most common):</strong> Perceived only by patient. Associated with SNHL, noise exposure, ototoxicity, Ménière's, acoustic neuroma. Quality: ringing, buzzing, hissing, roaring. No cure; managed with sound masking, CBT, hearing aids.</p>
+      </div>
+      <div>
+        <p><strong>Objective:</strong> Audible to examiner. Causes: pulsatile tinnitus (arteriovenous malformation, glomus tumor, benign intracranial hypertension), Eustachian tube dysfunction, palatal myoclonus. Requires further workup (MRI/MRA).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">🚨 Acute Vertigo — Priority Nursing Interventions</span>
+    Priority: <strong>Safety first.</strong> Instruct patient to sit or lie down immediately to prevent falls. Keep call light within reach. Raise side rails. Assist with ambulation (major fall risk). Administer vestibular suppressants as ordered (meclizine, diazepam). Provide emesis basin (nausea/vomiting common). Keep environment dim and quiet. Document: onset, duration, triggers, associated symptoms (hearing loss = Ménière's; positional = BPPV; neurological deficits = STROKE — call RAPID RESPONSE).
+  </div>
+  <div class="alert alert-danger">
+    <span class="alert-label">⚠ Vertigo vs. Stroke — Know the Difference</span>
+    Central vertigo (STROKE) vs. Peripheral vertigo — Key differentiators: <strong>Peripheral:</strong> severe vertigo, fatigable nystagmus (horizontal/rotational), normal neuro exam, no dysphagia, normal hearing. <strong>Central:</strong> less intense vertigo, non-fatigable pure vertical nystagmus, neurological deficits (diplopia, dysarthria, dysphagia, ataxia, weakness). <strong>HINTS exam</strong> (Head Impulse, Nystagmus, Test of Skew) can differentiate. Any new acute vertigo with neurological signs = STROKE protocol immediately.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Ménière's Diet</span>
+    <strong>Low-sodium diet</strong> (&lt;2000 mg/day) is the cornerstone of Ménière's lifestyle management. Excess sodium → water retention → ↑ endolymph volume → attacks. Also: avoid caffeine (vasoconstrictive), alcohol, and stress. Teach patients to read food labels and avoid processed/canned foods (high in sodium).
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — BPPV</span>
+    BPPV is the <strong>most common cause of vertigo</strong> in adults. Key features: brief (&lt;1 min), triggered by head position changes, no hearing loss, no tinnitus. The <strong>Epley maneuver</strong> is highly effective and is performed in clinic/office. Post-Epley instructions: sleep with head of bed elevated 45° for 24–48 hours; avoid bending over or lying flat to allow crystals to settle.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: LAB VALUES
+══════════════════════════════════════════════════════════ -->
+<div id="tab-labs" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Reference Values — Sensory System</div>
+  <div class="section-desc">Vision · Intraocular Pressure · Hearing · Drug Levels · Electrolytes</div>
+
+  <div class="subsection-title">Ophthalmic Reference Values</div>
+  <div class="table-scroll">
+  <table class="lab-table">
+    <thead><tr><th>Parameter</th><th>Normal / Target</th><th>Clinical Significance</th></tr></thead>
+    <tbody>
+      <tr><td class="lab-name">Visual Acuity (VA)</td><td><span class="lab-badge">20/20</span></td><td>Snellen chart. 20/40 = able to see at 20 ft what normal sees at 40 ft. 20/200 or worse = legal blindness</td></tr>
+      <tr><td class="lab-name">Intraocular Pressure (IOP)</td><td><span class="lab-badge">10 – 21 mmHg</span></td><td>&gt;21 = ocular hypertension; &gt;30 = high risk for glaucoma</td></tr>
+      <tr><td class="lab-name">IOP — Target (on treatment)</td><td><span class="lab-badge">&lt;18 mmHg</span></td><td>Treatment goal to prevent optic nerve progression</td></tr>
+      <tr><td class="lab-name">Cup-to-Disc Ratio</td><td><span class="lab-badge">≤ 0.5</span></td><td>&gt;0.6 or asymmetric = suspicious for glaucoma; &gt;0.7 = very suspicious</td></tr>
+      <tr><td class="lab-name">Corneal Thickness (CCT)</td><td><span class="lab-badge">520 – 560 µm</span></td><td>Thin cornea (&lt;500 µm) = underestimates IOP; thick (&gt;600 µm) = overestimates IOP</td></tr>
+      <tr><td class="lab-name">Color Vision (Ishihara)</td><td><span class="lab-badge">14/14 plates correct</span></td><td>Errors suggest color blindness or optic nerve disease. Ethambutol causes color vision changes.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Audiology Reference Values</div>
+  <div class="table-scroll">
+  <table class="lab-table">
+    <thead><tr><th>Parameter</th><th>Normal Range</th><th>Clinical Significance</th></tr></thead>
+    <tbody>
+      <tr><td class="lab-name">Hearing Threshold (pure tone)</td><td><span class="lab-badge">0 – 25 dB HL</span></td><td>26–40 mild loss; 41–55 moderate; 56–70 moderately severe; 71–90 severe; &gt;90 profound</td></tr>
+      <tr><td class="lab-name">Speech Discrimination Score</td><td><span class="lab-badge">≥ 90%</span></td><td>&lt;90% indicates word recognition difficulty; helps determine candidacy for hearing aids</td></tr>
+      <tr><td class="lab-name">Audiogram — High Freq (4000 Hz)</td><td><span class="lab-badge">≤ 25 dB</span></td><td>First to deteriorate in presbycusis and noise-induced SNHL</td></tr>
+      <tr><td class="lab-name">Tympanogram — Peak Pressure</td><td><span class="lab-badge">-100 to +50 daPa</span></td><td>Type A = normal; Type B (flat) = OME/TM perforation; Type C = negative pressure/ETD</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Ototoxic Drug Monitoring Levels</div>
+  <div class="table-scroll">
+  <table class="lab-table">
+    <thead><tr><th>Drug</th><th>Therapeutic Level</th><th>Toxic Risk Level</th><th>Nursing Action</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="lab-name">Gentamicin — Peak</td>
+        <td><span class="lab-badge">5 – 10 µg/mL</span></td>
+        <td><span class="lab-badge danger">&gt;12 µg/mL</span></td>
+        <td>Obtain 30–60 min after IV infusion; report elevated levels; assess for tinnitus/vertigo</td>
+      </tr>
+      <tr>
+        <td class="lab-name">Gentamicin — Trough</td>
+        <td><span class="lab-badge">0.5 – 2 µg/mL</span></td>
+        <td><span class="lab-badge danger">&gt;2 µg/mL</span></td>
+        <td>Obtain 30 min before next dose; elevated trough = accumulation, nephro/ototoxicity risk</td>
+      </tr>
+      <tr>
+        <td class="lab-name">Vancomycin — Trough (AUC)</td>
+        <td><span class="lab-badge">AUC 400–600 mg·h/L</span></td>
+        <td><span class="lab-badge warn">Trough &gt;20 µg/mL</span></td>
+        <td>Synergistic ototoxicity with aminoglycosides; monitor kidney function and hearing</td>
+      </tr>
+      <tr>
+        <td class="lab-name">Salicylate (Aspirin) — Serum</td>
+        <td><span class="lab-badge">15 – 30 mg/dL (anti-inflam)</span></td>
+        <td><span class="lab-badge danger">&gt;30 mg/dL</span></td>
+        <td>Tinnitus at &gt;20 mg/dL; usually reversible; hold drug and notify provider</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Electrolytes — Relevant to Ear Disorders</div>
+  <div class="table-scroll">
+  <table class="lab-table">
+    <thead><tr><th>Lab</th><th>Normal Range</th><th>Relevance to Sensory System</th></tr></thead>
+    <tbody>
+      <tr><td class="lab-name">Sodium (Na⁺)</td><td><span class="lab-badge">136 – 145 mEq/L</span></td><td>High Na intake → ↑ endolymph volume → Ménière's attacks; low-sodium diet is therapeutic</td></tr>
+      <tr><td class="lab-name">Potassium (K⁺)</td><td><span class="lab-badge">3.5 – 5.0 mEq/L</span></td><td>Endolymph is high in K⁺; loop diuretics (furosemide) → ↓ K⁺ + ototoxicity; monitor closely</td></tr>
+      <tr><td class="lab-name">Glucose (fasting)</td><td><span class="lab-badge">70 – 100 mg/dL</span></td><td>Diabetes → ↑ cataract risk (osmotic), retinopathy; HbA1c &lt;7% target to prevent eye/ear complications</td></tr>
+      <tr><td class="lab-name">HbA1c</td><td><span class="lab-badge">&lt; 5.7% (normal)</span></td><td>Diabetic target &lt;7%; &gt;8% = high risk for retinopathy, cataracts, hearing loss</td></tr>
+      <tr><td class="lab-name">BUN / Creatinine</td><td><span class="lab-badge">BUN 7–20 / Cr 0.6–1.2</span></td><td>Renal function critical for aminoglycoside dosing; renal impairment → drug accumulation → ototoxicity</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — IOP Measurement</span>
+    <strong>Tonometry</strong> measures IOP. Normal = 10–21 mmHg. Goldmann applanation tonometry is the gold standard. Corneal thickness (pachymetry) affects IOP readings — thin corneas underestimate, thick corneas overestimate true IOP. When in doubt, report IOP &gt;21 mmHg to ophthalmology for further assessment.
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB: MEDICATIONS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-meds" class="tab-pane">
+<div class="content-wrap">
+
+  <div class="section-title">Medication Reference Tables</div>
+  <div class="section-desc">Ophthalmic · Otic · Glaucoma Drops · Ototoxic Agents · Vestibular Suppressants</div>
+
+  <div class="subsection-title">Glaucoma Medications — Comparison</div>
+  <div class="table-scroll">
+  <table class="med-table">
+    <thead><tr><th>Drug / Class</th><th>Mechanism</th><th>IOP ↓ %</th><th>Key Side Effects</th><th>Contraindications / Nursing</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="drug-name">Latanoprost</span><br><span class="drug-class">Prostaglandin Analog (Xalatan)</span></td>
+        <td>↑ Uveoscleral outflow via FP receptors</td>
+        <td>25–35%</td>
+        <td>Iris pigmentation (irreversible), eyelash growth, conjunctival redness, periorbital fat atrophy</td>
+        <td>1st line. Warn about cosmetic changes. Evening dosing. Punctal occlusion.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Timolol</span><br><span class="drug-class">Non-Selective Beta-Blocker</span></td>
+        <td>↓ Aqueous production via β₂ blockade</td>
+        <td>20–25%</td>
+        <td>Bradycardia, hypotension, bronchoconstriction, fatigue, depression, masked hypoglycemia</td>
+        <td><strong>CI:</strong> Asthma, COPD, bradycardia, 2nd/3rd degree heart block. Punctal occlusion mandatory.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Brimonidine</span><br><span class="drug-class">Alpha-2 Agonist (Alphagan P)</span></td>
+        <td>↓ Aqueous production + ↑ uveoscleral outflow</td>
+        <td>18–27%</td>
+        <td>Drowsiness, dry mouth, ocular allergy (20%), tachyphylaxis</td>
+        <td><strong>CI:</strong> Infants/toddlers (CNS depression, apnea). Caution with MAOI/TCA. BID–TID dosing.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Dorzolamide</span><br><span class="drug-class">Topical CAI (Trusopt)</span></td>
+        <td>↓ Aqueous via carbonic anhydrase inhibition</td>
+        <td>15–20%</td>
+        <td>Bitter taste, stinging, corneal edema (rare), cross-reaction with sulfa</td>
+        <td>Ask sulfonamide allergy. BID–TID dosing. Often combined (Cosopt = dorzolamide + timolol).</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Pilocarpine</span><br><span class="drug-class">Miotic / Cholinergic</span></td>
+        <td>↑ Trabecular outflow via ciliary muscle contraction</td>
+        <td>15–25%</td>
+        <td>Miosis (↓ night vision), brow ache, induced myopia, retinal detachment risk</td>
+        <td>Used for acute angle-closure. Warn about driving at night. QID dosing limits compliance.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Netarsudil</span><br><span class="drug-class">ROCK Inhibitor (Rhopressa)</span></td>
+        <td>Relaxes trabecular meshwork via ROCK inhibition</td>
+        <td>15–20%</td>
+        <td>Conjunctival hyperemia (very common), corneal verticillata, subconjunctival hemorrhage</td>
+        <td>Newest class. Once daily. Warn about redness — cosmetic only, not dangerous.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Acetazolamide</span><br><span class="drug-class">Oral CAI (Diamox)</span></td>
+        <td>Systemic ↓ aqueous production</td>
+        <td>25–40%</td>
+        <td>Metabolic acidosis, hypokalemia, kidney stones, paresthesias, fatigue, GI upset</td>
+        <td>Used for acute angle-closure emergencies. Sulfa allergy CI. Monitor electrolytes, encourage hydration.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Post-Surgical Eye Drop Regimens</div>
+  <div class="table-scroll">
+  <table class="med-table">
+    <thead><tr><th>Drug / Class</th><th>Indication</th><th>Duration</th><th>Nursing Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="drug-name">Prednisolone acetate 1%</span><br><span class="drug-class">Topical Corticosteroid</span></td>
+        <td>Post-cataract / intraocular surgery inflammation</td>
+        <td>2–6 weeks; taper</td>
+        <td>Shake well (suspension). Watch for IOP spike with prolonged use. Monitor for steroid-response glaucoma.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Moxifloxacin (Vigamox)</span><br><span class="drug-class">Fluoroquinolone Antibiotic</span></td>
+        <td>Endophthalmitis prophylaxis post-op</td>
+        <td>~1 week post-op</td>
+        <td>Broad-spectrum coverage. Teach proper instillation. Check allergy to fluoroquinolones.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Bromfenac (Prolensa)</span><br><span class="drug-class">Topical NSAID</span></td>
+        <td>Post-op pain, inflammation, CME prevention</td>
+        <td>2–4 weeks</td>
+        <td>Once daily dosing. May cause stinging. Check NSAID/aspirin allergy. Don't use with contact lenses in.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Phenylephrine 2.5%</span><br><span class="drug-class">Sympathomimetic Mydriatic</span></td>
+        <td>Pre-operative pupil dilation</td>
+        <td>Single use / on demand</td>
+        <td>May cause systemic HTN — caution in cardiac/HTN patients. Effects last 3–8 hours. <strong>Do NOT use in angle-closure glaucoma.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Otic Medications</div>
+  <div class="table-scroll">
+  <table class="med-table">
+    <thead><tr><th>Drug</th><th>Indication</th><th>Mechanism</th><th>Nursing Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="drug-name">Ciprofloxacin + Dexamethasone</span><br><span class="drug-class">Ciprodex Otic</span></td>
+        <td>Otitis externa; AOM with PE tubes</td>
+        <td>Fluoroquinolone antibiotic + steroid anti-inflammatory</td>
+        <td>Warm drops in hand before instillation (prevents dizziness). Pull auricle: up/back (adults), down/back (children &lt;3 yr). Apply gentle pressure on tragus × 30 sec. Keep ear dry.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Acetic Acid 2% (VoSoL)</span><br><span class="drug-class">Acidifying Agent</span></td>
+        <td>Otitis externa prevention/mild treatment</td>
+        <td>Lowers canal pH → unfavorable for bacterial/fungal growth</td>
+        <td>Use after swimming ("swimmer's ear" prophylaxis). Burning sensation on instillation (especially if inflamed). OTC available.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Carbamide Peroxide (Debrox)</span><br><span class="drug-class">Cerumenolytic</span></td>
+        <td>Cerumen impaction softening</td>
+        <td>Releases oxygen → softens/loosens cerumen</td>
+        <td>Lie with ear up for 5 min after instillation. Then flush with warm water. Do NOT use if TM perforation or ear drainage is present.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Amoxicillin</span><br><span class="drug-class">Aminopenicillin — Oral</span></td>
+        <td>Acute otitis media (AOM)</td>
+        <td>Inhibits bacterial cell wall synthesis (PBP binding)</td>
+        <td>80–90 mg/kg/day in children. Complete full course. If no improvement in 48–72 hr → amoxicillin-clavulanate. Check PCN allergy.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="subsection-title">Vestibular Suppressants / Antiemetics</div>
+  <div class="table-scroll">
+  <table class="med-table">
+    <thead><tr><th>Drug</th><th>Class</th><th>Use</th><th>Key Side Effects / Nursing</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="drug-name">Meclizine (Antivert)</span></td>
+        <td>Antihistamine (H₁ antagonist)</td>
+        <td>Vertigo, motion sickness, BPPV, Ménière's acute attacks</td>
+        <td>Sedation, dry mouth, urinary retention. Caution: elderly (fall risk, anticholinergic). First-choice for vestibular vertigo. OTC available.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Diazepam (Valium)</span></td>
+        <td>Benzodiazepine (GABA agonist)</td>
+        <td>Severe acute vertigo, vestibular neuritis</td>
+        <td>Sedation, respiratory depression, dependency risk. Used short-term only — suppresses vestibular compensation. Monitor respirations. Fall precautions.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Promethazine (Phenergan)</span></td>
+        <td>Phenothiazine antiemetic</td>
+        <td>Nausea/vomiting from vertigo, Ménière's</td>
+        <td>Sedation, extrapyramidal symptoms (dystonia), QT prolongation. Black box warning — respiratory depression in children &lt;2 years. Avoid in elderly if possible.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Ondansetron (Zofran)</span></td>
+        <td>5-HT₃ Antagonist</td>
+        <td>Nausea/vomiting associated with vertigo</td>
+        <td>Headache, constipation, QT prolongation (high doses). Less sedating than promethazine. Safe in pregnancy (Category B).</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Hydrochlorothiazide (HCTZ)</span></td>
+        <td>Thiazide Diuretic</td>
+        <td>Ménière's disease — reduce endolymph</td>
+        <td>Hypokalemia, hyponatremia, hyperuricemia, hyperglycemia. Monitor electrolytes, especially K⁺. Take with food.</td>
+      </tr>
+      <tr>
+        <td><span class="drug-name">Furosemide (Lasix)</span></td>
+        <td>Loop Diuretic</td>
+        <td>Ménière's (second-line diuretic); caution — ototoxic</td>
+        <td>Hypokalemia, ototoxicity (especially with aminoglycosides). Ironic in Ménière's — used for fluid reduction but monitor for hearing changes. <strong>Avoid concurrent aminoglycoside use.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert alert-danger">
+    <span class="alert-label">⚠ CRITICAL Safety — Never in TM Perforation</span>
+    <strong>NEVER instill ototoxic solutions into an ear with a suspected or confirmed tympanic membrane (TM) perforation.</strong> Aminoglycoside-containing ear drops (e.g., neomycin/polymyxin B) can enter the middle ear and cause permanent SNHL. Always assess for TM integrity first. Safe alternatives: fluoroquinolone drops (ciprofloxacin — not ototoxic through TM).
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Eye Drop Administration Order</span>
+    When multiple eye drops are ordered: <strong>(1)</strong> Wait at least 5 minutes between each drop. <strong>(2)</strong> Instill thinnest (watery) drops before thicker (viscous/gel) preparations. <strong>(3)</strong> If both eye drops and eye ointments are prescribed, drops first, then ointment. <strong>(4)</strong> Perform punctal occlusion (nasolacrimal pressure) for 1–2 minutes after each drop — reduces systemic absorption by up to 70%.
+  </div>
+  <div class="alert alert-pearl">
+    <span class="alert-label">💎 NCLEX Clinical Pearl — Glaucoma Drops Priority</span>
+    Beta-blocker eye drops (timolol) have significant systemic absorption and can cause <strong>bradycardia, hypotension, and bronchospasm</strong> — even from an eye drop. Assess pulse before administration. Teach punctal occlusion. Do NOT administer to patients with asthma, COPD, heart block, or significant bradycardia (&lt;60 bpm). Always perform punctal occlusion after instillation.
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════════ -->
+<script>
+  function switchTab(name) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const pane = document.getElementById('tab-' + name);
+    if (pane) pane.classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleMindMap(btn) {
+    btn.classList.toggle('open');
+    const body = btn.nextElementSibling;
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
