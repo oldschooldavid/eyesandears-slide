@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oncology & Sensory — Study Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+:root{--bg:#fafafa;--sf:#fff;--s2:#f5f5f5;--tx:#111;--t2:#444;--mu:#999;--bd:#e5e5e5;--r:4px;
+  --hi-r:#fff0f0;--hi-b:#f0f4ff;--hi-g:#f0fff4;--hi-p:#f8f0ff;--hi-a:#fffbf0}
+.dark{--bg:#0f0f0f;--sf:#1a1a1a;--s2:#222;--tx:#f0f0f0;--t2:#aaa;--mu:#666;--bd:#333;
+  --hi-r:#2a1010;--hi-b:#101428;--hi-g:#0f2a1a;--hi-p:#1e1028;--hi-a:#2a2010}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);font-size:15px;line-height:1.6;transition:background .2s,color .2s}
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:var(--sf);border-bottom:1px solid var(--bd);padding:0 14px;display:flex;align-items:center;gap:10px;height:50px}
+header h1{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-r{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.mw{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--t2)}
+.mb{width:72px;height:5px;background:var(--bd);border-radius:3px;overflow:hidden}
+.mf{height:100%;background:var(--tx);border-radius:3px;transition:width .5s}
+.due-b{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:var(--tx);color:var(--sf);padding:2px 6px;border-radius:2px}
+.dbtn{background:none;border:1px solid var(--bd);color:var(--tx);cursor:pointer;padding:4px 7px;border-radius:var(--r);font-size:.95rem}
+/* SEARCH */
+.sw{position:relative}
+#srch{border:1px solid var(--bd);background:var(--s2);color:var(--tx);padding:4px 9px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.76rem;width:140px}
+#srch:focus{outline:none;border-color:var(--tx)}
+#sdrop{position:absolute;top:100%;right:0;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);width:270px;max-height:270px;overflow-y:auto;z-index:200;display:none}
+.sdi{padding:7px 11px;cursor:pointer;border-bottom:1px solid var(--bd);font-size:.8rem}
+.sdi:hover{background:var(--s2)}
+.sdt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--mu)}
+/* NAV */
+.nav-w{display:flex;align-items:center;background:var(--sf);border-bottom:1px solid var(--bd);padding:0 3px;position:sticky;top:50px;z-index:90}
+.na{background:none;border:none;color:var(--t2);cursor:pointer;font-size:1.05rem;padding:8px 5px;flex-shrink:0;transition:opacity .2s}
+.na.dim{opacity:.2;pointer-events:none}
+#tb{display:flex;overflow-x:auto;scrollbar-width:none;flex:1}
+#tb::-webkit-scrollbar{display:none}
+.tbn{background:none;border:none;border-bottom:2px solid transparent;color:var(--t2);cursor:pointer;padding:11px 12px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;white-space:nowrap;transition:color .15s,border-color .15s;flex-shrink:0}
+.tbn.on{color:var(--tx);border-bottom-color:var(--tx)}
+.tbn:hover:not(.on){color:var(--tx)}
+/* LAYOUT */
+main{max-width:960px;margin:0 auto;padding:22px 14px 80px}
+.tp{display:none}.tp.on{display:block}
+.stit{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;margin-bottom:16px}
+.sub{font-family:'Syne',sans-serif;font-weight:700;font-size:.96rem;margin:18px 0 9px;color:var(--t2)}
+/* QUICK HITS */
+.qh{background:var(--s2);border-left:2px solid var(--tx);padding:11px 15px;margin-bottom:22px;border-radius:0 var(--r) var(--r) 0}
+.qh h3{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.qh ul{list-style:none}
+.qh li{font-family:'IBM Plex Mono',monospace;font-size:.79rem;padding:2px 0;color:var(--t2)}
+.qh li::before{content:"→ ";color:var(--tx)}
+/* CARDS */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);border-left:3px solid var(--bd);margin-bottom:13px;position:relative}
+.card.flagged{border-left-color:#c22!important;border-color:#c22}
+.ch{padding:13px 15px 0;display:flex;align-items:flex-start;gap:7px;cursor:pointer}
+.ct{font-family:'Syne',sans-serif;font-weight:800;font-size:.96rem;flex:1}
+.cbw{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-left:auto;flex-shrink:0}
+.hy{font-family:'IBM Plex Mono',monospace;font-size:.58rem;border:1px solid #c22;color:#c22;padding:1px 5px;border-radius:2px}
+.mk{font-family:'IBM Plex Mono',monospace;font-size:.58rem;border:1px solid #c80;color:#c80;padding:1px 5px;border-radius:2px}
+.sb{font-family:'IBM Plex Mono',monospace;font-size:.58rem;padding:1px 5px;border-radius:2px}
+.sd{background:var(--tx);color:var(--sf)}
+.ss{border:1px solid var(--bd);color:var(--t2)}
+.sk{color:var(--mu)}
+.fbtn{background:none;border:none;cursor:pointer;font-size:.9rem;padding:0;flex-shrink:0;opacity:.4}
+.fbtn.on{opacity:1}
+.cb{padding:9px 15px 13px;display:none}
+.cb.on{display:block}
+.cb p{margin-bottom:7px;color:var(--t2);font-size:.87rem}
+.cb ul{padding-left:17px;color:var(--t2);font-size:.87rem}
+.cb li{margin-bottom:3px}
+.cb strong{color:var(--tx)}
+.cf{padding:0 15px 11px;display:none;gap:7px;flex-wrap:wrap}
+.cf.on{display:flex}
+/* ALERTS */
+.al{border-left:2px solid;padding:9px 13px;margin:9px 0;font-size:.84rem}
+.ar{border-color:#c22;background:var(--hi-r);color:var(--t2)}
+.ab{border-color:#24c;background:var(--hi-b);color:var(--t2)}
+.ag{border-color:#2a4;background:var(--hi-g);color:var(--t2)}
+.ap{border-color:#84c;background:var(--hi-p);color:var(--t2)}
+.aa{border-color:#c80;background:var(--hi-a);color:var(--t2)}
+.all{font-family:'IBM Plex Mono',monospace;font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+/* MIND MAP */
+.mmb{background:none;border:1px solid var(--bd);color:var(--t2);cursor:pointer;padding:5px 12px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.71rem;margin:9px 0}
+.mmw{display:none;margin:7px 0 13px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:13px;overflow-x:auto}
+.mmw.on{display:block}
+.mmc{display:inline-block;background:var(--tx);color:var(--sf);padding:6px 14px;border-radius:3px;font-family:'Syne',sans-serif;font-weight:800;font-size:.86rem;margin-bottom:13px}
+.mmg{display:flex;flex-wrap:wrap;gap:9px}
+.mmn{border:1px solid var(--bd);border-radius:var(--r);background:var(--sf);min-width:145px}
+.mmh{padding:6px 10px;font-family:'IBM Plex Mono',monospace;font-size:.71rem;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;border-bottom:1px solid var(--bd)}
+.mmbody{padding:7px 10px;display:none}
+.mmbody.on{display:block}
+.mmbody li{font-size:.79rem;color:var(--t2);margin-bottom:3px;list-style:disc;margin-left:12px}
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;margin:11px 0;font-size:.82rem}
+.tbl th{background:var(--s2);border:1px solid var(--bd);padding:6px 9px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.66rem;text-transform:uppercase}
+.tbl td{border:1px solid var(--bd);padding:6px 9px}
+.tbl tr:nth-child(even) td{background:var(--s2)}
+.bn{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:#d4f4dd;color:#145a2a;border:1px solid #2a4;padding:1px 6px;border-radius:2px}
+.bc{font-family:'IBM Plex Mono',monospace;font-size:.66rem;background:#fdd;color:#800;border:1px solid #c22;padding:1px 6px;border-radius:2px}
+.dark .bn{background:#0f2a1a;color:#4c7}
+.dark .bc{background:#2a1010;color:#f66}
+/* AI BUTTON */
+.aib{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:5px 11px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.7rem}
+.aib:hover{opacity:.85}
+/* DRUG CARDS */
+.dfbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.dfb{background:none;border:1px solid var(--bd);color:var(--t2);cursor:pointer;padding:4px 11px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.7rem}
+.dfb.on{background:var(--tx);color:var(--sf)}
+.dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:13px;align-items:start}
+.di{border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}
+.di.flagged{border-color:#c22}
+.dfront{padding:13px;background:var(--sf);min-height:195px;display:flex;flex-direction:column;position:relative}
+.dback{padding:13px;background:#111;color:#eee;position:relative;display:none}
+.dark .dback{background:#1a1a1a}
+.dn{font-family:'Syne',sans-serif;font-weight:800;font-size:.98rem;margin-bottom:3px}
+.dge{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--mu);margin-bottom:6px}
+.dcl{font-family:'IBM Plex Mono',monospace;font-size:.61rem;border:1px solid var(--bd);padding:2px 6px;border-radius:2px;display:inline-block;margin-bottom:8px}
+.dmo{font-size:.8rem;color:var(--t2);flex:1}
+.dtap{font-family:'IBM Plex Mono',monospace;font-size:.61rem;color:var(--mu);margin-top:8px;cursor:pointer}
+.dbl{font-family:'IBM Plex Mono',monospace;font-size:.61rem;text-transform:uppercase;letter-spacing:.07em;opacity:.55;margin-top:8px;margin-bottom:2px}
+.dback p{font-size:.78rem;margin-bottom:2px}
+.dback .contra{color:#f88}
+.dfl{position:absolute;top:7px;right:7px;background:none;border:none;cursor:pointer;font-size:.86rem;z-index:10;opacity:.4}
+.dfl.on{opacity:1}
+/* QUICK VIEW */
+.qvs{width:100%;border:1px solid var(--bd);background:var(--sf);color:var(--tx);padding:8px 13px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.78rem;margin-bottom:16px}
+.qvs:focus{outline:none;border-color:var(--tx)}
+.qvg{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:12px}
+.qvc{background:var(--sf);border:1px solid var(--bd);border-left:3px solid;border-radius:var(--r);padding:12px 14px;position:relative}
+.qvc.flagged{border-color:#c22}
+.qvt{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:8px}
+.qvf{list-style:none}
+.qvf li{font-size:.79rem;color:var(--t2);padding:2px 0;border-bottom:1px solid var(--bd)}
+.qvf li:last-child{border-bottom:none}
+.qvf li::before{content:"• ";color:var(--tx)}
+.qvfl{position:absolute;top:8px;right:8px;background:none;border:none;cursor:pointer;font-size:.86rem;opacity:.4}
+.qvfl.on{opacity:1}
+/* DASHBOARD */
+.dss{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:10px;margin-bottom:20px}
+.dsc{border:1px solid var(--bd);border-radius:var(--r);padding:13px}
+.dsn{font-family:'Syne',sans-serif;font-weight:800;font-size:1.85rem;line-height:1}
+.dsl{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--mu);text-transform:uppercase;margin-top:3px}
+.dse{margin-bottom:24px}
+.dse h3{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid var(--bd)}
+.mr{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.79rem}
+.ml{width:145px;flex-shrink:0;color:var(--t2);font-size:.77rem}
+.mt{flex:1;height:7px;background:var(--bd);border-radius:2px;overflow:hidden}
+.mfi{height:100%;border-radius:2px}
+.mp{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--mu);width:32px;text-align:right}
+.stbl{width:100%;border-collapse:collapse;font-size:.79rem}
+.stbl th{border-bottom:1px solid var(--bd);padding:5px 8px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.63rem;text-transform:uppercase;color:var(--mu)}
+.stbl td{padding:6px 8px;border-bottom:1px solid var(--bd)}
+.clrb{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:6px 14px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.71rem;margin-top:10px}
+.srsbanner{border:1px solid var(--tx);background:var(--s2);padding:10px 14px;border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:9px}
+.srsbt{font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+.srss{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:5px 12px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.71rem;white-space:nowrap}
+/* PLAN/CASE/QUIZ FILTERS */
+.fr{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:16px;align-items:flex-end}
+.fg label{font-family:'IBM Plex Mono',monospace;font-size:.64rem;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px}
+.fg select{border:1px solid var(--bd);background:var(--sf);color:var(--tx);padding:5px 9px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.74rem}
+.gbtn,.sbtn{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:8px 18px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+.gbtn:hover,.sbtn:hover{opacity:.85}
+/* STUDY PLAN */
+.pd{border:1px solid var(--bd);border-left:3px solid;border-radius:var(--r);padding:14px;margin-bottom:12px;background:var(--sf)}
+.pdh{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.pdn{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem}
+.pdt{font-family:'IBM Plex Mono',monospace;font-size:.71rem;color:var(--t2)}
+.pdto{font-family:'IBM Plex Mono',monospace;font-size:.64rem;border:1px solid var(--bd);padding:2px 6px;border-radius:2px}
+.ptk{display:flex;align-items:flex-start;gap:6px;padding:3px 0;font-size:.84rem;color:var(--t2)}
+.ptk input{margin-top:3px;flex-shrink:0}
+.ptip{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--t2);border-left:2px solid var(--tx);padding:3px 8px;margin-top:8px;background:var(--s2)}
+/* CASE SIM */
+.ptcard{background:#1a2a5c;color:#e8eeff;border-radius:var(--r);padding:16px;margin-bottom:16px}
+.ptn{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:2px}
+.ptm{font-family:'IBM Plex Mono',monospace;font-size:.74rem;opacity:.6;margin-bottom:11px}
+.ptg{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.82rem}
+.ptsl{font-family:'IBM Plex Mono',monospace;font-size:.61rem;text-transform:uppercase;letter-spacing:.07em;opacity:.55;margin-bottom:3px}
+.adbar{display:flex;margin-bottom:16px;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}
+.ads{flex:1;padding:5px 3px;font-family:'IBM Plex Mono',monospace;font-size:.61rem;text-align:center;background:var(--s2);color:var(--mu);border-right:1px solid var(--bd)}
+.ads:last-child{border-right:none}
+.ads.act{background:#1a2a5c;color:#e8eeff}
+.ads.dn2{background:#1a5c2a;color:#e8fff0}
+.pu{background:var(--hi-a);border-left:2px solid #c80;padding:8px 12px;margin-bottom:13px;font-size:.84rem;color:var(--t2)}
+.cq{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:14px}
+.cqs{font-size:.9rem;margin-bottom:12px;line-height:1.5}
+.cqo{display:flex;gap:8px;align-items:flex-start;padding:7px 10px;border:1px solid var(--bd);border-radius:var(--r);margin-bottom:6px;cursor:pointer;font-size:.83rem;transition:background .15s}
+.cqo:hover{background:var(--s2)}
+.cqo.correct{background:var(--hi-g);border-color:#2a4}
+.cqo.wrong{background:var(--hi-r);border-color:#c22}
+.csub,.cnxt{border:none;cursor:pointer;padding:7px 16px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.74rem;margin-top:6px}
+.csub{background:var(--tx);color:var(--sf)}
+.cnxt{background:none;border:1px solid var(--tx);color:var(--tx);margin-left:6px}
+.rat{background:var(--s2);border-left:2px solid #2a4;padding:9px 12px;margin-top:10px;font-size:.82rem;color:var(--t2);display:none}
+.rat.on{display:block}
+/* QUIZ */
+.qmb2{display:flex;gap:6px;margin-bottom:16px}
+.qmbn{background:none;border:1px solid var(--bd);color:var(--t2);cursor:pointer;padding:6px 14px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.74rem}
+.qmbn.on{background:var(--tx);color:var(--sf);border-color:var(--tx)}
+.qcard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:14px}
+.qmet{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--mu);margin-bottom:8px}
+.qst{font-size:.91rem;margin-bottom:13px;line-height:1.5}
+.qsc{background:var(--s2);border-left:2px solid var(--tx);padding:8px 12px;margin-bottom:11px;font-size:.84rem;color:var(--t2)}
+.qol{list-style:none}
+.qop{padding:7px 12px;border:1px solid var(--bd);border-radius:var(--r);margin-bottom:5px;cursor:pointer;font-size:.83rem;transition:background .15s;display:flex;align-items:center;gap:6px}
+.qop:hover{background:var(--s2)}
+.qop.sel{border-color:var(--tx);background:var(--s2)}
+.qop.correct{background:var(--hi-g);border-color:#2a4}
+.qop.wrong{background:var(--hi-r);border-color:#c22}
+.subq{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:7px 18px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.76rem;margin-top:8px}
+.subq:hover{opacity:.85}
+.rp{background:var(--s2);border-radius:var(--r);padding:12px;margin-top:12px;font-size:.83rem;display:none}
+.rp.on{display:block}
+.rc{color:#1a5c2a;font-weight:600;margin-bottom:6px}
+.dark .rc{color:#4c7}
+.rpx p{margin-bottom:3px;color:var(--t2)}
+.rpx .ol{font-family:'IBM Plex Mono',monospace;font-weight:600}
+.pt2{height:4px;background:var(--bd);border-radius:2px;margin-bottom:13px}
+.pf2{height:100%;background:var(--tx);border-radius:2px;transition:width .3s}
+.qpr{font-family:'IBM Plex Mono',monospace;font-size:.71rem;color:var(--mu);margin-bottom:12px}
+/* KEY PANEL */
+.kp{border:1px solid var(--bd);border-radius:var(--r);padding:13px;margin-bottom:16px;background:var(--s2)}
+.kl{font-family:'IBM Plex Mono',monospace;font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:6px}
+.kr{display:flex;gap:6px}
+.ki{flex:1;border:1px solid var(--bd);background:var(--sf);color:var(--tx);padding:6px 10px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+.ksv{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:6px 13px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.74rem}
+.ksd{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--t2)}
+.krm{background:none;border:1px solid var(--bd);color:var(--mu);cursor:pointer;padding:3px 8px;border-radius:var(--r);font-size:.68rem}
+.emsg{background:var(--hi-r);border-left:2px solid #c22;padding:10px 14px;font-size:.83rem;color:var(--t2);margin-bottom:10px}
+.rtb{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:6px 14px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.71rem}
+.lmsg{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--mu);padding:16px 0;display:flex;align-items:center;gap:8px}
+.spin{width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--tx);border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* SUMMARY */
+.sumc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;text-align:center;margin-bottom:20px}
+.sums{font-family:'Syne',sans-serif;font-weight:800;font-size:2.7rem;line-height:1}
+.sumsu{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--mu);margin-top:4px}
+.sumb{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.sumbc{border:1px solid var(--bd);padding:12px;border-radius:var(--r)}
+.sumbt{font-family:'IBM Plex Mono',monospace;font-size:.66rem;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+.rdb{background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:8px 20px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+/* POPUP */
+.pov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:none;align-items:center;justify-content:center;padding:16px}
+.pov.on{display:flex}
+.pbox{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);width:100%;max-width:500px;max-height:76vh;display:flex;flex-direction:column}
+.phdr{padding:12px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.pttl{font-family:'Syne',sans-serif;font-weight:800;font-size:.91rem}
+.px{background:none;border:none;cursor:pointer;font-size:1.05rem;color:var(--mu)}
+.pbody{padding:14px;overflow-y:auto;flex:1;font-size:.84rem;color:var(--t2);line-height:1.6}
+/* EXPLAIN + TOC */
+#exbtn{position:fixed;background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:5px 12px;border-radius:var(--r);font-family:'IBM Plex Mono',monospace;font-size:.71rem;z-index:400;display:none}
+#tocbtn{position:fixed;bottom:20px;right:20px;background:var(--tx);color:var(--sf);border:none;cursor:pointer;padding:7px 12px;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;z-index:300}
+#tocdraw{position:fixed;bottom:56px;right:20px;width:245px;max-height:390px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);z-index:300;display:none;overflow-y:auto}
+#tocdraw.on{display:block}
+.tocs{padding:8px 12px;border-bottom:1px solid var(--bd)}
+.tocst{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;color:var(--mu);margin-bottom:4px;cursor:pointer}
+.tocst:hover{color:var(--tx)}
+.toci{font-size:.78rem;color:var(--t2);padding:3px 0 3px 8px;cursor:pointer}
+.toci:hover{color:var(--tx)}
+/* AI SUB BTNS */
+.asb{display:flex;gap:6px;margin-bottom:14px}
+@media(max-width:600px){header h1{font-size:.85rem}.mb{width:44px}#srch{width:100px}.sumb{grid-template-columns:1fr}.ptg{grid-template-columns:1fr}.dg{grid-template-columns:1fr}.qvg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧬 Oncology &amp; Sensory — Study Guide</h1>
+  <div class="hdr-r">
+    <div class="mw">📈 <span id="mlab">0%</span><div class="mb"><div class="mf" id="mf" style="width:0%"></div></div></div>
+    <span class="due-b" id="duect" style="display:none"></span>
+    <div class="sw"><input id="srch" placeholder="🔍 Search…" oninput="doSearch(this.value)" autocomplete="off"><div id="sdrop"></div></div>
+    <button class="dbtn" onclick="toggleDark()" title="Toggle dark mode">◑</button>
+  </div>
+</header>
+<div class="nav-w">
+  <button class="na dim" id="navl" onclick="scrollNav(-1)">◀</button>
+  <div id="tb">
+    <button class="tbn on" onclick="showTab('eyes',this)">👁️ Eyes &amp; Glaucoma</button>
+    <button class="tbn" onclick="showTab('ears',this)">👂 Ears &amp; Otic</button>
+    <button class="tbn" onclick="showTab('cancer',this)">🧬 Cancer &amp; Antineoplastics</button>
+    <button class="tbn" onclick="showTab('lymphoma',this)">🔴 Lymphoma</button>
+    <button class="tbn" onclick="showTab('pancreatic',this)">🫁 Pancreatic Cancer</button>
+    <button class="tbn" onclick="showTab('refs',this)">📋 Reference Tables</button>
+    <button class="tbn" onclick="showTab('drugs',this)">💊 Drug Cards</button>
+    <button class="tbn" onclick="showTab('qv',this)">⚡ Quick View</button>
+    <button class="tbn" onclick="showTab('dash',this)">📊 Dashboard</button>
+    <button class="tbn" onclick="showTab('plan',this)">📅 Study Plan</button>
+    <button class="tbn" onclick="showTab('cases',this)">🏥 Case Sim</button>
+    <button class="tbn" onclick="showTab('quiz',this)">🧠 Quiz Me</button>
+  </div>
+  <button class="na" id="navr" onclick="scrollNav(1)">▶</button>
+</div>
+<main>
+<!-- ===== EYES TAB ===== -->
+<div id="tab-eyes" class="tp on">
+<div class="stit">👁️ Eyes, Glaucoma &amp; Cataracts</div>
+<div class="qh"><h3>⚡ Quick Hits</h3><ul>
+  <li>Glaucoma = ↑ IOP → optic nerve damage → 2 types: open-angle (gradual) vs closed-angle (EMERGENCY)</li>
+  <li>Normal IOP: 10–21 mmHg — measured by tonometry</li>
+  <li>Cataracts = cloudy lens (SUNDABS mnemonic) — surgery is the ONLY cure</li>
+  <li>Avoid anticholinergics in glaucoma — they ↑ IOP (atropine, ipratropium, diphenhydramine)</li>
+  <li>Post-glaucoma surgery: NO coughing, bending, lifting, vomiting, Valsalva — constipation is priority</li>
+</ul></div>
+
+<!-- GLAUCOMA HY -->
+<div class="card" style="border-left-color:#8b1a1a" data-card-id="glaucoma-patho">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🔺 Glaucoma — Pathophysiology &amp; Types</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-glaucoma-patho">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'glaucoma-patho')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Definition:</strong> Leading cause of blindness — increased IOP resulting from an issue with the optic nerve (cranial nerve II). Body produces aqueous humor that must drain; if drainage fails → IOP rises → nerve damage → irreversible vision loss.</p>
+    <p><strong>Open-Angle Glaucoma</strong> (most common): Trabecular meshwork gradual clogging → ↓ outflow of aqueous humor → mild pain + gradual peripheral vision loss (tunnel vision). Develops over time ("Over time, Over angle").</p>
+    <p><strong>Closed-Angle Glaucoma</strong> (emergency): Complete closure of drainage angle → sudden extreme IOP spike. Keywords: EXTREME, "severe," "sudden" eye pain. NCLEX priority = LIFE &amp; LIMB — contact HCP immediately.</p>
+    <div class="al ag"><div class="all">🟢 NCLEX Tip — Closed Angle</div>Memory trick: "Closed angle = Close a door" — sudden closure. Sudden severe eye pain + N/V + halos = EMERGENCY. Notify HCP immediately.</div>
+    <div class="al ap"><div class="all">Mnemonic — Open vs Closed</div><strong>Open = Over time (gradual tunnel vision) · Closed = EXAM PRIORITY (sudden, extreme pain)</strong></div>
+    <button class="mmb" onclick="toggleMM('mm-glau')">🧠 Mind Map</button>
+    <div class="mmw" id="mm-glau">
+      <div class="mmc">Glaucoma</div>
+      <div class="mmg">
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Pathophysiology <span>▾</span></div><div class="mmbody on"><ul><li>↑ IOP from drainage failure</li><li>Aqueous humor accumulates</li><li>Optic nerve compressed</li><li>Open: gradual trabecular clog</li><li>Closed: acute angle occlusion</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Signs &amp; Symptoms <span>▾</span></div><div class="mmbody"><ul><li>Open: mild pain, tunnel vision</li><li>Closed: sudden severe pain</li><li>N/V (closed-angle)</li><li>Halos around lights</li><li>Blurred vision, redness</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Diagnostics <span>▾</span></div><div class="mmbody"><ul><li>Tonometry (IOP 10–21 normal)</li><li>Ophthalmoscopy (optic nerve)</li><li>Visual field test (perimetry)</li><li>Gonioscopy (drainage angle)</li><li>Slit-lamp exam</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Medications <span>▾</span></div><div class="mmbody"><ul><li>Timolol (beta-blocker)</li><li>Mannitol (osmotic, closed)</li><li>Prostaglandins (latanoprost)</li><li>Alpha-agonists (brimonidine)</li><li>CAIs (dorzolamide)</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Nursing Interventions <span>▾</span></div><div class="mmbody"><ul><li>Drop technique (conjunctival sac)</li><li>Inner canthus pressure post-drop</li><li>Monitor IOP response</li><li>Post-op activity restrictions</li><li>Compliance counseling</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Complications <span>▾</span></div><div class="mmbody"><ul><li>Irreversible vision loss</li><li>Blindness if untreated</li><li>Optic nerve atrophy</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Patient Education <span>▾</span></div><div class="mmbody"><ul><li>No coughing/sneezing/bending post-op</li><li>No lifting heavy objects</li><li>No Valsalva — constipation priority</li><li>Avoid anticholinergics forever</li><li>Lifelong drop compliance</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('glaucoma-patho','Glaucoma: increased IOP, optic nerve damage, open-angle gradual tunnel vision, closed-angle emergency sudden extreme pain, tonometry 10-21 mmHg normal')">✨ AI Summarize</button></div>
+</div>
+
+<!-- GLAUCOMA MEDS -->
+<div class="card" style="border-left-color:#1a5c2a" data-card-id="glaucoma-meds">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">💊 Glaucoma Medications &amp; Contraindications</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-glaucoma-meds">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'glaucoma-meds')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Beta-Blockers (most tested):</strong> Timolol — decreases aqueous humor production. CI: asthma, COPD, heart block. Apply inner canthus pressure to prevent systemic absorption.</p>
+    <p><strong>Mannitol (osmotic diuretic):</strong> Used for acute closed-angle glaucoma and ↓ ICP. IV administration. Assess LOC every hour. SE: edema begins 30–60 min after administration, heart failure risk. Monitor for HF signs.</p>
+    <p><strong>Prostaglandin Agonists (1st-line open-angle):</strong> Latanoprost (Xalatan) — ↑ uveoscleral outflow. Evening dose. SE: permanent brown iris color change, ↑ lash growth.</p>
+    <p><strong>Alpha-2 Agonists:</strong> Brimonidine (Alphagan P) — ↓ production + ↑ outflow. CI: MAOIs, neonates.</p>
+    <p><strong>CAIs:</strong> Dorzolamide (Trusopt) — sulfonamide-related → check sulfa allergy!</p>
+    <p><strong>Acetazolamide:</strong> Oral CAI — chronic open-angle glaucoma. CI: sulfa allergy. Patient teaching: report paresthesia in facial regions to HCP.</p>
+    <div class="al ar"><div class="all">🔴 AVOID — Anticholinergics in Glaucoma</div>Anticholinergics dry out the body and ↑ IOP. NEVER give: Atropine · Benztropine · Ipratropium · Oxybutynin · Diphenhydramine (Benadryl) — all contraindicated in glaucoma.</div>
+    <div class="al aa"><div class="all">📋 Prof. Note — Post-op Pressure Avoidance</div>After glaucoma surgery, NO added pressure: no coughing, sneezing, bending at waist, lifting heavy objects, N/V, Valsalva maneuver (bearing down). CONSTIPATION IS A PRIORITY complication to prevent.</div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('glaucoma-meds','Glaucoma meds: timolol beta-blocker ↓ production CI asthma; mannitol IV osmotic closed-angle ↓ICP monitor HF; latanoprost 1st-line; dorzolamide sulfa allergy; NO anticholinergics')">✨ AI Summarize</button></div>
+</div>
+
+<!-- CATARACTS -->
+<div class="card" style="border-left-color:#1a2a5c" data-card-id="cataracts">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🔍 Cataracts</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-cataracts">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'cataracts')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Definition:</strong> Cloudy lens — lens proteins clump together, scattering light. Painless, gradual blur. No pain until advanced.</p>
+    <div class="al ap"><div class="all">Mnemonic — SUNDABS Risk Factors</div><strong>S</strong>un exposure · <strong>U</strong>ncontrolled diabetes · <strong>N</strong>icotine/smoking · <strong>D</strong>rinking alcohol · <strong>A</strong>ging + antioxidant-poor diet · <strong>B</strong>lood glucose mismanagement · <strong>S</strong>un hat deficits</div>
+    <p><strong>Signs &amp; Symptoms:</strong> Gradual and painless · Blurry vision · Halos around lights · White or grey pupil · Absent red reflex on ophthalmoscope · Frequent prescription changes · Poor night vision</p>
+    <p><strong>Treatment:</strong> Non-surgical (glasses, magnifiers, better lighting, sunglasses) until vision impacts daily life. <strong>Surgery = ONLY cure:</strong> Phacoemulsification — ultrasound waves break up lens → shiny intraocular lens (IOL) inserted. Post-op: steroid drops + antibiotic drops + NSAIDs (prevent CME).</p>
+    <p><strong>Complications:</strong></p>
+    <ul>
+      <li><strong>Retinal Detachment:</strong> Pain + sudden vision drop + floaters + flashes — EMERGENCY</li>
+      <li><strong>Endophthalmitis:</strong> Purulent (pus) discharge — infection — EMERGENCY</li>
+    </ul>
+    <div class="al ar"><div class="all">🔴 Post-op Alert</div>Report immediately: sudden severe pain, vision loss, flashes of light (retinal detachment), or purulent discharge (endophthalmitis). No rubbing, no heavy lifting, no swimming post-op.</div>
+    <button class="mmb" onclick="toggleMM('mm-cat')">🧠 Mind Map</button>
+    <div class="mmw" id="mm-cat">
+      <div class="mmc">Cataracts</div>
+      <div class="mmg">
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Pathophysiology <span>▾</span></div><div class="mmbody on"><ul><li>Lens protein clumping</li><li>Scatters light → blurry vision</li><li>Progressive, painless</li><li>Age-related most common</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Signs &amp; Symptoms <span>▾</span></div><div class="mmbody"><ul><li>Gradual painless blur</li><li>Halos around lights</li><li>White/grey pupil</li><li>Absent red reflex</li><li>Poor night vision</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Diagnostics <span>▾</span></div><div class="mmbody"><ul><li>Slit-lamp examination</li><li>Visual acuity (Snellen)</li><li>Ophthalmoscope (absent red reflex)</li><li>Retinal exam</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Nursing Interventions <span>▾</span></div><div class="mmbody"><ul><li>Fall prevention (vision impaired)</li><li>Post-op drop teaching</li><li>Activity restrictions</li><li>No rubbing eyes</li><li>Eye shield at night</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Medications <span>▾</span></div><div class="mmbody"><ul><li>Steroid drops (post-op inflammation)</li><li>Antibiotic drops (infection prevent)</li><li>NSAIDs (prevent CME)</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Complications <span>▾</span></div><div class="mmbody"><ul><li>Retinal detachment (emergency)</li><li>Endophthalmitis (purulent DC)</li><li>CME (cystoid macular edema)</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Patient Education <span>▾</span></div><div class="mmbody"><ul><li>Surgery = only cure</li><li>Report pain/flashes/purulent DC</li><li>No driving until cleared</li><li>Sunglasses outdoors</li><li>Control DM/BP risk factors</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('cataracts','Cataracts: cloudy lens SUNDABS risk factors, gradual painless blur, absent red reflex, phacoemulsification only cure, retinal detachment and endophthalmitis complications')">✨ AI Summarize</button></div>
+</div>
+
+<!-- EYE/EAR ADMIN -->
+<div class="card" style="border-left-color:#5c3a1a" data-card-id="eye-ear-admin">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🩺 Ophthalmic &amp; Otic Administration Technique</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-eye-ear-admin">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'eye-ear-admin')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Eye Drop Technique (4 Key Points):</strong></p>
+    <ul>
+      <li>1. Drop medication into the <strong>conjunctival sac</strong> (lower eyelid pocket)</li>
+      <li>2. Gently close and rotate the eyes around after administration</li>
+      <li>3. Apply <strong>gentle pressure to inner canthus</strong> (nasolacrimal occlusion) 1–2 min → prevents systemic absorption</li>
+      <li>4. Wait <strong>5 minutes</strong> between different eye drops</li>
+    </ul>
+    <p><strong>Ear Drop Technique (4 Key Points):</strong></p>
+    <ul>
+      <li>1. <strong>Affected ear UP</strong> — tilt head or lay down</li>
+      <li>2. <strong>Straighten ear canal:</strong> Adults = pull UP &amp; OUT · Children = pull DOWN &amp; BACK</li>
+      <li>3. <strong>NEVER occlude ear with dropper</strong></li>
+      <li>4. <strong>Keep medication warm</strong> at room temperature (cold drops → vestibular reaction: dizziness/vomiting)</li>
+    </ul>
+    <div class="al ar"><div class="all">🔴 ISMP Safety Alert</div>Eardrops vs Eyedrops — "otic" vs "optic" confusion. Always verify route before instillation. Cold ear drops → vestibular reaction (dizziness, vomiting). Always warm to room temperature first.</div>
+    <div class="al ag"><div class="all">🟢 NCLEX Pearl — Inner Canthus</div>Applying inner canthus pressure closes the nasolacrimal duct, preventing systemic drug absorption. Critical for beta-blocker eye drops (timolol) — prevents bradycardia and bronchospasm.</div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('eye-ear-admin','Eye drops: conjunctival sac, inner canthus pressure, rotate eyes, 5 min between drops. Ear drops: affected ear up, adults pull up/out, children down/back, room temp, never occlude')">✨ AI Summarize</button></div>
+</div>
+</div><!-- end eyes tab -->
+<!-- ===== EARS TAB ===== -->
+<div id="tab-ears" class="tp">
+<div class="stit">👂 Ears, Otic Drugs &amp; Ménière's Disease</div>
+<div class="qh"><h3>⚡ Quick Hits</h3><ul>
+  <li>Ménière's disease = fluid collection in the ear → episodic attacks of vertigo, tinnitus, unilateral hearing loss</li>
+  <li>Perforated TM: Cortisporin (neomycin/polymyxin B) CONTRAINDICATED; Ciprodex/ofloxacin SAFE</li>
+  <li>Ménière's: sodium restriction + avoid caffeine, alcohol, smoking</li>
+  <li>Fall precautions are priority for Ménière's patients — vertigo risk</li>
+  <li>Adults ear drops: pinna UP &amp; OUT · Children: DOWN &amp; BACK — always room temperature</li>
+</ul></div>
+
+<div class="card" style="border-left-color:#8b1a1a" data-card-id="menieres">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🌀 Ménière's Disease</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-menieres">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'menieres')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Definition:</strong> Fluid collection in the ear (endolymphatic hydrops) — comes and goes with sudden attacks, typically in ONE ear.</p>
+    <p><strong>Signs &amp; Symptoms (classic triad + more):</strong></p>
+    <ul>
+      <li>🔊 <strong>Tinnitus</strong> — ringing in the ear</li>
+      <li>👂 <strong>Unilateral hearing loss</strong> — one ear affected</li>
+      <li>🌀 <strong>Vertigo</strong> — spinning sensation, sudden attacks</li>
+      <li>🤢 Vomiting during attacks</li>
+      <li>⬆️ Increased pressure on affected ear (fullness)</li>
+    </ul>
+    <p><strong>Nursing Management:</strong></p>
+    <ul>
+      <li>🚨 <strong>Fall precautions</strong> — highest priority (vertigo = fall risk)</li>
+      <li>🧂 <strong>Sodium restriction</strong> — reduces endolymphatic fluid</li>
+      <li>☕ <strong>Avoid caffeine, alcohol, smoking</strong> — aggravate symptoms</li>
+      <li>Rest in quiet, dark room during attacks</li>
+      <li>Low-sodium diet education</li>
+    </ul>
+    <div class="al ap"><div class="all">Mnemonic — Ménière's Triad</div><strong>THV:</strong> Tinnitus · Hearing loss (unilateral) · Vertigo — all in one ear, episodic, sudden onset</div>
+    <div class="al ag"><div class="all">🟢 NCLEX Priority</div>Falls are the #1 nursing priority in Ménière's. During an attack: have patient sit or lie down immediately. Instruct to call for help before ambulating.</div>
+    <button class="mmb" onclick="toggleMM('mm-men')">🧠 Mind Map</button>
+    <div class="mmw" id="mm-men">
+      <div class="mmc">Ménière's Disease</div>
+      <div class="mmg">
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Pathophysiology <span>▾</span></div><div class="mmbody on"><ul><li>Endolymphatic hydrops</li><li>Excess fluid in inner ear</li><li>Episodic — comes and goes</li><li>Typically unilateral</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Signs &amp; Symptoms <span>▾</span></div><div class="mmbody"><ul><li>Tinnitus (ringing)</li><li>Unilateral hearing loss</li><li>Vertigo (sudden attacks)</li><li>Vomiting during attacks</li><li>Ear fullness/pressure</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Diagnostics <span>▾</span></div><div class="mmbody"><ul><li>Audiometry (hearing test)</li><li>MRI (rule out acoustic neuroma)</li><li>Electrocochleography</li><li>Clinical diagnosis based on triad</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Nursing Interventions <span>▾</span></div><div class="mmbody"><ul><li>FALL PRECAUTIONS — #1 priority</li><li>Sodium restriction diet</li><li>Avoid caffeine/alcohol/smoking</li><li>Quiet dark room during attacks</li><li>Safety education</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Medications <span>▾</span></div><div class="mmbody"><ul><li>Diuretics (reduce fluid)</li><li>Antihistamines (meclizine)</li><li>Antiemetics (prochlorperazine)</li><li>Corticosteroids (acute)</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Complications <span>▾</span></div><div class="mmbody"><ul><li>Permanent hearing loss</li><li>Chronic tinnitus</li><li>Falls and injury</li><li>Anxiety/depression</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Patient Education <span>▾</span></div><div class="mmbody"><ul><li>Low-sodium diet (&lt;1500mg/day)</li><li>No caffeine, alcohol, smoking</li><li>Sit/lie during attacks immediately</li><li>Call for help before ambulating</li><li>Stress management</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('menieres','Menieres disease: endolymphatic hydrops, episodic triad of tinnitus/unilateral hearing loss/vertigo, fall precautions #1, sodium restriction, avoid caffeine alcohol smoking')">✨ AI Summarize</button></div>
+</div>
+
+<div class="card" style="border-left-color:#1a5c2a" data-card-id="otic-drugs">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">💊 Otic Drug Classes &amp; Perforated TM Safety</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-otic-drugs">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'otic-drugs')">🚩</button>
+  </div>
+  <div class="cb">
+    <table class="tbl"><thead><tr><th>Product</th><th>Ingredients</th><th>Use</th><th>Perforated TM</th></tr></thead><tbody>
+      <tr><td><strong>Cortisporin</strong></td><td>Hydrocortisone + Neomycin + Polymyxin B</td><td>Bacterial OE/OM</td><td><span class="bc">CONTRAINDICATED</span></td></tr>
+      <tr><td><strong>Ciprodex</strong></td><td>Ciprofloxacin + Dexamethasone</td><td>AOM with tubes, OE</td><td><span class="bn">SAFE</span></td></tr>
+      <tr><td><strong>Ofloxacin otic</strong></td><td>Ofloxacin</td><td>Bacterial OE/OM</td><td><span class="bn">SAFE</span></td></tr>
+      <tr><td><strong>Carbamide Peroxide</strong></td><td>Carbamide peroxide</td><td>Cerumen impaction</td><td><span class="bc">CONTRAINDICATED</span></td></tr>
+    </tbody></table>
+    <div class="al ar"><div class="all">🔴 CRITICAL — Perforated Eardrum</div>Neomycin and Polymyxin B otic preparations CONTRAINDICATED with perforated TM. Use ciprofloxacin or ofloxacin otic drops — SAFE with perforated TM.</div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('otic-drugs','Otic drugs: Cortisporin CONTRAINDICATED perforated TM; Ciprodex/ofloxacin SAFE; carbamide peroxide for cerumen CONTRAINDICATED perforated TM; adults pinna up/out children down/back')">✨ AI Summarize</button></div>
+</div>
+</div><!-- end ears tab -->
+
+<!-- ===== CANCER TAB ===== -->
+<div id="tab-cancer" class="tp">
+<div class="stit">🧬 Cancer &amp; Antineoplastic Pharmacology</div>
+<div class="qh"><h3>⚡ Quick Hits</h3><ul>
+  <li>Chemotherapy destroys rapidly dividing cells — affects hair, GI lining, bone marrow (pancytopenia)</li>
+  <li>Pancytopenia: neutropenia (↓WBC) + thrombocytopenia (↓platelets) + anemia (↓RBC)</li>
+  <li>Staging: TNM — Tumor size · Node involvement · Metastasis</li>
+  <li>Benign ends in -oma; Malignant ends in -carcinoma or -sarcoma</li>
+  <li>Palliative = improve symptoms/quality of life · Curative = eliminate cancer</li>
+</ul></div>
+
+<div class="card" style="border-left-color:#8b1a1a" data-card-id="cancer-basics">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🔬 Cancer Biology &amp; Cell Growth</div>
+    <div class="cbw"><span class="sb sk" id="srs-cancer-basics">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'cancer-basics')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Cellular Reproduction:</strong> Asexual — cells divide creating identical copies. Cancer cells = autonomous, unregulated, asexual reproduction requiring only nutrients and oxygen.</p>
+    <p><strong>Types of Growth (Plasias):</strong></p>
+    <ul>
+      <li><strong>Hyperplasia:</strong> ↑ number of normal cells — enlarged organ; NOT cancer yet but increases risk</li>
+      <li><strong>Dysplasia:</strong> Abnormal cell growth — pre-cancerous; risk factors: smoking, alcohol, chewing tobacco</li>
+      <li><strong>Neoplasia:</strong> Abnormal excessive tissue growth — can be benign or malignant</li>
+    </ul>
+    <p><strong>Tumor Classification:</strong> Benign = -oma (adenoma, lipoma) · Malignant = -carcinoma or -sarcoma</p>
+    <p><strong>Cancer Metastasis:</strong> Original cell anchors to location with rich blood supply → replicates → when resources depleted, 1–2 cells split off → travel via bloodstream or lymph to new sites (lungs, liver, brain, bone most common).</p>
+    <p><strong>Cancer Diagnosis:</strong> No single test. Requires: history/physical + lab tests + imaging + biopsy (definitive diagnosis).</p>
+    <p><strong>TNM Staging:</strong> T = Tumor size (T0–T4) · N = Lymph Node involvement (N0–N2) · M = Metastasis (M0=none, M1=distant)</p>
+    <div class="al ab"><div class="all">🔵 Note — Signs of Cancer</div>7 warning signs: Weight/appetite loss · Fatigue · Unusual bleeding · Bowel habit changes · Lumps · Coughing blood · Mole changes</div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('cancer-basics','Cancer: unregulated cell growth, hyperplasia/dysplasia/neoplasia types, TNM staging, metastasis via blood/lymph to lungs/liver/brain, biopsy definitive diagnosis')">✨ AI Summarize</button></div>
+</div>
+
+<div class="card" style="border-left-color:#1a5c2a" data-card-id="chemo-treatment">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">💊 Cancer Treatments &amp; Chemotherapy Complications</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-chemo-treatment">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'chemo-treatment')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Treatment Types:</strong></p>
+    <ul>
+      <li><strong>Surgery</strong> — remove tumor (curative if localized)</li>
+      <li><strong>Radiation</strong> — targeted energy to destroy cancer cells; nursing: protect skin markings, warm water only, skin care, pain management</li>
+      <li><strong>Chemotherapy</strong> — destroys rapidly dividing cells (cancer + healthy)</li>
+      <li><strong>Immunotherapy/Biologics</strong> — boosts immune system to target cancer</li>
+      <li><strong>Targeted Therapy</strong> — specific to cancer cell proteins (proteasome inhibitors, HDAC inhibitors, BTK inhibitors)</li>
+      <li><strong>Hormone Therapy</strong> — used for hormone-driven cancers (prostate = reduce male hormones; breast = reduce estrogen)</li>
+    </ul>
+    <p><strong>Palliative vs Curative:</strong> Palliative = reduce tumor size + improve symptoms + quality of life (does NOT cure). Curative = eliminate cancer completely. Both may use same treatments (chemo, radiation, surgery) but different end goals.</p>
+    <p><strong>Chemotherapy Complications (Pancytopenia):</strong></p>
+    <ul>
+      <li>🩸 <strong>Anemia</strong> (↓RBC) — fatigue, pallor</li>
+      <li>🦠 <strong>Neutropenia</strong> (↓WBC) — INFECTION RISK (priority concern)</li>
+      <li>🩹 <strong>Thrombocytopenia</strong> (↓platelets) — bleeding risk</li>
+      <li>💇 <strong>Hair loss</strong> (alopecia) — temporary, may return different texture/color</li>
+      <li>👄 <strong>Mouth sores</strong> (mucositis) — GI cell destruction</li>
+      <li>🚽 <strong>N/V/Diarrhea</strong> — GI mucosal shedding</li>
+      <li>🦴 <strong>Organ toxicities</strong></li>
+      <li>🦴 <strong>Hypercalcemia</strong> — bone marrow involvement</li>
+    </ul>
+    <div class="al ar"><div class="all">🔴 Priority — Neutropenia</div>Infection is the #1 concern in chemotherapy patients. Neutropenia = ↓WBC = inability to fight infection. Monitor temp, WBC counts, implement neutropenic precautions.</div>
+    <div class="al ab"><div class="all">🔵 Biological Therapies</div>Immunotherapy (monoclonal antibodies/MABs), Interferon, Colony-Stimulating Factors (CSFs), Angiogenesis inhibitors. Goal: boost immune system to fight cancer with fewer systemic side effects.</div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('chemotherapy complications: pancytopenia = anemia/neutropenia/thrombocytopenia, hair loss, mucositis, N/V/diarrhea. Palliative vs curative. Biological therapies/immunotherapy.')">✨ AI Summarize</button></div>
+</div>
+</div><!-- end cancer tab -->
+<!-- ===== LYMPHOMA TAB ===== -->
+<div id="tab-lymphoma" class="tp">
+<div class="stit">🔴 Lymphoma</div>
+<div class="qh"><h3>⚡ Quick Hits</h3><ul>
+  <li>Hodgkin's = Reed-Sternberg cells present (biopsy diagnostic) — Epstein-Barr virus cause in 50% cases</li>
+  <li>Non-Hodgkin's = NO Reed-Sternberg cells — harder to treat, slower growing</li>
+  <li>Classic HESI symptoms: fever, weight loss, night sweats, enlarged PAINLESS lymph nodes</li>
+  <li>Increased risk complication: INFECTION (neutropenia from disease + treatment)</li>
+  <li>Treatment: chemotherapy + radiation; targeted therapy for NHL (Bortezomib, Belinostat, Pirtobrutinib)</li>
+</ul></div>
+
+<div class="card" style="border-left-color:#8b1a1a" data-card-id="lymphoma-main">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🔴 Lymphoma — Hodgkin's vs Non-Hodgkin's</div>
+    <div class="cbw"><span class="hy">🔥 HIGH YIELD</span><span class="sb sk" id="srs-lymphoma-main">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'lymphoma-main')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Definition:</strong> Cancer within the lymphatic system — begins when healthy lymphatic cells change and grow out of control. Involves lymph nodes (abdomen, groin, pelvis, chest, underarms, neck), spleen, thymus, tonsils, bone marrow.</p>
+    <p><strong>Hodgkin's Lymphoma:</strong> Marked by <strong>Reed-Sternberg cells</strong> (seen on biopsy under microscope). Cause: Epstein-Barr virus in 50% of cases. More responsive to treatment — cells grow rapidly.</p>
+    <p><strong>Non-Hodgkin's Lymphoma:</strong> NO Reed-Sternberg cells. Multiple subtypes. Usually harder to treat — cells grow slower.</p>
+    <p><strong>Signs &amp; Symptoms (HESI Favorites):</strong></p>
+    <ul>
+      <li>🌡️ Fever (no chills)</li>
+      <li>⚖️ Weight loss</li>
+      <li>😓 Night sweats ("changing sheets")</li>
+      <li>🔵 Enlarged, <strong>PAINLESS</strong> lymph nodes (axillary, cervical, inguinal)</li>
+      <li>🦠 Infections (increased risk)</li>
+      <li>😮‍💨 Breathlessness, weakness, loss of appetite</li>
+      <li>🤒 Itchiness, swelling of face/neck</li>
+    </ul>
+    <p><strong>Risk Factors:</strong> Weakened immune system (HIV, immunosuppressants) · Family history · Specific infections (Epstein-Barr, H. pylori, HIV) · Age (teens/young adults or >55)</p>
+    <div class="al aa"><div class="all">📋 HESI Question — Complications</div>A nurse caring for a patient with Hodgkin's lymphoma knows the patient is at increased risk for: <strong>INFECTION</strong> — due to compromised immune system and pancytopenia from treatment.</div>
+    <button class="mmb" onclick="toggleMM('mm-lymp')">🧠 Mind Map</button>
+    <div class="mmw" id="mm-lymp">
+      <div class="mmc">Lymphoma</div>
+      <div class="mmg">
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Pathophysiology <span>▾</span></div><div class="mmbody on"><ul><li>Lymphocyte malignant change</li><li>Uncontrolled growth in lymph system</li><li>Hodgkin's = Reed-Sternberg cells</li><li>Non-Hodgkin's = no RS cells</li><li>EBV cause in 50% Hodgkin's</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Signs &amp; Symptoms <span>▾</span></div><div class="mmbody"><ul><li>Painless lymphadenopathy</li><li>Fever (no chills)</li><li>Weight loss</li><li>Night sweats</li><li>Fatigue, weakness</li><li>Infections</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Diagnostics <span>▾</span></div><div class="mmbody"><ul><li>Biopsy — definitive (RS cells?)</li><li>CBC (pancytopenia)</li><li>ESR (elevated)</li><li>CT/X-ray imaging</li><li>Bone marrow biopsy</li><li>PET scan staging</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Nursing Interventions <span>▾</span></div><div class="mmbody"><ul><li>Infection precautions (priority)</li><li>Monitor CBC</li><li>Fatigue management</li><li>Radiation skin care</li><li>Nutritional support</li><li>Pain management</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Medications <span>▾</span></div><div class="mmbody"><ul><li>Chemo: ABVD, CHOP regimens</li><li>Bortezomib (Velcade)</li><li>Belinostat (Beleodaq) HDAC inhibitor</li><li>Pirtobrutinib BTK inhibitor</li><li>Stem cell transplantation</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Complications <span>▾</span></div><div class="mmbody"><ul><li>Bone marrow failure</li><li>CNS infiltration</li><li>Immune hemolysis/thrombocytopenia</li><li>Pleural/pericardial effusions</li><li>Spinal cord compression</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Patient Education <span>▾</span></div><div class="mmbody"><ul><li>Infection prevention (handwashing)</li><li>Radiation: keep skin marks dry</li><li>Report fever immediately</li><li>Fatigue is expected</li><li>Hair loss temporary</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('lymphoma: Hodgkins = Reed-Sternberg cells EBV, Non-Hodgkins = no RS cells, symptoms: painless lymphadenopathy/fever/weight loss/night sweats, infection complication priority, chemo/radiation/targeted therapy')">✨ AI Summarize</button></div>
+</div>
+</div><!-- end lymphoma tab -->
+
+<!-- ===== PANCREATIC CANCER TAB ===== -->
+<div id="tab-pancreatic" class="tp">
+<div class="stit">🫁 Pancreatic Cancer</div>
+<div class="qh"><h3>⚡ Quick Hits</h3><ul>
+  <li>Pancreatic cancer is difficult to diagnose — symptoms are vague until advanced stage</li>
+  <li>Symptoms: jaundice, abdominal pain, weight loss, elevated blood glucose, greasy stools</li>
+  <li>Diagnosis: CA 19-9 blood test + CT scan + biopsy + endoscopic ultrasound</li>
+  <li>Whipple procedure (pancreaticoduodenectomy) — removes head of pancreas + part of SI + gallbladder + bile duct</li>
+  <li>Complications: hypercalcemia, pancytopenia, pleural effusion, respiratory failure</li>
+</ul></div>
+
+<div class="card" style="border-left-color:#4a1a5c" data-card-id="pancreatic-cancer">
+  <div class="ch" onclick="toggleCard(this)">
+    <div class="ct">🫁 Pancreatic Cancer</div>
+    <div class="cbw"><span class="sb sk" id="srs-pancreatic-cancer">✓ OK</span></div>
+    <button class="fbtn" onclick="toggleFlag(event,'pancreatic-cancer')">🚩</button>
+  </div>
+  <div class="cb">
+    <p><strong>Overview:</strong> 9th most common cancer in women; 4th leading cause of cancer death. Difficult to diagnose early — no specific cost-effective screening. Symptoms vague until advanced.</p>
+    <p><strong>Risk Factors:</strong> Smoking (20–30% of cases) · Family history · Diabetes · Diet · Age · Race · Pancreatitis · Obesity</p>
+    <p><strong>Signs &amp; Symptoms:</strong></p>
+    <ul>
+      <li>🟡 <strong>Jaundice</strong> (bile duct obstruction)</li>
+      <li>🤢 Abdominal/back pain and bloating</li>
+      <li>⚖️ Weight loss (drastic)</li>
+      <li>🚽 Greasy or light-colored stool (steatorrhea)</li>
+      <li>🩸 Elevated blood glucose (DM symptoms)</li>
+      <li>😴 Constant fatigue and weakness</li>
+      <li>🤮 Nausea, vomiting</li>
+      <li>🚽 Constipation or diarrhea</li>
+      <li>💛 Changes in urine color (dark)</li>
+      <li>😐 Poor appetite</li>
+    </ul>
+    <p><strong>Diagnostics:</strong> Medical history + physical exam + blood tests (CA 19-9 tumor marker) + CT scan + endoscopic ultrasound + biopsy + laparoscopy + genetic testing</p>
+    <p><strong>Treatment:</strong> Chemotherapy → radiation → targeted therapy to shrink → then surgery if possible. Whipple procedure (pancreaticoduodenectomy): resects head of pancreas + first part of SI + gallbladder + bile duct. Cannot resect everything (leave some pancreatic tissue).</p>
+    <p><strong>Complications:</strong> Hypercalcemia · Pancytopenia (neutropenia + thrombocytopenia + anemia) · Pleural effusion · Respiratory failure · Death</p>
+    <button class="mmb" onclick="toggleMM('mm-panc')">🧠 Mind Map</button>
+    <div class="mmw" id="mm-panc">
+      <div class="mmc">Pancreatic Cancer</div>
+      <div class="mmg">
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Pathophysiology <span>▾</span></div><div class="mmbody on"><ul><li>Pancreatic cell malignancy</li><li>Often adenocarcinoma (35-50%)</li><li>Late presentation typical</li><li>Rich blood supply location</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Signs &amp; Symptoms <span>▾</span></div><div class="mmbody"><ul><li>Jaundice (#1 sign)</li><li>Abdominal/back pain</li><li>Drastic weight loss</li><li>Greasy stools</li><li>Elevated blood glucose</li><li>Dark urine</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Diagnostics <span>▾</span></div><div class="mmbody"><ul><li>CA 19-9 tumor marker</li><li>CT scan abdomen</li><li>Endoscopic ultrasound</li><li>Biopsy (definitive)</li><li>Laparoscopy</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Nursing Interventions <span>▾</span></div><div class="mmbody"><ul><li>Pain management</li><li>Nutritional support</li><li>Blood glucose monitoring</li><li>Infection prevention</li><li>Post-Whipple care</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Complications <span>▾</span></div><div class="mmbody"><ul><li>Hypercalcemia</li><li>Pancytopenia</li><li>Pleural effusion</li><li>Respiratory failure</li><li>Bowel obstruction</li><li>Metastasis</li></ul></div></div>
+        <div class="mmn"><div class="mmh" onclick="toggleBranch(this)">Patient Education <span>▾</span></div><div class="mmbody"><ul><li>Whipple procedure explanation</li><li>Diabetes management post-op</li><li>Dietary modifications</li><li>Enzyme replacement therapy</li><li>Signs of complications</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cf"><button class="aib" onclick="aiSum('pancreatic cancer: vague symptoms until advanced, jaundice/weight loss/greasy stools/elevated glucose, CA 19-9, Whipple procedure, complications hypercalcemia/pancytopenia/pleural effusion')">✨ AI Summarize</button></div>
+</div>
+</div><!-- end pancreatic tab -->
+<!-- ===== REFERENCE TABLES TAB ===== -->
+<div id="tab-refs" class="tp">
+<div class="stit">📋 Reference Tables</div>
+<div class="sub">Intraocular Pressure</div>
+<table class="tbl"><thead><tr><th>Parameter</th><th>Normal</th><th>Abnormal/Critical</th><th>Notes</th></tr></thead><tbody>
+  <tr><td>IOP (Tonometry)</td><td><span class="bn">10–21 mmHg</span></td><td><span class="bc">&gt;21 mmHg</span></td><td>Complete eye exam required for glaucoma diagnosis (not IOP alone)</td></tr>
+  <tr><td>Visual Acuity</td><td><span class="bn">20/20</span></td><td><span class="bc">20/200 = legal blindness</span></td><td>Snellen chart assessment</td></tr>
+</tbody></table>
+<div class="sub">Glaucoma Drug Classes</div>
+<table class="tbl"><thead><tr><th>Class</th><th>Examples</th><th>Mechanism</th><th>Key Notes</th></tr></thead><tbody>
+  <tr><td>Prostaglandins (1st-line)</td><td>Latanoprost (Xalatan), Bimatoprost (Lumigan)</td><td>↑ Uveoscleral outflow</td><td>Evening dose; permanent iris color change; ↑ lash growth</td></tr>
+  <tr><td>Beta-Blockers</td><td>Timolol (Timoptic)</td><td>↓ Aqueous production</td><td>CI: asthma, COPD, heart block; inner canthus pressure required</td></tr>
+  <tr><td>Alpha-2 Agonists</td><td>Brimonidine (Alphagan P)</td><td>↓ Production + ↑ outflow</td><td>CI: MAOIs, neonates; dry mouth, drowsiness</td></tr>
+  <tr><td>CAIs (topical)</td><td>Dorzolamide (Trusopt), Acetazolamide (oral)</td><td>↓ Aqueous production</td><td>SULFA ALLERGY cross-sensitivity; report facial paresthesia</td></tr>
+  <tr><td>Osmotic Diuretics</td><td>Mannitol IV, Glycerin oral</td><td>Osmotic gradient pulls H₂O from eye</td><td>Closed-angle emergency; ↓ ICP; monitor HF; edema 30–60 min</td></tr>
+  <tr><td>Anticholinergics</td><td>Atropine, Ipratropium, Oxybutynin, Diphenhydramine</td><td>—</td><td><strong>AVOID IN GLAUCOMA</strong> — ↑ IOP</td></tr>
+</tbody></table>
+<div class="sub">Otic Drug Safety — Perforated TM</div>
+<table class="tbl"><thead><tr><th>Product</th><th>Ingredients</th><th>Use</th><th>Perforated TM</th></tr></thead><tbody>
+  <tr><td>Cortisporin</td><td>Hydrocortisone + Neomycin + Polymyxin B</td><td>Bacterial OE/OM</td><td><span class="bc">CONTRAINDICATED</span></td></tr>
+  <tr><td>Ciprodex</td><td>Ciprofloxacin + Dexamethasone</td><td>AOM with tubes, OE</td><td><span class="bn">SAFE</span></td></tr>
+  <tr><td>Ofloxacin otic</td><td>Ofloxacin</td><td>Bacterial OE/OM</td><td><span class="bn">SAFE</span></td></tr>
+  <tr><td>Carbamide Peroxide</td><td>Carbamide peroxide</td><td>Cerumen impaction</td><td><span class="bc">CONTRAINDICATED</span></td></tr>
+</tbody></table>
+<div class="sub">Chemotherapy Complications (Pancytopenia)</div>
+<table class="tbl"><thead><tr><th>Complication</th><th>Cell Affected</th><th>Signs</th><th>Nursing Priority</th></tr></thead><tbody>
+  <tr><td>Anemia</td><td>↓ RBC</td><td>Fatigue, pallor, dyspnea</td><td>Monitor H&amp;H, transfusion PRN</td></tr>
+  <tr><td>Neutropenia</td><td>↓ WBC/Neutrophils</td><td>Fever, infections, ↓ANC</td><td><strong>Infection prevention #1</strong>; neutropenic precautions</td></tr>
+  <tr><td>Thrombocytopenia</td><td>↓ Platelets</td><td>Bleeding, bruising, petechiae</td><td>Bleeding precautions, fall prevention</td></tr>
+  <tr><td>Mucositis</td><td>GI mucosal cells</td><td>Mouth sores, pain, dysphagia</td><td>Oral care, soft foods</td></tr>
+  <tr><td>Alopecia</td><td>Hair follicle cells</td><td>Hair loss (temporary)</td><td>Patient education, wig referral</td></tr>
+</tbody></table>
+<div class="sub">Cancer Staging — TNM System</div>
+<table class="tbl"><thead><tr><th>Component</th><th>Notation</th><th>Meaning</th></tr></thead><tbody>
+  <tr><td rowspan="5"><strong>T (Tumor)</strong></td><td>T0</td><td>No primary tumor evidence</td></tr>
+  <tr><td>Tis</td><td>Carcinoma in situ</td></tr>
+  <tr><td>T1–T2</td><td>Small/local invasion</td></tr>
+  <tr><td>T3</td><td>Penetrates subserosa</td></tr>
+  <tr><td>T4</td><td>Deep invasion into peritoneum/organs</td></tr>
+  <tr><td rowspan="3"><strong>N (Nodes)</strong></td><td>N0</td><td>No lymph node involvement</td></tr>
+  <tr><td>N1</td><td>1–3 perirectal nodes positive</td></tr>
+  <tr><td>N2</td><td>4+ perirectal nodes positive</td></tr>
+  <tr><td rowspan="2"><strong>M (Metastasis)</strong></td><td>M0</td><td>No distant metastasis</td></tr>
+  <tr><td>M1</td><td>Distant metastasis present</td></tr>
+</tbody></table>
+</div><!-- end refs tab -->
+
+<!-- ===== DRUG CARDS TAB ===== -->
+<div id="tab-drugs" class="tp">
+<div class="stit">💊 Drug Cards</div>
+<div class="dfbar" id="dfbar"></div>
+<div class="dg" id="dgrid"></div>
+</div>
+
+<!-- ===== QUICK VIEW TAB ===== -->
+<div id="tab-qv" class="tp">
+<div class="stit">⚡ Quick View</div>
+<input class="qvs" id="qvsrch" placeholder="🔍 Filter by keyword…" oninput="filterQV(this.value)">
+<div class="qvg" id="qvgrid"></div>
+</div>
+
+<!-- ===== DASHBOARD TAB ===== -->
+<div id="tab-dash" class="tp">
+<div class="stit">📊 Dashboard</div>
+<div id="dash-content"></div>
+</div>
+
+<!-- ===== STUDY PLAN TAB ===== -->
+<div id="tab-plan" class="tp">
+<div class="stit">📅 Study Plan</div>
+<div class="kp" id="plan-key"></div>
+<div class="fr">
+  <div class="fg"><label>DURATION</label><select id="pl-days"><option value="3">3 Days</option><option value="7" selected>7 Days</option><option value="14">14 Days</option></select></div>
+  <div class="fg"><label>FOCUS</label><select id="pl-focus"><option value="weak">Weak Areas</option><option value="all">All Topics</option><option value="hy">High-Yield Only</option></select></div>
+  <button class="gbtn" onclick="genPlan()">✨ Generate Plan</button>
+</div>
+<div id="plan-out"></div>
+</div>
+
+<!-- ===== CASE SIM TAB ===== -->
+<div id="tab-cases" class="tp">
+<div class="stit">🏥 Case Sim</div>
+<div class="kp" id="case-key"></div>
+<div class="fr">
+  <div class="fg"><label>TOPIC</label><select id="cs-topic">
+    <option value="Glaucoma">Glaucoma</option>
+    <option value="Cataracts">Cataracts</option>
+    <option value="Menieres Disease">Ménière's Disease</option>
+    <option value="Lymphoma">Lymphoma</option>
+    <option value="Pancreatic Cancer">Pancreatic Cancer</option>
+    <option value="Cancer and Chemotherapy">Cancer &amp; Chemotherapy</option>
+    <option value="Ophthalmic and Otic Drug Administration">Sensory Nursing</option>
+  </select></div>
+  <div class="fg"><label>LENGTH</label><select id="cs-len"><option value="5">5 Qs</option><option value="8">8 Qs</option></select></div>
+  <div class="fg"><label>DIFFICULTY</label><select id="cs-diff"><option value="2">⭐⭐ Moderate</option><option value="3">⭐⭐⭐ NCLEX</option><option value="4">⭐⭐⭐⭐ Advanced</option></select></div>
+  <button class="gbtn" onclick="startCase()">🏥 Generate Case</button>
+</div>
+<div id="case-out"></div>
+</div>
+
+<!-- ===== QUIZ TAB ===== -->
+<div id="tab-quiz" class="tp">
+<div class="stit">🧠 Quiz Me</div>
+<div class="qmb2">
+  <button class="qmbn on" id="qm-bank" onclick="switchQM('bank')">📚 Question Bank</button>
+  <button class="qmbn" id="qm-ai" onclick="switchQM('ai')">✨ AI Infinite</button>
+</div>
+<div id="bank-panel">
+  <div class="fr">
+    <div class="fg"><label>TOPIC</label><select id="bk-topic"><option value="all">All Topics</option><option value="eyes">Eyes &amp; Glaucoma</option><option value="ears">Ears &amp; Ménière's</option><option value="cancer">Cancer</option><option value="lymphoma">Lymphoma</option><option value="pancreatic">Pancreatic</option></select></div>
+    <div class="fg"><label>FORMAT</label><select id="bk-fmt"><option value="all">All</option><option value="mcq">MCQ</option><option value="scenario">Scenario</option><option value="sata">SATA</option></select></div>
+    <div class="fg"><label># QUESTIONS</label><select id="bk-count"><option value="5">5</option><option value="10">10</option><option value="all">All</option></select></div>
+    <div class="fg"><label style="display:flex;align-items:center;gap:5px"><input type="checkbox" id="bk-hy"> High-Yield Only</label></div>
+    <div class="fg"><label style="display:flex;align-items:center;gap:5px"><input type="checkbox" id="bk-flag"> Flagged Only</label></div>
+    <button class="sbtn" onclick="startBank()">▶ Start Quiz</button>
+  </div>
+  <div id="qout-bank"></div>
+</div>
+<div id="ai-panel" style="display:none">
+  <div class="kp" id="ai-key"></div>
+  <div class="asb">
+    <button class="qmbn on" id="aim-gen" onclick="switchAIM('gen')">✨ General AI Quiz</button>
+    <button class="qmbn" id="aim-drill" onclick="switchAIM('drill')">💊 Medication Drill</button>
+  </div>
+  <div id="ai-gen-panel">
+    <div class="fr">
+      <div class="fg"><label>TOPIC</label><select id="ai-topic">
+        <option value="Mixed Oncology and Sensory Pharmacology">Mixed</option>
+        <option value="Glaucoma">Glaucoma</option>
+        <option value="Cataracts">Cataracts</option>
+        <option value="Menieres Disease">Ménière's</option>
+        <option value="Ophthalmic Otic Drug Administration">Eye/Ear Admin</option>
+        <option value="Cancer and Chemotherapy">Cancer &amp; Chemo</option>
+        <option value="Lymphoma">Lymphoma</option>
+        <option value="Pancreatic Cancer">Pancreatic Cancer</option>
+        <option value="flagged">🚩 Flagged</option>
+      </select></div>
+      <div class="fg"><label>FORMAT</label><select id="ai-fmt"><option value="mixed">Mixed</option><option value="mcq">MCQ</option><option value="scenario">Scenario</option><option value="sata">SATA</option></select></div>
+      <div class="fg"><label>DIFFICULTY</label><select id="ai-diff"><option value="1">⭐ Beginner</option><option value="2" selected>⭐⭐ Moderate</option><option value="3">⭐⭐⭐ NCLEX</option><option value="4">⭐⭐⭐⭐ Advanced</option><option value="adaptive">🎯 Adaptive</option></select></div>
+      <div class="fg"><label>ADPIE</label><select id="ai-adpie"><option value="Mixed">Mixed</option><option value="Assessment">Assessment</option><option value="Diagnosis">Diagnosis</option><option value="Planning">Planning</option><option value="Implementation">Implementation</option><option value="Evaluation">Evaluation</option></select></div>
+      <div class="fg"><label># QUESTIONS</label><select id="ai-count"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="10">10</option><option value="inf">∞ Continuous</option></select></div>
+      <button class="sbtn" onclick="startAI()">✨ Generate</button>
+    </div>
+    <div id="ai-adapt-info" class="al ab" style="display:none"><div class="all">🎯 Adaptive Mode</div>Difficulty auto-adjusts: ≥80% → harder; &lt;50% → easier, based on last 5 answers.</div>
+    <div id="qout-ai"></div>
+  </div>
+  <div id="ai-drill-panel" style="display:none">
+    <div class="fr">
+      <div class="fg"><label>DRUG / CLASS</label>
+        <select id="dr-drug">
+          <option value="random">🎲 Random Drug</option>
+          <optgroup label="Glaucoma — Prostaglandins"><option value="latanoprost">Latanoprost (Xalatan)</option><option value="bimatoprost">Bimatoprost (Lumigan)</option></optgroup>
+          <optgroup label="Glaucoma — Beta-Blockers"><option value="timolol">Timolol (Timoptic)</option></optgroup>
+          <optgroup label="Glaucoma — Other"><option value="brimonidine">Brimonidine (Alphagan P)</option><option value="dorzolamide">Dorzolamide (Trusopt)</option><option value="acetazolamide">Acetazolamide</option><option value="mannitol">Mannitol (Osmitrol)</option></optgroup>
+          <optgroup label="Otic"><option value="ciprofloxacin otic">Ciprofloxacin Otic (Ciprodex)</option><option value="carbamide peroxide">Carbamide Peroxide</option></optgroup>
+          <optgroup label="Lymphoma Targeted"><option value="bortezomib">Bortezomib (Velcade)</option><option value="belinostat">Belinostat (Beleodaq)</option></optgroup>
+        </select>
+      </div>
+      <div class="fg"><label>TEST ME ON</label><select id="dr-focus"><option value="mixed">All Aspects</option><option value="moa">Mechanism</option><option value="se">Side Effects</option><option value="nursing">Nursing Actions</option><option value="contra">Contraindications</option><option value="monitoring">Monitoring</option></select></div>
+      <div class="fg"><label>DIFFICULTY</label><select id="dr-diff"><option value="1">⭐ Recall</option><option value="2" selected>⭐⭐ Application</option><option value="3">⭐⭐⭐ Analysis</option><option value="4">⭐⭐⭐⭐ Expert</option></select></div>
+      <div class="fg"><label>FORMAT</label><select id="dr-fmt"><option value="mixed">Mixed</option><option value="mcq">MCQ</option><option value="scenario">Scenario</option><option value="sata">SATA</option></select></div>
+      <div class="fg"><label># QUESTIONS</label><select id="dr-count"><option value="3">3</option><option value="5" selected>5</option><option value="10">10</option></select></div>
+      <button class="sbtn" onclick="startDrill()">💊 Drill</button>
+    </div>
+    <div id="qout-drill"></div>
+  </div>
+</div>
+</div><!-- end quiz tab -->
+</main>
+<!-- POPUP + EXPLAIN + TOC -->
+<div class="pov" id="pop-ov" onclick="closePopOv(event)">
+  <div class="pbox">
+    <div class="phdr"><span class="pttl" id="pop-ttl">AI Summary</span><button class="px" onclick="closePop()">✕</button></div>
+    <div class="pbody" id="pop-body"><div class="spin"></div></div>
+  </div>
+</div>
+<button id="exbtn" onclick="doExplain()">⚡ Explain This</button>
+<button id="tocbtn" onclick="toggleTOC()">☰ TOC</button>
+<div id="tocdraw"></div>
+
+<script>
+// ============================================================
+// DATA — DRUGS
+// ============================================================
+const DRUGS=[
+{id:'latanoprost',name:'Latanoprost',gen:'Xalatan',cls:'Prostaglandin Agonist',tag:'prostaglandin',
+ moa:'Increases uveoscleral outflow of aqueous humor via FP prostaglandin receptors — reduces IOP',
+ ind:'First-line: open-angle glaucoma, ocular hypertension',
+ contra:'Thimerosal-containing drops; active ocular inflammation; uveitis',
+ dose:'1 drop in affected eye(s) ONCE DAILY in the EVENING',
+ mon:'IOP; iris pigmentation changes; eyelash growth',
+ se:'Permanent brown iris pigmentation (hazel/green/blue-brown eyes); ↑ eyelash growth/thickness; conjunctival hyperemia; stinging; foreign body sensation',
+ nurs:'Evening dose for max effect. Warn: PERMANENT eye color change and ↑ lash growth are expected — NOT toxicity. Avoid thimerosal products concurrently. Apply nasolacrimal occlusion.',
+ ant:'N/A'},
+{id:'timolol',name:'Timolol',gen:'Timoptic',cls:'Beta-Adrenergic Blocker',tag:'betablocker',
+ moa:'Non-selective beta-1 and beta-2 blocker — decreases aqueous humor production by ciliary body',
+ ind:'Open-angle glaucoma; ocular hypertension (alone or combined with miotics)',
+ contra:'Asthma; COPD; bronchospasm; 2nd/3rd degree heart block; decompensated HF; cardiogenic shock; sinus bradycardia',
+ dose:'1 drop of 0.25–0.5% solution BID in affected eye(s)',
+ mon:'IOP; heart rate; BP; respiratory status; signs of HF',
+ se:'Bradycardia; hypotension; bronchospasm; blurred vision; burning/stinging; blepharitis; keratitis; ↓ corneal sensitivity; depression',
+ nurs:'CRITICAL: Apply nasolacrimal (inner canthus) pressure to prevent systemic absorption. Check HR and BP before giving. HOLD if HR <60 or respiratory distress. CI in asthma/COPD.',
+ ant:'Glucagon IV; atropine for bradycardia'},
+{id:'mannitol',name:'Mannitol',gen:'Osmitrol',cls:'Osmotic Diuretic',tag:'osmotic',
+ moa:'Hyperosmotic agent → osmotic gradient pulls H₂O from vitreous/aqueous humor into bloodstream → reduces IOP and ICP',
+ ind:'Acute angle-closure glaucoma emergency; ↓ ICP; cerebral edema; pre/post-op IOP reduction',
+ contra:'Anuria; acute pulmonary edema; cardiac decompensation; severe dehydration; active intracranial bleeding',
+ dose:'1–2 g/kg IV over 30–60 minutes; assess LOC every hour',
+ mon:'IOP; urine output (foley usually placed); electrolytes; serum osmolality; I&O; HR; BP; signs of HF/pulmonary edema — edema begins 30–60 min after administration',
+ se:'N/V/H; fluid/electrolyte imbalances (hyponatremia, hypokalemia); rebound IOP ↑; phlebitis at IV site; pulmonary edema if fluid overloaded; HEART FAILURE',
+ nurs:'CLOSED-ANGLE EMERGENCY drug. Use glycerin first; mannitol if unsuccessful. IV administration — filter line (crystals may form). Foley catheter usually inserted. Monitor crackles/dyspnea/↑BP for fluid overload. Assess LOC hourly.',
+ ant:'Supportive care; stop infusion if fluid overload/HF develops'},
+{id:'brimonidine',name:'Brimonidine',gen:'Alphagan P',cls:'Alpha-2 Adrenergic Agonist',tag:'alphaagonist',
+ moa:'Selective alpha-2 agonist → ↓ aqueous humor production AND ↑ uveoscleral outflow → lowers IOP',
+ ind:'Open-angle glaucoma; ocular hypertension (monotherapy or adjunct)',
+ contra:'Concurrent MAOI therapy; neonates/infants (CNS depression risk)',
+ dose:'1 drop TID in affected eye(s), approximately 8 hours apart',
+ mon:'IOP; BP; HR; drowsiness; dry mouth (signs of systemic absorption)',
+ se:'Conjunctival hyperemia; burning/stinging; dry mouth; headache; drowsiness; allergic conjunctivitis; foreign body sensation',
+ nurs:'Apply nasolacrimal occlusion after instillation. Monitor CNS effects especially in elderly. Avoid with MAOIs — hypertensive crisis risk. NOT for infants/neonates.',
+ ant:'N/A'},
+{id:'dorzolamide',name:'Dorzolamide',gen:'Trusopt',cls:'Carbonic Anhydrase Inhibitor',tag:'cai',
+ moa:'Inhibits carbonic anhydrase enzyme → ↓ aqueous humor formation → reduces IOP',
+ ind:'Open-angle and angle-closure glaucoma; ocular hypertension; pre-op IOP reduction',
+ contra:'Sulfonamide (sulfa) allergy — cross-sensitivity risk; severe renal impairment',
+ dose:'1 drop TID in affected eye(s)',
+ mon:'IOP; signs of sulfa hypersensitivity; electrolytes',
+ se:'Burning/stinging; blurred vision; bitter taste; conjunctival hyperemia; sulfa cross-reaction possible',
+ nurs:'ALERT: Sulfonamide-related — ALWAYS check sulfa allergy history! Bitter taste is expected — reassure patient. Monitor for hypersensitivity reaction signs.',
+ ant:'Discontinue immediately if allergic reaction; supportive care'},
+{id:'acetazolamide',name:'Acetazolamide',gen:'Diamox',cls:'Oral Carbonic Anhydrase Inhibitor',tag:'cai',
+ moa:'Systemic CAI — inhibits carbonic anhydrase → reduces aqueous humor production → lowers IOP',
+ ind:'Chronic open-angle glaucoma (to decrease pressure inside the eye); edema; altitude sickness',
+ contra:'Sulfonamide (sulfa) allergy — CONTRAINDICATED; severe hepatic/renal disease; adrenal failure',
+ dose:'250–500 mg PO BID–QID (varies); extended-release 500 mg BID',
+ mon:'IOP; electrolytes (metabolic acidosis risk); renal function; CBC',
+ se:'Paresthesia (facial regions — report to HCP immediately); N/V; polyuria; taste disturbance; renal stones; metabolic acidosis',
+ nurs:'CI with sulfa allergy. KAPLAN: acetazolamide = contraindicated for sulfa allergy. ATI: report paresthesia (facial regions) to HCP immediately. Encourage fluid intake.',
+ ant:'N/A'},
+{id:'ciprodex',name:'Ciprofloxacin Otic',gen:'Ciprodex (with Dexamethasone)',cls:'Fluoroquinolone — Otic',tag:'otic',
+ moa:'Inhibits bacterial DNA gyrase and topoisomerase IV → bactericidal against susceptible gram-positive and gram-negative organisms',
+ ind:'Acute otitis media (with tubes); otitis externa; S. aureus, E. coli infections',
+ contra:'Viral ear infections; known fluoroquinolone hypersensitivity',
+ dose:'4 drops in affected ear BID × 7 days; warm to body temp before instillation',
+ mon:'Treatment response (↓ pain/redness/drainage); hearing status; signs of superinfection',
+ se:'Local irritation; pruritus; pain at instillation; rarely systemic absorption effects',
+ nurs:'SAFE with perforated TM (unlike Cortisporin). Warm to room temperature — cold drops cause vestibular reaction. Adults: pinna UP and OUT. Children: pinna DOWN and BACK. Gentle tragus massage after.',
+ ant:'N/A'},
+{id:'bortezomib',name:'Bortezomib',gen:'Velcade',cls:'Proteasome Inhibitor — Targeted Therapy',tag:'targeted',
+ moa:'Inhibits proteasome enzyme complexes in cancer cells → prevents breakdown of proteins controlling cell division → cancer cell apoptosis',
+ ind:'Multiple myeloma; some lymphomas (after other treatments); mantle cell lymphoma',
+ contra:'Hypersensitivity to bortezomib, boron, mannitol; intrathecal administration',
+ dose:'1.3 mg/m² IV or SQ on days 1, 4, 8, 11 of 21-day cycle',
+ mon:'CBC (blood counts); peripheral neuropathy assessment; liver function; renal function; BP',
+ se:'Low blood counts; nausea; loss of appetite; peripheral neuropathy (dose-limiting); fatigue; constipation; diarrhea; fever; herpes zoster reactivation',
+ nurs:'Monitor for peripheral neuropathy (numbness/tingling) — dose-limiting toxicity. Assess blood counts before each dose. Infection precautions (neutropenia). Antiviral prophylaxis for shingles.',
+ ant:'No specific antidote; supportive care for complications'},
+{id:'belinostat',name:'Belinostat',gen:'Beleodaq',cls:'HDAC Inhibitor — Targeted Therapy',tag:'targeted',
+ moa:'Histone deacetylase (HDAC) inhibitor → affects gene activity in cancer cells by blocking histones → alters chromosome interaction → promotes cancer cell death',
+ ind:'Relapsed/refractory peripheral T-cell lymphoma (after ≥1 prior treatment)',
+ contra:'Severe hepatic impairment; active uncontrolled infection',
+ dose:'1000 mg/m² IV infusion daily × 5 days, repeated every 21 days',
+ mon:'CBC (anemia common); liver function tests; renal function; electrolytes',
+ se:'Nausea; vomiting; tiredness; anemia (↓RBC); pyrexia; infusion reactions; hepatotoxicity',
+ nurs:'Administer as IV infusion daily × 5 consecutive days. Monitor CBC and LFTs. Antiemetics before infusion. Infection precautions. Assess for infusion reactions during administration.',
+ ant:'No specific antidote; supportive care'}
+];
+
+const QV_DATA=[
+ {id:'qv1',color:'#8b1a1a',title:'Glaucoma',facts:['↑ IOP → optic nerve damage → irreversible vision loss; normal IOP 10–21 mmHg','Open-angle: gradual, painless tunnel vision — closed-angle: EMERGENCY sudden extreme pain','Avoid anticholinergics (atropine, ipratropium, diphenhydramine) — ↑ IOP','Post-op: no coughing, bending, lifting, Valsalva; CONSTIPATION = priority','Timolol: inner canthus pressure required to prevent systemic bradycardia/bronchospasm']},
+ {id:'qv2',color:'#1a5c2a',title:'Cataracts',facts:['Cloudy lens (SUNDABS: Sun, Uncontrolled DM, Nicotine, Drinking, Aging, Blood glucose, Sun hat)','Gradual painless blur, halos, white/grey pupil, ABSENT red reflex on ophthalmoscope','Surgery (phacoemulsification + IOL) = ONLY cure; drops manage post-op inflammation','Complications: retinal detachment (pain/flashes/floaters) + endophthalmitis (purulent DC)','Post-op: no rubbing, no heavy lifting, no swimming; report sudden pain/vision loss/flashes']},
+ {id:'qv3',color:'#1a2a5c',title:'Ménière\'s Disease',facts:['Fluid in ear (endolymphatic hydrops) — episodic, unilateral attacks','Classic triad: Tinnitus + Unilateral hearing loss + Vertigo + vomiting + ear fullness','FALL PRECAUTIONS = #1 nursing priority (vertigo = fall risk)','Management: sodium restriction + avoid caffeine/alcohol/smoking','During attack: have patient sit/lie immediately; call for help before ambulating']},
+ {id:'qv4',color:'#5c3a1a',title:'Eye/Ear Administration',facts:['Eye drops: conjunctival sac → rotate eyes → inner canthus pressure → wait 5 min between drops','Inner canthus pressure = closes nasolacrimal duct → prevents systemic absorption','Ear drops: affected ear UP, adults pinna UP & OUT, children DOWN & BACK, ROOM TEMP','Cold ear drops → vestibular reaction (vomiting, dizziness) — always warm first','Perforated TM: Cortisporin CONTRAINDICATED; Ciprodex/ofloxacin SAFE']},
+ {id:'qv5',color:'#4a1a5c',title:'Lymphoma',facts:['Hodgkin\'s = Reed-Sternberg cells (HESI: main diagnostic feature); Non-Hodgkin\'s = no RS cells','Classic symptoms: painless lymphadenopathy + fever + weight loss + NIGHT SWEATS','HESI: increased risk complication = INFECTION (neutropenia from disease and treatment)','Epstein-Barr virus cause in 50% of Hodgkin\'s cases','Treatment: chemotherapy (ABVD/CHOP) + radiation + targeted therapy + stem cell transplant']},
+ {id:'qv6',color:'#8b1a1a',title:'Chemotherapy Complications',facts:['Pancytopenia = anemia (↓RBC) + neutropenia (↓WBC) + thrombocytopenia (↓platelets)','Neutropenia = INFECTION RISK #1 priority; implement neutropenic precautions','Hair loss (alopecia) — temporary; may return different color/texture','Mucositis = mouth sores from GI mucosal cell destruction','Hypercalcemia from bone involvement; constipation from opioids/decreased mobility']},
+ {id:'qv7',color:'#1a5c2a',title:'Pancreatic Cancer',facts:['Vague symptoms until advanced: jaundice, weight loss, greasy stools, elevated glucose','CA 19-9 = tumor marker for pancreatic cancer','Whipple procedure (pancreaticoduodenectomy): removes head of pancreas + part of SI + gallbladder + bile duct','Complications: hypercalcemia, pancytopenia, pleural effusion, respiratory failure','Most patients diagnosed at advanced stage — poor prognosis']},
+ {id:'qv8',color:'#1a2a5c',title:'Cancer Basics',facts:['Benign = -oma; Malignant = -carcinoma or -sarcoma','Hyperplasia (↑ normal cells) → Dysplasia (abnormal, precancer) → Neoplasia (abnormal growth)','TNM staging: T=tumor size, N=node involvement, M=metastasis','Palliative = improve symptoms/QOL; Curative = eliminate cancer (both use same treatments)','Biopsy = definitive cancer diagnosis; no single test diagnoses cancer']}
+];
+// ============================================================
+// QUESTION BANK DATA
+// ============================================================
+const BANK_QS=[
+{stem:'A patient with Hodgkin\'s lymphoma asks the nurse what the "main diagnostic feature" of their disease is. The nurse correctly responds:',scenario:'',options:['A. Elevated CA 19-9 tumor marker','B. Reed-Sternberg cells identified on biopsy','C. Absence of lymph node involvement','D. Elevated ESR only'],correct:1,fmt:'mcq',adpie:'Implementation',system:'Hematologic',topic:'lymphoma',hy:true,
+ rationale:{correct:'Reed-Sternberg cells are the hallmark diagnostic feature of Hodgkin\'s lymphoma, identified on lymph node biopsy. This is a classic HESI question.',explanations:{A:'CA 19-9 is a tumor marker for pancreatic cancer.',B:'CORRECT. Reed-Sternberg cells on biopsy = Hodgkin\'s lymphoma hallmark.',C:'Lymph node involvement is actually present (painless lymphadenopathy).',D:'Elevated ESR is present but not the main diagnostic feature.'}}},
+{stem:'A nurse is caring for a patient with Hodgkin\'s lymphoma receiving chemotherapy. Which complication is the patient at HIGHEST risk for?',scenario:'',options:['A. Hyperkalemia','B. Infection','C. Hypertension','D. Pulmonary fibrosis'],correct:1,fmt:'mcq',adpie:'Assessment',system:'Hematologic',topic:'lymphoma',hy:true,
+ rationale:{correct:'Chemotherapy causes neutropenia (↓WBC), dramatically increasing infection risk. This is the #1 priority complication in lymphoma patients receiving treatment.',explanations:{A:'Hypercalcemia (not hyperkalemia) is a complication of cancer, but infection is priority.',B:'CORRECT. Neutropenia from chemotherapy = INFECTION = #1 complication risk.',C:'Hypotension is more common than hypertension with chemotherapy.',D:'Pulmonary fibrosis is a long-term risk with certain chemotherapy agents but not the highest risk.'}}},
+{stem:'A patient is diagnosed with closed-angle glaucoma and is experiencing sudden, severe eye pain with nausea and vomiting. The nurse\'s PRIORITY action is:',scenario:'',options:['A. Administer diphenhydramine (Benadryl) for nausea','B. Apply a warm compress to the eye','C. Notify the provider immediately — this is an emergency','D. Instruct the patient to lie flat to reduce IOP'],correct:2,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'eyes',hy:true,
+ rationale:{correct:'Acute angle-closure glaucoma is a medical EMERGENCY (LIFE & LIMB priority). Sudden severe eye pain + N/V = immediate HCP notification required.',explanations:{A:'Diphenhydramine is an ANTICHOLINERGIC — CONTRAINDICATED in glaucoma as it worsens IOP.',B:'Warm compresses are not the priority intervention for acute angle-closure.',C:'CORRECT. Closed-angle glaucoma = EMERGENCY. Notify provider immediately.',D:'Position does not address the emergency; immediate medical intervention is required.'}}},
+{stem:'A patient with glaucoma is prescribed timolol (Timoptic) eye drops. Which finding should cause the nurse to HOLD the medication and notify the provider?',scenario:'',options:['A. IOP of 18 mmHg on last measurement','B. Blood pressure of 126/78 mmHg','C. Heart rate of 52 BPM with shortness of breath','D. Mild eye stinging after previous doses'],correct:2,fmt:'mcq',adpie:'Assessment',system:'Sensory',topic:'eyes',hy:true,
+ rationale:{correct:'Timolol is a non-selective beta-blocker that can cause systemic bradycardia and bronchospasm if systemically absorbed. HR 52 + dyspnea = HOLD and notify provider.',explanations:{A:'IOP 18 mmHg is within normal range (10-21). No concern.',B:'BP 126/78 is normal. No concern.',C:'CORRECT. Bradycardia (HR 52) + respiratory symptoms = systemic beta-blockade. HOLD medication.',D:'Mild local stinging is an expected, common side effect. Continue medication.'}}},
+{stem:'The nurse is administering ear drops to an adult patient with otitis externa. Which action is INCORRECT?',scenario:'',options:['A. Pulling the pinna up and out to straighten the canal','B. Storing the drops in the refrigerator and instilling them cold','C. Gently massaging the tragus after instillation','D. Positioning the affected ear upward'],correct:1,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'ears',hy:true,
+ rationale:{correct:'Cold ear drops cause vestibular reactions (dizziness, vomiting). Drops MUST be warmed to room temperature before instillation.',explanations:{A:'Pulling pinna up and out is CORRECT technique for adults (down and back for children).',B:'INCORRECT ACTION. Cold drops = vestibular reaction. Always warm to room temperature first.',C:'Gentle tragus massage after instillation spreads medication — this is CORRECT.',D:'Affected ear UP is the correct positioning — this is CORRECT.'}}},
+{stem:'A patient is prescribed dorzolamide (Trusopt) eye drops for glaucoma. Which allergy is MOST important to assess before administering?',scenario:'',options:['A. Penicillin allergy','B. Latex allergy','C. Sulfonamide (sulfa) allergy','D. Iodine/shellfish allergy'],correct:2,fmt:'mcq',adpie:'Assessment',system:'Sensory',topic:'eyes',hy:true,
+ rationale:{correct:'Dorzolamide is a carbonic anhydrase inhibitor (CAI) that is chemically related to sulfonamides. Sulfa allergy = cross-sensitivity reaction risk. Also applies to acetazolamide.',explanations:{A:'Penicillin allergy has no cross-reactivity with dorzolamide.',B:'Latex allergy is unrelated to ophthalmic CAI drops.',C:'CORRECT. Dorzolamide is sulfonamide-related → sulfa allergy = contraindication.',D:'Shellfish/iodine allergy is not relevant to this medication.'}}},
+{stem:'A nurse is assessing a patient with Ménière\'s disease during an acute attack of vertigo. Which nursing intervention is the PRIORITY?',scenario:'The patient suddenly reports the room is "spinning" and reaches for the bedside rail.',options:['A. Instruct the patient to increase sodium intake to reduce ear pressure','B. Ensure the patient is seated or lying down immediately to prevent falls','C. Administer a stimulant beverage to counter the drowsiness','D. Encourage the patient to walk slowly to the bathroom for privacy'],correct:1,fmt:'scenario',adpie:'Implementation',system:'Sensory',topic:'ears',hy:true,
+ rationale:{correct:'Fall prevention is the #1 nursing priority during a Ménière\'s attack. The patient should be immediately assisted to sit or lie down to prevent injury from vertigo.',explanations:{A:'INCORRECT. Sodium RESTRICTION is recommended — sodium increases endolymphatic fluid pressure.',B:'CORRECT. Falls = #1 priority. Sit or lie down immediately during vertigo attack.',C:'Stimulants (caffeine) are contraindicated in Ménière\'s disease.',D:'Encouraging ambulation during a vertigo attack is dangerous and increases fall risk.'}}},
+{stem:'Which of the following are correct signs and symptoms of Hodgkin\'s lymphoma? SELECT ALL THAT APPLY.',scenario:'',options:['A. Enlarged, PAINFUL lymph nodes in the axilla','B. Night sweats requiring sheet changes','C. Unexplained fever without chills','D. Unexplained weight loss','E. Severe chest pain radiating to the jaw'],correct:0,fmt:'sata',sataCorrIdx:[1,2,3],adpie:'Assessment',system:'Hematologic',topic:'lymphoma',hy:true,
+ rationale:{correct:'Hodgkin\'s classic symptoms (Saunders): fever + weight loss + night sweats + PAINLESS (not painful) lymph node enlargement. These are the B symptoms of lymphoma.',explanations:{A:'INCORRECT. Lymph nodes in Hodgkin\'s are PAINLESS (enlarged but not tender).',B:'CORRECT. Night sweats are a classic B symptom of Hodgkin\'s lymphoma.',C:'CORRECT. Fever (without chills) is a classic B symptom.',D:'CORRECT. Unexplained weight loss is a classic B symptom.',E:'INCORRECT. Chest pain radiating to jaw suggests cardiac issue, not lymphoma.'}}},
+{stem:'A patient with cataracts asks the nurse about treatment options. Which statement by the nurse is MOST accurate?',scenario:'',options:['A. "Prescription eyeglasses will permanently correct your cataracts."','B. "Laser surgery can dissolve the cloudy lens protein."','C. "Surgery to remove and replace the lens is the only cure for cataracts."','D. "Your cataracts will clear on their own with vitamin supplements."'],correct:2,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'eyes',hy:false,
+ rationale:{correct:'Surgery (phacoemulsification with IOL implant) is the ONLY cure for cataracts. Non-surgical measures only help symptoms. Glasses, magnifiers, better lighting only manage symptoms.',explanations:{A:'Glasses manage symptoms but do NOT treat the underlying clouded lens.',B:'Phacoemulsification uses ultrasound waves (not laser) to remove the lens.',C:'CORRECT. Surgery = ONLY cure. Phacoemulsification removes the lens and replaces it with an IOL.',D:'Cataracts do NOT resolve on their own; no supplement reverses lens protein clumping.'}}},
+{stem:'A patient is receiving IV mannitol for acute angle-closure glaucoma. Which assessment finding requires IMMEDIATE provider notification?',scenario:'The patient\'s vital signs 45 minutes after starting the infusion show HR 94, BP 158/92, RR 24.',options:['A. Urine output of 180 mL in the past hour','B. Bilateral lung crackles with SpO2 of 89%','C. Mild headache and nausea','D. Serum sodium of 140 mEq/L'],correct:1,fmt:'scenario',adpie:'Evaluation',system:'Sensory',topic:'eyes',hy:true,
+ rationale:{correct:'Mannitol can cause fluid overload and pulmonary edema. Crackles + SpO2 89% + elevated BP and RR = signs of pulmonary edema/heart failure — IMMEDIATE notification. Edema begins 30-60 min after administration.',explanations:{A:'High UO (180 mL/hr) is expected — mannitol is an osmotic diuretic; this is therapeutic.',B:'CORRECT. Crackles + SpO2 89% = pulmonary edema. Monitor for HF — notify immediately.',C:'Headache and nausea are common side effects of mannitol — uncomfortable but not emergency.',D:'Na 140 is normal — no concern.'}}},
+{stem:'The nurse is educating a patient newly diagnosed with glaucoma about medication compliance. Which statement indicates the patient needs more teaching?',scenario:'',options:['A. "I will apply pressure to the corner of my eye after using the drops."','B. "I will wait at least 5 minutes between using different eye drops."','C. "I can stop my eye drops once my vision feels normal."','D. "I should avoid taking antihistamines like Benadryl."'],correct:2,fmt:'mcq',adpie:'Evaluation',system:'Sensory',topic:'eyes',hy:false,
+ rationale:{correct:'Glaucoma requires LIFELONG medication compliance. Eye drops must be continued even when vision feels normal — stopping causes IOP to rise again and permanent damage may occur.',explanations:{A:'Inner canthus pressure after drops is CORRECT technique — prevents systemic absorption.',B:'Waiting 5 minutes between drops is CORRECT — prevents dilution and interaction.',C:'INCORRECT STATEMENT. Patients must NEVER stop drops when vision improves — lifelong compliance required.',D:'Avoiding diphenhydramine (Benadryl) is CORRECT — anticholinergic effects worsen glaucoma.'}}},
+{stem:'A nurse is reviewing discharge instructions for a patient who had cataract surgery. Which instruction is MOST important to include?',scenario:'',options:['A. "Resume swimming and water sports after 3 days."','B. "Your prescribed eye drops are optional if your eye feels comfortable."','C. "Report sudden severe eye pain, vision loss, or flashes of light immediately."','D. "You may drive as soon as the eye patch is removed."'],correct:2,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'eyes',hy:true,
+ rationale:{correct:'Sudden eye pain, vision loss, or light flashes post-cataract surgery indicate possible retinal detachment or endophthalmitis — serious complications requiring immediate evaluation.',explanations:{A:'Swimming is restricted for several weeks post-op — infection risk is high.',B:'Post-op eye drops (steroids, antibiotics, NSAIDs) are NOT optional — essential for healing.',C:'CORRECT. Sudden pain/vision loss/flashes = emergency complications. Report immediately.',D:'Driving is restricted until the provider clears the patient — not just when patch is removed.'}}},
+{stem:'Which of the following instructions should the nurse include when teaching a patient about chemotherapy side effects? SELECT ALL THAT APPLY.',scenario:'A patient is beginning their first cycle of chemotherapy for lymphoma.',options:['A. Hair loss is permanent and will not grow back after treatment','B. Report any fever, chills, or signs of infection to the provider immediately','C. Mouth sores may develop — use gentle oral hygiene and soft foods','D. Increased appetite is expected during chemotherapy treatment','E. Fatigue is expected and you should pace your activities'],correct:0,fmt:'sata',sataCorrIdx:[1,2,4],adpie:'Implementation',system:'Hematologic',topic:'cancer',hy:true,
+ rationale:{correct:'Correct teaching: report infection signs (neutropenia risk) (B); oral care for mucositis (C); pace activities for fatigue (E). Hair loss is temporary. Decreased (not increased) appetite is typical.',explanations:{A:'INCORRECT. Hair loss (alopecia) is usually TEMPORARY — may return different texture/color.',B:'CORRECT. Fever/infection = neutropenic emergency — report immediately.',C:'CORRECT. Mucositis (mouth sores) expected; gentle oral care and soft foods.',D:'INCORRECT. Decreased appetite (not increased) is a common chemotherapy side effect.',E:'CORRECT. Fatigue is expected; energy conservation and pacing are important.'}}},
+{stem:'A patient has a perforated tympanic membrane and is prescribed ear drops for an ear infection. Which product is SAFE to use?',scenario:'',options:['A. Cortisporin (hydrocortisone, neomycin, polymyxin B)','B. Ciprofloxacin/dexamethasone (Ciprodex)','C. Carbamide peroxide (Debrox)','D. Any otic preparation is safe with a perforated tympanic membrane'],correct:1,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'ears',hy:true,
+ rationale:{correct:'Fluoroquinolone otic preparations (ciprofloxacin, ofloxacin) are SAFE with a perforated TM. Cortisporin (neomycin/polymyxin B) and carbamide peroxide are CONTRAINDICATED.',explanations:{A:'Cortisporin is CONTRAINDICATED with perforated TM — neomycin and polymyxin B ototoxicity risk.',B:'CORRECT. Ciprodex (ciprofloxacin + dexamethasone) is SAFE with perforated TM.',C:'Carbamide peroxide is CONTRAINDICATED with perforated TM.',D:'INCORRECT. Not all otic preparations are safe — neomycin/polymyxin B are specifically contraindicated.'}}},
+{stem:'The nurse is reviewing a patient\'s medication list and notes that they take oxybutynin for urinary incontinence and have newly diagnosed glaucoma. The nurse\'s priority action is:',scenario:'',options:['A. Administer oxybutynin as prescribed — it does not affect eye pressure','B. Encourage the patient to use oxybutynin only at bedtime','C. Contact the provider to discuss the safety of oxybutynin in this patient with glaucoma','D. Instruct the patient to use additional eye drops to compensate'],correct:2,fmt:'scenario',adpie:'Implementation',system:'Sensory',topic:'eyes',hy:false,
+ rationale:{correct:'Oxybutynin is an anticholinergic medication that is CONTRAINDICATED in glaucoma because anticholinergics dry out the body and increase IOP.',explanations:{A:'INCORRECT. Oxybutynin is anticholinergic — it INCREASES IOP in glaucoma patients.',B:'Timing does not eliminate the anticholinergic risk of increased IOP.',C:'CORRECT. Oxybutynin is an anticholinergic = CONTRAINDICATED in glaucoma. Contact provider.',D:'Additional eye drops cannot compensate for the IOP-raising effect of an anticholinergic.'}}},
+{stem:'The nurse is providing teaching to a patient diagnosed with Ménière\'s disease. Which dietary instruction is MOST important?',scenario:'',options:['A. Increase protein intake to 120g per day','B. Follow a low-sodium diet to reduce endolymphatic fluid buildup','C. Increase caffeine intake to improve inner ear circulation','D. Follow a high-fat diet to provide energy for the vestibular system'],correct:1,fmt:'mcq',adpie:'Implementation',system:'Sensory',topic:'ears',hy:false,
+ rationale:{correct:'Sodium restriction is the cornerstone of Ménière\'s dietary management. Sodium causes fluid retention in the endolymphatic system, worsening symptoms.',explanations:{A:'Protein intake modification is not a standard Ménière\'s management strategy.',B:'CORRECT. Low-sodium diet reduces endolymphatic fluid buildup — key Ménière\'s management.',C:'Caffeine is CONTRAINDICATED in Ménière\'s — aggravates symptoms.',D:'High-fat diet is not recommended and may worsen cardiovascular risk factors.'}}},
+{stem:'Which signs and symptoms would the nurse expect to find in a patient with pancreatic cancer? SELECT ALL THAT APPLY.',scenario:'A 62-year-old male presents with a 3-month history of vague abdominal complaints.',options:['A. Jaundice with dark urine','B. Unexplained significant weight loss','C. Greasy, light-colored stools (steatorrhea)','D. Elevated blood glucose levels','E. Acute chest pain radiating to the left arm'],correct:0,fmt:'sata',sataCorrIdx:[0,1,2,3],adpie:'Assessment',system:'GI',topic:'pancreatic',hy:false,
+ rationale:{correct:'Pancreatic cancer symptoms: jaundice + dark urine (bile duct obstruction), weight loss, steatorrhea (fat malabsorption), and elevated glucose (pancreatic insufficiency) are all classic.',explanations:{A:'CORRECT. Jaundice + dark urine = bile duct obstruction from tumor — classic pancreatic cancer.',B:'CORRECT. Unexplained drastic weight loss is a cardinal symptom of pancreatic cancer.',C:'CORRECT. Greasy/light stools = steatorrhea from impaired fat digestion (lipase deficiency).',D:'CORRECT. Elevated glucose = pancreatic endocrine insufficiency affecting insulin production.',E:'INCORRECT. Chest pain radiating to left arm suggests cardiac origin, not pancreatic cancer.'}}}
+];
+// ============================================================
+// SRS + FLAGS + CORE UI
+// ============================================================
+const SRS_IV=[1,3,7,14,30];
+var _selTxt='';var _loadInt=null;
+function getSRS(id){var d=JSON.parse(localStorage.getItem('srs_data')||'{}');return d[id]||{level:0,nextReview:Date.now()}}
+function setSRS(id,lvl){var d=JSON.parse(localStorage.getItem('srs_data')||'{}');var l=Math.max(0,Math.min(4,lvl));d[id]={level:l,nextReview:Date.now()+SRS_IV[l]*86400000};localStorage.setItem('srs_data',JSON.stringify(d))}
+function srsStatus(id){var s=getSRS(id);var n=Date.now();if(s.nextReview<=n)return'due';if(s.nextReview<=n+3*86400000)return'soon';return'ok'}
+function srsLbl(id){var s=srsStatus(id);return s==='due'?'<span class="sb sd">📅 Due</span>':s==='soon'?'<span class="sb ss">⏰ Soon</span>':'<span class="sb sk">✓ OK</span>'}
+function updateSRS(){document.querySelectorAll('[data-card-id]').forEach(function(c){var id=c.dataset.cardId;var el=document.getElementById('srs-'+id);if(el)el.outerHTML=srsLbl(id)})}
+function countDue(){var d=JSON.parse(localStorage.getItem('srs_data')||'{}');return Object.values(d).filter(function(v){return v.nextReview<=Date.now()}).length}
+function updateDueCt(){var c=countDue();var el=document.getElementById('duect');if(c>0){el.textContent=c+' due';el.style.display=''}else{el.style.display='none'}}
+function getFlagged(){return JSON.parse(localStorage.getItem('flaggedCards')||'[]')}
+function toggleFlag(e,id){e.stopPropagation();var fl=getFlagged();var btn=e.target;var card=document.querySelector('[data-card-id="'+id+'"]');var idx=fl.indexOf(id);if(idx>-1){fl.splice(idx,1);btn.classList.remove('on');if(card)card.classList.remove('flagged')}else{fl.push(id);btn.classList.add('on');if(card)card.classList.add('flagged')}localStorage.setItem('flaggedCards',JSON.stringify(fl))}
+function initFlags(){getFlagged().forEach(function(id){var c=document.querySelector('[data-card-id="'+id+'"]');if(c){c.classList.add('flagged');var b=c.querySelector('.fbtn');if(b)b.classList.add('on')}})}
+function toggleCard(hdr){var cb=hdr.nextElementSibling;var cf=cb.nextElementSibling;cb.classList.toggle('on');if(cf)cf.classList.toggle('on')}
+function toggleMM(id){document.getElementById(id).classList.toggle('on')}
+function toggleBranch(h){h.nextElementSibling.classList.toggle('on')}
+function toggleDark(){document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'')}
+// MASTERY
+function updateMastery(pct){if(pct!==undefined)localStorage.setItem('global_mastery',pct);else pct=parseInt(localStorage.getItem('global_mastery')||'0');document.getElementById('mlab').textContent=pct+'%';document.getElementById('mf').style.width=pct+'%'}
+// SHOW TAB
+function showTab(id,btn){document.querySelectorAll('.tp').forEach(function(p){p.classList.remove('on')});document.querySelectorAll('.tbn').forEach(function(b){b.classList.remove('on')});document.getElementById('tab-'+id).classList.add('on');btn.classList.add('on');if(id==='dash')renderDash();if(id==='drugs')renderDrugs();if(id==='qv')renderQV()}
+// NAV
+function scrollNav(dir){var bar=document.getElementById('tb');bar.scrollLeft+=dir*200;updateNavArrows()}
+function updateNavArrows(){var bar=document.getElementById('tb');document.getElementById('navl').classList.toggle('dim',bar.scrollLeft<=0);document.getElementById('navr').classList.toggle('dim',bar.scrollLeft+bar.clientWidth>=bar.scrollWidth-2)}
+// SEARCH
+function doSearch(q){var drop=document.getElementById('sdrop');if(!q||q.length<2){drop.style.display='none';return}var res=[];document.querySelectorAll('.card').forEach(function(c){if(c.innerText.toLowerCase().includes(q.toLowerCase())){var t=c.querySelector('.ct');var p=c.closest('.tp');if(t&&p){res.push({tabId:p.id.replace('tab-',''),cardId:c.dataset.cardId,title:t.textContent.trim(),tabName:p.id.replace('tab-','').toUpperCase()})}}});if(!res.length){drop.innerHTML='<div class="sdi">No results</div>';drop.style.display='block';return}drop.innerHTML=res.slice(0,8).map(function(r){return '<div class="sdi" onclick="goCard(\''+r.tabId+'\',\''+r.cardId+'\')"><div class="sdt">'+r.tabName+'</div>'+r.title+'</div>'}).join('');drop.style.display='block'}
+function goCard(tabId,cardId){var btn=Array.from(document.querySelectorAll('.tbn')).find(function(b){return b.onclick&&b.onclick.toString().includes("'"+tabId+"'")});if(btn)showTab(tabId,btn);setTimeout(function(){var c=document.querySelector('[data-card-id="'+cardId+'"]');if(c){c.scrollIntoView({behavior:'smooth',block:'center'});c.style.outline='2px solid #c80';setTimeout(function(){c.style.outline=''},2200);var cb=c.querySelector('.cb');if(cb&&!cb.classList.contains('on')){var h=c.querySelector('.ch');if(h)toggleCard(h)}}},200);document.getElementById('sdrop').style.display='none'}
+document.addEventListener('click',function(e){if(!e.target.closest('.sw'))document.getElementById('sdrop').style.display='none'})
+// TOC
+function buildTOC(){var draw=document.getElementById('tocdraw');draw.innerHTML='';document.querySelectorAll('.tp').forEach(function(pane){var tabId=pane.id.replace('tab-','');var btn=Array.from(document.querySelectorAll('.tbn')).find(function(b){return b.onclick&&b.onclick.toString().includes("'"+tabId+"'")});if(!btn)return;var sec=document.createElement('div');sec.className='tocs';var st=document.createElement('div');st.className='tocst';st.textContent=btn.textContent;st.onclick=function(){showTab(tabId,btn);document.getElementById('tocdraw').classList.remove('on')};sec.appendChild(st);pane.querySelectorAll('.ct').forEach(function(ct){var card=ct.closest('.card');if(!card||!card.dataset.cardId)return;var item=document.createElement('div');item.className='toci';item.textContent=ct.textContent.trim();item.onclick=function(){showTab(tabId,btn);setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'center'})},200);document.getElementById('tocdraw').classList.remove('on')};sec.appendChild(item)});draw.appendChild(sec)})}
+function toggleTOC(){document.getElementById('tocdraw').classList.toggle('on')}
+// POPUP
+function openPop(title,loading){document.getElementById('pop-ttl').textContent=title;document.getElementById('pop-body').innerHTML='<div class="lmsg"><div class="spin"></div> '+loading+'</div>';document.getElementById('pop-ov').classList.add('on')}
+function closePop(){document.getElementById('pop-ov').classList.remove('on')}
+function closePopOv(e){if(e.target===document.getElementById('pop-ov'))closePop()}
+// API
+function getKey(){return localStorage.getItem('claude_api_key')||''}
+async function callAI(prompt,maxTok){var k=getKey();if(!k)throw new Error('No API key. Enter your Claude API key in the Quiz Me tab.');var resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTok||1000,messages:[{role:'user',content:prompt}]})});var data=await resp.json();if(resp.status===401)throw new Error('Invalid API key — check key and retry.');if(resp.status===429)throw new Error('Rate limited — please wait and retry.');if(resp.status>=500)throw new Error('Claude server error — please retry.');return(data.content||[]).map(function(c){return c.text||''}).join('')}
+async function callAIRetry(prompt,maxTok,retries){retries=retries===undefined?2:retries;for(var i=0;i<=retries;i++){try{return await callAI(prompt,maxTok)}catch(e){if(i<retries&&(e.message.includes('Rate')||e.message.includes('server'))){await new Promise(function(r){setTimeout(r,e.message.includes('Rate')?12000:3000)});continue}throw e}}}
+// AI SUMMARIZE
+async function aiSum(cardId,context){openPop('AI Summary','Generating exam-ready summary…');var k=getKey();if(!k){document.getElementById('pop-body').innerHTML='<div class="emsg">Enter your Claude API key in Quiz Me → AI Infinite to use AI features.</div>';return}try{var r=await callAI('You are a nursing exam expert. Topic: "'+context+'"\n\nGenerate exactly 3 bullet points starting with • for a nursing student. Be specific, clinical, NCLEX-focused. Under 120 words total.',800);document.getElementById('pop-body').innerHTML='<p style="font-weight:700;margin-bottom:8px">Exam-Ready Summary:</p>'+r.replace(/•/g,'<br>•').replace(/^\s*<br>/,'')}catch(e){document.getElementById('pop-body').innerHTML='<div class="emsg">'+e.message+'</div>'}}
+// EXPLAIN THIS
+document.addEventListener('mouseup',function(){setTimeout(function(){var sel=window.getSelection();var txt=sel?sel.toString().trim():'';if(txt.length>=5&&txt.length<=600){_selTxt=txt;var r2=sel.getRangeAt(0).getBoundingClientRect();var b=document.getElementById('exbtn');b.style.top=(r2.bottom+window.scrollY+6)+'px';b.style.left=Math.min(r2.left,window.innerWidth-160)+'px';b.style.display='block'}else{document.getElementById('exbtn').style.display='none'}},100)})
+async function doExplain(){document.getElementById('exbtn').style.display='none';if(!_selTxt)return;openPop('⚡ Explain This','Generating explanation…');var k=getKey();if(!k){document.getElementById('pop-body').innerHTML='<div class="emsg">Enter your Claude API key in Quiz Me → AI Infinite to use AI features.</div>';return}try{var r=await callAI('Explain this nursing/pharmacology concept in plain English for an NCLEX student. Clear, concise, clinically relevant. Under 150 words.\n\nConcept: "'+_selTxt+'"',600);document.getElementById('pop-body').innerHTML=r}catch(e){document.getElementById('pop-body').innerHTML='<div class="emsg">'+e.message+'</div>'}}
+// KEY PANELS
+function renderKeyPanel(id){var el=document.getElementById(id);if(!el)return;var k=getKey();if(k){el.innerHTML='<div class="kl">API KEY</div><div class="ksd">✓ Saved ('+k.substring(0,12)+'…) <button class="krm" onclick="removeKey(\''+id+'\')">Remove</button></div>'}else{el.innerHTML='<div class="kl">API KEY</div><div class="kr"><input class="ki" type="password" id="ki-'+id+'" placeholder="sk-ant-api03-…"><button class="ksv" onclick="saveKey(\''+id+'\')">Save</button></div><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;color:var(--mu);margin-top:4px">Required for AI features. Stored locally in your browser only.</div>'}}
+function saveKey(id){var inp=document.getElementById('ki-'+id);if(!inp)return;var k=inp.value.trim();if(!k.startsWith('sk-ant-')||k.length<20){inp.style.borderColor='#c22';return}localStorage.setItem('claude_api_key',k);renderAllKeys()}
+function removeKey(){localStorage.removeItem('claude_api_key');renderAllKeys()}
+function renderAllKeys(){['plan-key','case-key','ai-key'].forEach(function(id){renderKeyPanel(id)})}
+// QUIZ MODE SWITCH
+function switchQM(m){document.getElementById('bank-panel').style.display=m==='bank'?'':'none';document.getElementById('ai-panel').style.display=m==='ai'?'':'none';document.getElementById('qm-bank').classList.toggle('on',m==='bank');document.getElementById('qm-ai').classList.toggle('on',m==='ai');if(m==='ai')renderAllKeys()}
+function switchAIM(m){document.getElementById('ai-gen-panel').style.display=m==='gen'?'':'none';document.getElementById('ai-drill-panel').style.display=m==='drill'?'':'none';document.getElementById('aim-gen').classList.toggle('on',m==='gen');document.getElementById('aim-drill').classList.toggle('on',m==='drill')}
+// LOADING
+var LMSGS=['🧠 Crafting clinical scenarios…','📋 Writing NCLEX-style distractors…','⚕️ Checking clinical accuracy…','✨ Generating fresh questions…','🩺 Applying nursing judgment framework…'];
+function startLoadAnim(outId){var el=document.getElementById(outId);if(!el)return;var i=0;el.innerHTML='<div class="lmsg"><div class="spin"></div><span id="ai-lmsg">'+LMSGS[0]+'</span></div>';_loadInt=setInterval(function(){i=(i+1)%LMSGS.length;var lm=document.getElementById('ai-lmsg');if(lm)lm.textContent=LMSGS[i]},2200)}
+function stopLoadAnim(){if(_loadInt){clearInterval(_loadInt);_loadInt=null}}
+// ============================================================
+// DRUG CARDS + QUICK VIEW + DASHBOARD
+// ============================================================
+function renderDrugs(tag){if(!tag)tag='all';var bar=document.getElementById('dfbar');if(!bar.hasChildNodes()){var tags=['all','prostaglandin','betablocker','alphaagonist','cai','osmotic','otic','targeted'];var lbl={all:'All',prostaglandin:'Prostaglandins',betablocker:'Beta-Blockers',alphaagonist:'Alpha-Agonists',cai:'CAIs',osmotic:'Osmotics',otic:'Otic',targeted:'Targeted Therapy'};tags.forEach(function(t){var b=document.createElement('button');b.className='dfb'+(t==='all'?' on':'');b.textContent=lbl[t];b.onclick=function(){document.querySelectorAll('.dfb').forEach(function(x){x.classList.remove('on')});b.classList.add('on');renderDrugs(t)};bar.appendChild(b)})}
+var fl=getFlagged();var grid=document.getElementById('dgrid');grid.innerHTML='';DRUGS.filter(function(d){return tag==='all'||d.tag===tag}).forEach(function(d){var did='drug_'+d.id;var flagged=fl.indexOf(did)>-1;var html='<div class="di'+(flagged?' flagged':'')+'" id="di-'+d.id+'" data-card-id="'+did+'">'+
+'<div class="dfront" id="df-'+d.id+'"><button class="dfl'+(flagged?' on':'')+'" onclick="dFlag(event,\''+d.id+'\',\''+did+'\')">🚩</button>'+
+'<div class="dn">'+d.name+'</div><div class="dge">'+d.gen+'</div><div class="dcl">'+d.cls+'</div>'+
+'<div class="dmo">'+d.moa.substring(0,100)+(d.moa.length>100?'…':'')+'</div>'+
+'<div class="dtap" onclick="flipDrug(\''+d.id+'\')">Tap to see full details →</div></div>'+
+'<div class="dback" id="db-'+d.id+'" style="display:none"><button class="dfl'+(flagged?' on':'')+'" onclick="dFlag(event,\''+d.id+'\',\''+did+'\')">🚩</button>'+
+'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><strong style="font-family:\'Syne\',sans-serif;font-size:.93rem">'+d.name+'</strong><button onclick="flipDrug(\''+d.id+'\')" style="background:none;border:1px solid #555;color:#aaa;padding:2px 7px;border-radius:3px;cursor:pointer;font-size:.68rem">← Back</button></div>'+
+'<div class="dbl">📋 Indications</div><p>'+d.ind+'</p>'+
+'<div class="dbl">🚫 Contraindications</div><p class="contra">'+d.contra+'</p>'+
+'<div class="dbl">💊 Dose</div><p>'+d.dose+'</p>'+
+'<div class="dbl">🔬 Monitoring</div><p>'+d.mon+'</p>'+
+'<div class="dbl">⚠ Side Effects</div><p>'+d.se+'</p>'+
+'<div class="dbl">🩺 Nursing Points</div><p>'+d.nurs+'</p>'+
+'<div class="dbl">🔑 Antidote</div><p>'+d.ant+'</p></div></div>';grid.insertAdjacentHTML('beforeend',html)})}
+function flipDrug(id){var f=document.getElementById('df-'+id);var b=document.getElementById('db-'+id);if(!f||!b)return;var showing=b.style.display!=='none';f.style.display=showing?'':'none';b.style.display=showing?'none':''}
+function dFlag(e,drugId,did){e.stopPropagation();var fl=getFlagged();var idx=fl.indexOf(did);var di=document.getElementById('di-'+drugId);var btns=di?di.querySelectorAll('.dfl'):[];if(idx>-1){fl.splice(idx,1);btns.forEach(function(b){b.classList.remove('on')});if(di)di.classList.remove('flagged')}else{fl.push(did);btns.forEach(function(b){b.classList.add('on')});if(di)di.classList.add('flagged')}localStorage.setItem('flaggedCards',JSON.stringify(fl))}
+// QUICK VIEW
+function renderQV(filter){var fl=getFlagged();var grid=document.getElementById('qvgrid');if(!grid)return;grid.innerHTML='';var data=filter?QV_DATA.filter(function(q){var f=filter.toLowerCase();return q.title.toLowerCase().includes(f)||q.facts.some(function(x){return x.toLowerCase().includes(f)})}):QV_DATA;data.forEach(function(q){var flagged=fl.indexOf(q.id)>-1;var html='<div class="qvc'+(flagged?' flagged':'')+'" data-card-id="'+q.id+'" style="border-left-color:'+q.color+'">'+
+'<button class="qvfl'+(flagged?' on':'')+'" onclick="toggleFlag(event,\''+q.id+'\')">🚩</button>'+
+'<div class="qvt">'+q.title+'</div><ul class="qvf">'+q.facts.map(function(f2){return '<li>'+f2+'</li>'}).join('')+'</ul></div>';grid.insertAdjacentHTML('beforeend',html)})}
+function filterQV(q){renderQV(q)}
+// SAVE SESSION (uses namespaced key)
+function saveSess(data){var sess=JSON.parse(localStorage.getItem('oncosensory_quiz_sessions')||'[]');sess.push(Object.assign({date:new Date().toISOString()},data));localStorage.setItem('oncosensory_quiz_sessions',JSON.stringify(sess))}
+// DASHBOARD
+function renderDash(){var el=document.getElementById('dash-content');if(!el)return;var sessions=JSON.parse(localStorage.getItem('oncosensory_quiz_sessions')||'[]');var flagged=getFlagged().length;var due=countDue();var streak=calcStreak(sessions);var totalAcc=sessions.length?Math.round(sessions.reduce(function(s,x){return s+x.acc},0)/sessions.length):0;
+el.innerHTML='';
+if(due>0){var banner=document.createElement('div');banner.className='srsbanner';banner.innerHTML='<span class="srsbt">📅 '+due+' card'+(due!==1?'s':'')+' due for spaced repetition review</span>';var sb=document.createElement('button');sb.className='srss';sb.textContent='Start SRS Review →';sb.onclick=function(){var ai=Array.from(document.querySelectorAll('.tbn')).find(function(b){return b.onclick&&b.onclick.toString().includes("'quiz'")});if(ai){showTab('quiz',ai);switchQM('ai')}};banner.appendChild(sb);el.appendChild(banner)}
+var html='<div class="dss">'+
+'<div class="dsc"><div class="dsn">'+totalAcc+'%</div><div class="dsl">Overall Mastery</div></div>'+
+'<div class="dsc"><div class="dsn">'+streak+'🔥</div><div class="dsl">Day Streak</div></div>'+
+'<div class="dsc"><div class="dsn">'+due+'</div><div class="dsl">SRS Due</div></div>'+
+'<div class="dsc"><div class="dsn">'+flagged+'</div><div class="dsl">Flagged</div></div>'+
+'<div class="dsc"><div class="dsn">'+sessions.length+'</div><div class="dsl">Sessions</div></div>'+
+'</div>';
+var topics={};var adpie={};var systems={};
+sessions.forEach(function(s){Object.keys(s.topics||{}).forEach(function(t){if(!topics[t])topics[t]={c:0,t:0};topics[t].c+=s.topics[t].c||0;topics[t].t+=s.topics[t].t||0});Object.keys(s.adpie||{}).forEach(function(t){if(!adpie[t])adpie[t]={c:0,t:0};adpie[t].c+=s.adpie[t].c||0;adpie[t].t+=s.adpie[t].t||0});Object.keys(s.systems||{}).forEach(function(t){if(!systems[t])systems[t]={c:0,t:0};systems[t].c+=s.systems[t].c||0;systems[t].t+=s.systems[t].t||0})});
+function masBar(label,c,t){var p=t>0?Math.round(c/t*100):0;var col=p>=80?'#111':p>=60?'#666':'#ccc';return '<div class="mr"><div class="ml">'+label+'</div><div class="mt"><div class="mfi" style="width:'+p+'%;background:'+col+'"></div></div><div class="mp">'+p+'%</div></div>'}
+function masSection(title,data){if(!Object.keys(data).length)return'';var sorted=Object.keys(data).sort(function(a,b){var pa=data[a].t?data[a].c/data[a].t:0;var pb=data[b].t?data[b].c/data[b].t:0;return pa-pb});return'<div class="dse"><h3>'+title+'</h3>'+sorted.map(function(k){return masBar(k,data[k].c,data[k].t)}).join('')+'</div>'}
+html+=masSection('📚 Topic Mastery',topics);
+html+=masSection('🔄 ADPIE Phase Mastery',adpie);
+html+=masSection('🏥 Body System Mastery',systems);
+var recent=sessions.slice(-8).reverse();
+if(recent.length){html+='<div class="dse"><h3>📋 Recent Sessions</h3><table class="stbl"><thead><tr><th>Mode</th><th>Source</th><th>Date</th><th>Score</th><th>Acc</th><th>Diff</th></tr></thead><tbody>';recent.forEach(function(s){var icon=s.mode==='ai'?'✨':s.mode==='case'?'🏥':s.mode==='cont'?'∞':'📚';var diff='⭐'.repeat(s.difficulty||2);var dt=new Date(s.date).toLocaleDateString();html+='<tr><td>'+icon+'</td><td>'+s.source+'</td><td>'+dt+'</td><td>'+s.score+'/'+s.total+'</td><td>'+s.acc+'%</td><td>'+diff+'</td></tr>'});html+='</tbody></table></div>'}
+el.innerHTML+=html;
+var clrBtn=document.createElement('button');clrBtn.className='clrb';clrBtn.textContent='🗑 Clear History';clrBtn.onclick=function(){var conf=document.createElement('div');conf.style='display:flex;gap:7px;align-items:center;margin-top:10px';var yes=document.createElement('button');yes.className='clrb';yes.style.background='#c22';yes.textContent='Yes, Clear All';yes.onclick=function(){localStorage.removeItem('oncosensory_quiz_sessions');el.innerHTML='';renderDash()};var no=document.createElement('button');no.className='clrb';no.style.background='var(--t2)';no.textContent='Cancel';no.onclick=function(){conf.remove();el.appendChild(clrBtn)};conf.appendChild(yes);conf.appendChild(no);clrBtn.replaceWith(conf)};el.appendChild(clrBtn)}
+function calcStreak(sessions){var days=new Set(sessions.map(function(s){return new Date(s.date).toDateString()}));var streak=0;var d=new Date();while(days.has(d.toDateString())){streak++;d.setDate(d.getDate()-1)}return streak}
+// QUESTION BANK QUIZ
+function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+var bkState={qs:[],idx:0,score:0,topics:{},adpie:{},systems:{}};
+function startBank(){var topic=document.getElementById('bk-topic').value;var fmt=document.getElementById('bk-fmt').value;var cntVal=document.getElementById('bk-count').value;var hy=document.getElementById('bk-hy').checked;var flOnly=document.getElementById('bk-flag').checked;var fl=getFlagged();var qs=BANK_QS.filter(function(q){if(topic!=='all'&&q.topic!==topic)return false;if(fmt!=='all'&&q.fmt!==fmt)return false;if(hy&&!q.hy)return false;if(flOnly&&!fl.includes('bank_'+q.stem.substring(0,20)))return false;return true});if(!qs.length){document.getElementById('qout-bank').innerHTML='<div class="emsg">No questions match these filters.</div>';return}var n=cntVal==='all'?qs.length:Math.min(parseInt(cntVal),qs.length);bkState.qs=shuffle(qs).slice(0,n);bkState.idx=0;bkState.score=0;bkState.topics={};bkState.adpie={};bkState.systems={};renderBkQ()}
+function renderBkQ(){var el=document.getElementById('qout-bank');var q=bkState.qs[bkState.idx];var tot=bkState.qs.length;var pct=Math.round(bkState.idx/tot*100);el.innerHTML='<div class="qpr">Question '+(bkState.idx+1)+' of '+tot+' | Score: '+bkState.score+'/'+bkState.idx+'</div>'+
+'<div class="pt2"><div class="pf2" style="width:'+pct+'%"></div></div>'+
+'<div class="qcard"><div class="qmet">'+q.adpie+' · '+q.system+(q.hy?' · 🔥 HIGH YIELD':'')+(q.fmt==='sata'?' · SELECT ALL THAT APPLY':'')+'</div>'+
+(q.scenario?'<div class="qsc">'+q.scenario+'</div>':'')+
+'<div class="qst">'+q.stem+'</div>'+
+'<ul class="qol" id="bk-opts">'+q.options.map(function(o,i){return q.fmt==='sata'?'<li class="qop" data-i="'+i+'"><input type="checkbox" data-oidx="'+i+'"> '+o+'</li>':'<li class="qop" onclick="selBkOpt(this,'+i+')" data-i="'+i+'">'+o+'</li>'}).join('')+'</ul>'+
+'<button class="subq" onclick="'+(q.fmt==='sata'?'subBkSATA()':'subBkMCQ()')+'">Submit Answer</button>'+
+'<div class="rp" id="bk-rat"></div></div>'}
+function selBkOpt(el,i){document.querySelectorAll('#bk-opts .qop').forEach(function(o){o.classList.remove('sel')});el.classList.add('sel')}
+function subBkMCQ(){var q=bkState.qs[bkState.idx];var sel=document.querySelector('#bk-opts .qop.sel');if(!sel){alert('Select an answer');return}var chosen=parseInt(sel.dataset.i);var correct=chosen===q.correct;if(correct)bkState.score++;bkTrack(q,correct);document.querySelectorAll('#bk-opts .qop').forEach(function(o,i){o.onclick=null;if(i===q.correct)o.classList.add('correct');else if(i===chosen&&!correct)o.classList.add('wrong')});var rat=document.getElementById('bk-rat');rat.innerHTML='<div class="rc">'+(correct?'✅ Correct!':'❌ Incorrect')+'</div><p>'+q.rationale.correct+'</p>'+
+'<div class="rpx">'+Object.keys(q.rationale.explanations).map(function(k){return '<p><span class="ol">'+k+':</span> '+q.rationale.explanations[k]+'</p>'}).join('')+'</div>'+
+'<button class="subq" onclick="nextBkQ()" style="margin-top:11px">'+(bkState.idx+1<bkState.qs.length?'Next Question →':'See Results')+'</button>';rat.classList.add('on');setSRS('bk-'+bkState.idx,getSRS('bk-'+bkState.idx).level+(correct?1:-1))}
+function subBkSATA(){var q=bkState.qs[bkState.idx];var corrIdx=(q.sataCorrIdx||[q.correct]).map(function(v){if(typeof v==='string'){if(/^[A-Ea-e]$/.test(v.trim()))return v.trim().toUpperCase().charCodeAt(0)-65;return parseInt(v)||0}return v});var checked=Array.from(document.querySelectorAll('#bk-opts input:checked')).map(function(cb){return parseInt(cb.dataset.oidx)});var correct=corrIdx.length===checked.length&&corrIdx.every(function(i){return checked.includes(i)});if(correct)bkState.score++;bkTrack(q,correct);document.querySelectorAll('#bk-opts .qop').forEach(function(o,i){o.style.cursor='default';if(corrIdx.includes(i))o.classList.add('correct');else if(checked.includes(i)&&!corrIdx.includes(i))o.classList.add('wrong')});var rat=document.getElementById('bk-rat');rat.innerHTML='<div class="rc">'+(correct?'✅ Correct!':'❌ Incorrect — correct: '+corrIdx.map(function(i){return String.fromCharCode(65+i)}).join(', '))+'</div><p>'+q.rationale.correct+'</p>'+
+'<button class="subq" onclick="nextBkQ()" style="margin-top:11px">'+(bkState.idx+1<bkState.qs.length?'Next →':'See Results')+'</button>';rat.classList.add('on')}
+function bkTrack(q,correct){var t=q.topic;if(!bkState.topics[t])bkState.topics[t]={c:0,t:0};bkState.topics[t].t++;if(correct)bkState.topics[t].c++;var a=q.adpie;if(!bkState.adpie[a])bkState.adpie[a]={c:0,t:0};bkState.adpie[a].t++;if(correct)bkState.adpie[a].c++;var s=q.system||'Sensory';if(!bkState.systems[s])bkState.systems[s]={c:0,t:0};bkState.systems[s].t++;if(correct)bkState.systems[s].c++}
+function nextBkQ(){bkState.idx++;if(bkState.idx>=bkState.qs.length){showBkSummary()}else{renderBkQ()}}
+function showBkSummary(){var acc=bkState.qs.length?Math.round(bkState.score/bkState.qs.length*100):0;updateMastery(acc);saveSess({score:bkState.score,total:bkState.qs.length,acc:acc,mode:'bank',source:'Question Bank',topics:bkState.topics,adpie:bkState.adpie,systems:bkState.systems,subtopics:{},difficulty:2,flaggedOnly:false});var msgs=['Keep going — every rep builds mastery!','Good effort! Review weak areas and retry.','Strong work! You\'re building solid clinical reasoning.','Outstanding! NCLEX-ready performance!'];var msg=acc>=90?msgs[3]:acc>=75?msgs[2]:acc>=60?msgs[1]:msgs[0];document.getElementById('qout-bank').innerHTML='<div class="sumc"><div class="sums">'+acc+'%</div><div class="sumsu">'+bkState.score+' / '+bkState.qs.length+' correct</div><div style="font-family:\'Syne\',sans-serif;font-weight:700;font-size:1rem;color:var(--t2);margin-top:12px">'+msg+'</div></div>'+
+'<div class="sumb">'+Object.keys(bkState.topics).map(function(t){var d=bkState.topics[t];var p=d.t?Math.round(d.c/d.t*100):0;return '<div class="sumbc"><div class="sumbt">'+t+'</div><div class="mr"><div class="mt"><div class="mfi" style="width:'+p+'%;background:'+(p>=80?'#111':p>=60?'#666':'#ccc')+'"></div></div><div class="mp">'+p+'%</div></div></div>'}).join('')+'</div>'+
+'<div style="text-align:center"><button class="rdb" onclick="startBank()">🔄 Retake</button></div>'}
+// ============================================================
+// AI INFINITE QUIZ — parseAIJson + sanitize + validate + genAIBatch
+// ============================================================
+function parseAIJson(raw){try{return JSON.parse(raw)}catch(e0){}
+function fixOpts(str){var res='',i=0;while(i<str.length){var mIdx=str.indexOf('"options":',i);if(mIdx===-1){res+=str.substring(i);break}res+=str.substring(i,mIdx+10);i=mIdx+10;while(i<str.length&&str[i]!=='['){res+=str[i];i++}if(i>=str.length)break;res+='[';i++;var depth=1,arr='';while(i<str.length&&depth>0){var ch=str[i];if(ch==='[')depth++;if(ch===']'){depth--;if(depth===0)break}arr+=ch;i++}res+=arr.replace(/"([A-E])"\s*:\s*"([^"]*)"/g,function(m,L,t){return'"'+L+'. '+t+'"'})+']';i++}return res}
+function repair(s){s=s.replace(/^```(?:json)?[^\n]*\n?/,'').replace(/\s*```\s*$/,'').trim();var am=/\[\s*\{/.exec(s);if(am&&am.index>0)s=s.substring(am.index);s=fixOpts(s);s=s.replace(/([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:/g,function(m,pre,k){return pre+'"'+k+'":'});
+var out='',inStr=false,esc=false;for(var j=0;j<s.length;j++){var c=s[j];if(esc){out+=c;esc=false;continue}if(c==='\\'){out+=c;esc=true;continue}if(c==='"'){inStr=!inStr;out+=c;continue}if(inStr&&(c==='\n'||c==='\r')){out+=' ';continue}if(inStr&&c==='\t'){out+=' ';continue}out+=c}s=out;s=s.replace(/,\s*([}\]])/g,'$1');return s}
+try{return JSON.parse(repair(raw))}catch(e1){}
+try{return JSON.parse(repair(raw).replace(/([a-zA-Z])'([a-zA-Z])/g,"$1\u2019$2"))}catch(e2){}
+var lb=raw.lastIndexOf('\n  }');if(lb>10){try{return JSON.parse(repair(raw.substring(0,lb+4)+']'))}catch(e3){}}
+var bb=raw.lastIndexOf('}}');if(bb>10){try{return JSON.parse(repair(raw.substring(0,bb+2)+']'))}catch(e4){}}
+throw new Error('Could not parse AI response — please retry.')}
+
+function sanitizeQs(qs){if(!Array.isArray(qs))return[];return qs.filter(function(q){return q&&typeof q==='object'}).map(function(q){
+if(!Array.isArray(q.options)||q.options.length<2)q.options=['A. Option A','B. Option B','C. Option C','D. Option D'];
+if(typeof q.correct==='string'){var L=q.correct.toUpperCase().trim();q.correct=/^[A-E]$/.test(L)?L.charCodeAt(0)-65:parseInt(q.correct)||0}
+if(typeof q.correct!=='number'||isNaN(q.correct)||q.correct<0||q.correct>=q.options.length)q.correct=0;
+if(q.sataCorrIdx){if(!Array.isArray(q.sataCorrIdx))q.sataCorrIdx=[q.correct];q.sataCorrIdx=q.sataCorrIdx.map(function(v){if(typeof v==='string'){if(/^[A-Ea-e]$/.test(v.trim()))return v.trim().toUpperCase().charCodeAt(0)-65;return parseInt(v)||0}return typeof v==='number'?v:0}).filter(function(v){return v>=0&&v<q.options.length});if(!q.sataCorrIdx.length)q.sataCorrIdx=[q.correct]}
+if(!q.rationale||typeof q.rationale!=='object')q.rationale={correct:'See course material.',explanations:{}};
+if(!q.rationale.correct)q.rationale.correct='See course material.';
+if(!q.rationale.explanations||typeof q.rationale.explanations!=='object')q.rationale.explanations={};
+if(!q.stem)q.stem='Question unavailable \u2014 please retry.';
+if(!q.format)q.format=q.sataCorrIdx?'sata':'mcq';
+if(!q.difficulty)q.difficulty=2;
+return q})}
+
+function validateQ(q){if(!q||!q.stem||!q.options||!q.rationale)return{ok:false,reason:'Missing required fields'};
+if(!Array.isArray(q.options)||q.options.length<2)return{ok:false,reason:'Options not array'};
+var GROUPS=[
+['glaucoma','intraocular pressure','iop','aqueous humor','optic nerve','trabecular','angle-closure','open-angle','tonometry'],
+['cataracts','cataract','lens','phacoemulsification','iol','red reflex','sundabs'],
+['menieres','endolymphatic','tinnitus','vertigo','hydrops'],
+['latanoprost','xalatan','bimatoprost','lumigan','prostaglandin agonist'],
+['timolol','betaxolol','ophthalmic beta blocker'],
+['dorzolamide','trusopt','brinzolamide','carbonic anhydrase','acetazolamide','sulfa'],
+['brimonidine','alphagan','apraclonidine'],
+['mannitol','osmitrol','osmotic diuretic'],
+['cortisporin','ciprodex','ofloxacin otic','otic','ear drop','tympanic'],
+['lymphoma','hodgkin','non-hodgkin','reed-sternberg','epstein-barr'],
+['pancreatic','whipple','ca 19-9','steatorrhea'],
+['chemotherapy','antineoplastic','neutropenia','pancytopenia','mucositis','alopecia'],
+['bortezomib','velcade','proteasome'],
+['belinostat','beleodaq','hdac'],
+['cancer','malignant','neoplasm','tumor','metastasis','carcinoma']
+];
+function getGrps(text){return GROUPS.filter(function(g){return g.some(function(t){return text.includes(t)})})}
+var stem=(q.stem||'').toLowerCase();var rat=(q.rationale.correct||'').toLowerCase();
+var sg=getGrps(stem);var rg=getGrps(rat);
+if(sg.length>0&&rg.length>0){var overlap=sg.filter(function(s){return rg.some(function(r){return r===s})});if(!overlap.length)return{ok:false,reason:'Topic mismatch stem vs rationale'}}
+if(q.format==='mcq'&&stem.includes('select all'))return{ok:false,reason:'MCQ format but stem says select all'};
+if(typeof q.correct!=='number'||q.correct<0||q.correct>=q.options.length)return{ok:false,reason:'Correct index out of range'};
+if(!q.rationale.explanations||Object.keys(q.rationale.explanations).length<2)return{ok:false,reason:'Missing explanations'};
+return{ok:true}}
+
+var COURSE_CTX='Nursing pharmacology: Glaucoma (↑IOP, open-angle gradual tunnel vision, closed-angle emergency; timolol beta-blocker ↓production CI asthma; mannitol IV osmotic acute ↓ICP assess LOC hourly; latanoprost 1st-line; dorzolamide sulfa cross; no anticholinergics like atropine/diphenhydramine ↑IOP; post-op no Valsalva constipation priority). Cataracts (cloudy lens SUNDABS, phacoemulsification IOL only cure, absent red reflex, retinal detachment/endophthalmitis complications). Menieres (endolymphatic hydrops, tinnitus/unilateral hearing loss/vertigo triad, fall precautions #1, sodium restriction, avoid caffeine/alcohol/smoking). Eye/ear administration (conjunctival sac, inner canthus pressure 5min, room temp ear drops, adults pinna up/out children down/back, perforated TM: cortisporin CONTRAINDICATED ciprofloxacin SAFE). Lymphoma (Hodgkins=Reed-Sternberg EBV, Non-Hodgkins=no RS cells, painless lymphadenopathy/fever/night sweats/weight loss B symptoms, infection complication priority, chemo ABVD/CHOP targeted therapy bortezomib belinostat). Pancreatic cancer (jaundice/weight loss/greasy stools/elevated glucose, CA 19-9, Whipple procedure, hypercalcemia/pancytopenia/pleural effusion complications). Cancer biology (hyperplasia/dysplasia/neoplasia, TNM staging, palliative vs curative, chemotherapy pancytopenia: neutropenia=infection #1, thrombocytopenia bleeding, anemia fatigue, mucositis mouth sores, alopecia temporary).';
+
+var aiState={questions:[],count:0,score:0,topics:{},adpie:{},systems:{},angles:[],difficulty:2,isCont:false};
+
+async function genAIBatch(topic,fmt,adpie,count,outId){var results=[];var fmtList=fmt==='mixed'?['mcq','scenario','sata']:Array(count).fill(fmt);for(var qi=0;qi<count;qi++){var thisFmt=fmtList[qi%fmtList.length];var usedAngles=aiState.angles.concat(results.map(function(q){return q.topic_angle||''})).filter(Boolean);var exclThis=usedAngles.length?'Avoid topic angles already used: '+usedAngles.slice(-10).join('; '):'';var diffTxt=['','Beginner recall — basic definitions','Application — clinical scenario decisions','NCLEX-difficulty — priority, safety, complications','Advanced — expert analysis'][Math.min(4,parseInt(aiState.difficulty)||2)];var sataNotes=thisFmt==='sata'?'SATA: provide exactly 5 options A-E. Add "sataCorrIdx":[0,2] with 2-3 correct indices.':'MCQ/Scenario: exactly 4 options A-D. NO sataCorrIdx field.';
+var prompt=COURSE_CTX+'\n\nGenerate ONE NCLEX nursing question.\nTOPIC: '+topic+'\nFORMAT: '+thisFmt+'\nDIFFICULTY '+aiState.difficulty+'/4: '+diffTxt+'\nADPIE: '+adpie+'\n'+sataNotes+'\n'+(exclThis?exclThis+'\n':'')+'\nCRITICAL: Every part (stem, options, rationale) must be about the SAME topic.\n\nReturn ONLY a raw JSON object. No markdown. No preamble.\n{"stem":"?","scenario":"","options":["A. text","B. text","C. text","D. text"],"correct":0,"format":"'+thisFmt+'","adpie":"'+adpie+'","system":"Sensory/Hematologic/GI","difficulty":'+aiState.difficulty+',"topic_angle":"5 word specific angle","rationale":{"correct":"why correct","explanations":{"A":"a","B":"b","C":"c","D":"d"}}}';
+var tklim=aiState.difficulty>=3?2000:1500;var lmsg=document.getElementById('ai-lmsg');if(lmsg)lmsg.textContent='Generating question '+(qi+1)+' of '+count+'…';
+try{var r=await callAIRetry(prompt,tklim);var rClean=r.replace(/^```(?:json)?[\s\S]*?\n/,'').replace(/\s*```\s*$/,'').trim();var os=rClean.indexOf('{'),oe=rClean.lastIndexOf('}');
+if(os===-1||oe===-1){try{var r2=await callAI('Generate ONE NCLEX nursing question about '+topic+' ('+thisFmt+' format). Return raw JSON only:\n{"stem":"?","scenario":"","options":["A. text","B. text","C. text","D. text"],"correct":0,"format":"'+thisFmt+'","adpie":"'+adpie+'","system":"Sensory","difficulty":2,"topic_angle":"angle","rationale":{"correct":"reason","explanations":{"A":"a","B":"b","C":"c","D":"d"}}}',900);var os2=r2.indexOf('{'),oe2=r2.lastIndexOf('}');if(os2!==-1){var q2=parseAIJson(r2.substring(os2,oe2+1));var sq2=sanitizeQs([q2]);if(sq2.length&&validateQ(sq2[0]).ok){results.push(sq2[0]);if(sq2[0].topic_angle)aiState.angles.push(sq2[0].topic_angle)}}continue}catch(re){continue}}
+var q=parseAIJson(rClean.substring(os,oe+1));var sq=sanitizeQs([q]);if(!sq.length)continue;q=sq[0];var vcheck=validateQ(q);
+if(vcheck.ok){results.push(q);if(q.topic_angle)aiState.angles.push(q.topic_angle)}else{try{var rp=await callAI('Generate ONE NCLEX nursing question about '+topic+' ('+thisFmt+'). CRITICAL: stem, options, and rationale must all be about the SAME topic. Return raw JSON only.\n{"stem":"?","scenario":"","options":["A. text","B. text","C. text","D. text"],"correct":0,"format":"'+thisFmt+'","adpie":"'+adpie+'","system":"Sensory","difficulty":'+aiState.difficulty+',"topic_angle":"'+topic+' angle","rationale":{"correct":"why","explanations":{"A":"a","B":"b","C":"c","D":"d"}}}',1200);var os3=rp.indexOf('{'),oe3=rp.lastIndexOf('}');if(os3!==-1){var q3=parseAIJson(rp.substring(os3,oe3+1));var sq3=sanitizeQs([q3]);if(sq3.length&&validateQ(sq3[0]).ok){results.push(sq3[0]);if(sq3[0].topic_angle)aiState.angles.push(sq3[0].topic_angle)}}}catch(re2){console.warn('Q'+qi+' retry error:',re2.message)}}}catch(e){console.warn('Q'+qi+' error:',e.message)}}
+stopLoadAnim();
+if(!results.length){document.getElementById(outId).innerHTML='<div class="emsg">Could not generate questions. Please retry.</div><button class="rtb" onclick="startAI()">🔄 Retry</button>';return}
+aiState.questions=aiState.questions.concat(results);renderAIQs(results,outId)}
+
+function renderOneQ(q,gi){var sataNote=q.format==='sata'?' <em style="font-family:\'IBM Plex Mono\',monospace;font-size:.68rem;color:var(--mu)">(Select all that apply)</em>':'';var opts=q.options.map(function(o,i){return q.format==='sata'?'<li class="qop" data-gidx="'+gi+'" data-oidx="'+i+'"><input type="checkbox" data-gidx="'+gi+'" data-oidx="'+i+'"> '+o+'</li>':'<li class="qop" onclick="selAIOpt(this,'+gi+')" data-gidx="'+gi+'" data-oidx="'+i+'">'+o+'</li>'}).join('');var subFn=q.format==='sata'?'subAISATA('+gi+')':'subAIMCQ('+gi+')';return'<div class="qcard" id="qcard-'+gi+'"><div class="qmet">'+(q.adpie||'')+' · '+(q.topic_angle||'')+'</div>'+(q.scenario?'<div class="qsc">'+q.scenario+'</div>':'')+
+'<div class="qst">'+q.stem+sataNote+'</div><ul class="qol" id="qopts-'+gi+'">'+opts+'</ul><button class="subq" id="qsub-'+gi+'" onclick="'+subFn+'">Submit Answer</button><div class="rp" id="qrat-'+gi+'"></div></div>'}
+
+function renderAIQs(qs,outId){var el=document.getElementById(outId);var isCont=aiState.isCont;var html=isCont?el.innerHTML:'';qs.forEach(function(q,i){var gi=aiState.questions.indexOf(q);if(gi===-1)gi=aiState.questions.length-qs.length+i;html+=renderOneQ(q,gi)});html+='<div id="ai-cont-btns"></div>';el.innerHTML=html;if(isCont){var cbtns=document.getElementById('ai-cont-btns');if(cbtns){var more=document.createElement('button');more.className='sbtn';more.textContent='✨ Generate Next Set';more.style.marginRight='7px';more.onclick=function(){contMore()};cbtns.appendChild(more);var done=document.createElement('button');done.className='rdb';done.textContent='✅ Done — Save & Finish';done.onclick=function(){finishCont()};cbtns.appendChild(done)}}else{el.insertAdjacentHTML('beforeend','<div style="text-align:center;margin-top:16px"><button class="rdb" onclick="startAI()">🔄 New Quiz</button></div>')}}
+
+function selAIOpt(el,gi){document.querySelectorAll('[data-gidx="'+gi+'"]:not(input)').forEach(function(o){o.classList.remove('sel')});el.classList.add('sel')}
+function aiTrack(q,correct){var t=q.topic||'Mixed';if(!aiState.topics[t])aiState.topics[t]={c:0,t:0};aiState.topics[t].t++;if(correct)aiState.topics[t].c++;var a=q.adpie||'Mixed';if(!aiState.adpie[a])aiState.adpie[a]={c:0,t:0};aiState.adpie[a].t++;if(correct)aiState.adpie[a].c++;var s=q.system||'Sensory';if(!aiState.systems[s])aiState.systems[s]={c:0,t:0};aiState.systems[s].t++;if(correct)aiState.systems[s].c++}
+function subAIMCQ(gi){var q=aiState.questions[gi];if(!q)return;var sel=document.querySelector('#qopts-'+gi+' .qop.sel');if(!sel){alert('Please select an answer');return}var chosen=parseInt(sel.dataset.oidx);var correct=chosen===q.correct;if(correct)aiState.score++;aiState.count++;aiTrack(q,correct);document.querySelectorAll('#qopts-'+gi+' .qop').forEach(function(o){o.onclick=null;var i=parseInt(o.dataset.oidx);if(i===q.correct)o.classList.add('correct');else if(i===chosen&&!correct)o.classList.add('wrong')});var sb=document.getElementById('qsub-'+gi);if(sb)sb.style.display='none';var rat=document.getElementById('qrat-'+gi);if(rat){rat.innerHTML='<div class="rc">'+(correct?'✅ Correct!':'❌ Incorrect')+'</div><p>'+q.rationale.correct+'</p><div class="rpx">'+Object.keys(q.rationale.explanations).map(function(k){return'<p><span class="ol">'+k+':</span> '+q.rationale.explanations[k]+'</p>'}).join('')+'</div>';rat.classList.add('on')}if(!aiState.isCont&&!aiState.questions[gi+1])showAISummary()}
+function subAISATA(gi){var q=aiState.questions[gi];if(!q)return;var corrIdx=(q.sataCorrIdx||[q.correct]).map(function(v){if(typeof v==='string'){if(/^[A-Ea-e]$/.test(v.trim()))return v.trim().toUpperCase().charCodeAt(0)-65;return parseInt(v)||0}return v});var checked=Array.from(document.querySelectorAll('[data-gidx="'+gi+'"]:checked')).map(function(el){return parseInt(el.dataset.oidx)});var correct=corrIdx.length===checked.length&&corrIdx.every(function(i){return checked.includes(i)});if(correct)aiState.score++;aiState.count++;aiTrack(q,correct);document.querySelectorAll('#qopts-'+gi+' .qop').forEach(function(o){o.style.cursor='default';var i=parseInt(o.dataset.oidx);if(corrIdx.includes(i))o.classList.add('correct');else if(checked.includes(i)&&!corrIdx.includes(i))o.classList.add('wrong')});var sb=document.getElementById('qsub-'+gi);if(sb)sb.style.display='none';var rat=document.getElementById('qrat-'+gi);if(rat){rat.innerHTML='<div class="rc">'+(correct?'✅ Correct!':'❌ Incorrect — correct: '+corrIdx.map(function(i){return String.fromCharCode(65+i)}).join(', '))+'</div><p>'+q.rationale.correct+'</p>';rat.classList.add('on')}if(!aiState.isCont&&!aiState.questions[gi+1])showAISummary()}
+function showAISummary(){var tot=aiState.questions.length;var acc=tot?Math.round(aiState.score/tot*100):0;updateMastery(acc);saveSess({score:aiState.score,total:tot,acc:acc,mode:'ai',source:'AI Infinite',topics:aiState.topics,adpie:aiState.adpie,systems:aiState.systems,subtopics:{},difficulty:parseInt(aiState.difficulty)||2,flaggedOnly:false})}
+function startAI(){aiState.questions=[];aiState.count=0;aiState.score=0;aiState.topics={};aiState.adpie={};aiState.systems={};aiState.angles=[];var ds=document.getElementById('ai-diff').value;aiState.difficulty=ds==='adaptive'?2:parseInt(ds)||2;aiState.isCont=document.getElementById('ai-count').value==='inf';var outId='qout-ai';document.getElementById(outId).innerHTML='';var adinf=document.getElementById('ai-adapt-info');if(adinf)adinf.style.display=ds==='adaptive'?'':'none';if(!getKey()){document.getElementById(outId).innerHTML='<div class="emsg">Enter your Claude API key above to use AI Infinite quiz.</div>';return}var topic=document.getElementById('ai-topic').value;if(topic==='flagged'){var fl=getFlagged();topic='Flagged topics: '+fl.map(function(id){var c=document.querySelector('[data-card-id="'+id+'"]');return c?c.innerText.substring(0,80):''}).filter(Boolean).join(' | ')||'Mixed Oncology and Sensory Pharmacology'}var fmt=document.getElementById('ai-fmt').value;var adpie=document.getElementById('ai-adpie').value;var cnt=document.getElementById('ai-count').value==='inf'?3:parseInt(document.getElementById('ai-count').value)||3;startLoadAnim(outId);genAIBatch(topic,fmt,adpie,cnt,outId)}
+async function contMore(){if(!getKey())return;var topic=document.getElementById('ai-topic').value;var fmt=document.getElementById('ai-fmt').value;var adpie=document.getElementById('ai-adpie').value;var cbtns=document.getElementById('ai-cont-btns');if(cbtns)cbtns.innerHTML='<div class="lmsg"><div class="spin"></div><span id="ai-lmsg">Generating next set…</span></div>';await genAIBatch(topic,fmt,adpie,3,'qout-ai')}
+function finishCont(){var tot=aiState.questions.length;var acc=tot?Math.round(aiState.score/tot*100):0;updateMastery(acc);saveSess({score:aiState.score,total:tot,acc:acc,mode:'cont',source:'AI Continuous',topics:aiState.topics,adpie:aiState.adpie,systems:aiState.systems,subtopics:{},difficulty:parseInt(aiState.difficulty)||2,flaggedOnly:false});var cbtns=document.getElementById('ai-cont-btns');if(cbtns)cbtns.innerHTML='<div class="sumc"><div class="sums">'+acc+'%</div><div class="sumsu">'+aiState.score+' / '+tot+' correct | Saved</div></div><button class="rdb" onclick="startAI()">🔄 New Quiz</button>'}
+// ============================================================
+// MED DRILL + STUDY PLAN + CASE SIM + INIT
+// ============================================================
+var DRUG_KEYS=['latanoprost','bimatoprost','timolol','brimonidine','dorzolamide','acetazolamide','mannitol','ciprofloxacin otic','carbamide peroxide','bortezomib','belinostat'];
+var MED_CTX={latanoprost:'Prostaglandin agonist (Xalatan); 1st-line open-angle glaucoma; evening dose; permanent iris color change; ↑ lash growth; avoid thimerosal drops',bimatoprost:'Prostaglandin analog (Lumigan); open-angle glaucoma; similar SE to latanoprost',timolol:'Non-selective beta-blocker (Timoptic); ↓ aqueous production; CI: asthma/COPD/heart block; inner canthus pressure required to prevent systemic bradycardia',brimonidine:'Alpha-2 agonist (Alphagan P); ↓ production + ↑ outflow; CI: MAOIs, neonates; drowsiness/dry mouth SE',dorzolamide:'CAI (Trusopt); sulfonamide-related; SULFA ALLERGY = cross-sensitivity; bitter taste SE',acetazolamide:'Oral CAI; chronic open-angle glaucoma; CI: sulfa allergy; report facial paresthesia to HCP; Kaplan: sulfa allergy contraindication',mannitol:'IV osmotic diuretic (Osmitrol); acute closed-angle glaucoma + ↓ ICP; IV administration; assess LOC hourly; monitor for pulmonary edema/HF beginning 30-60 min after administration','ciprofloxacin otic':'Fluoroquinolone otic (Ciprodex); SAFE with perforated TM; warm to room temp before instilling; adults pinna up/out','carbamide peroxide':'Earwax emulsifier (Debrox); CONTRAINDICATED with perforated TM; instill wait then irrigate with warm water',bortezomib:'Proteasome inhibitor (Velcade); lymphoma/myeloma; monitor peripheral neuropathy (dose-limiting); antiviral prophylaxis for shingles',belinostat:'HDAC inhibitor (Beleodaq); peripheral T-cell lymphoma; IV 1000mg/m2 daily x5 days q21d; monitor CBC and LFTs'};
+var FOCUS_PRMTS={mixed:'Ask about any clinically relevant aspect of this drug',moa:'Focus specifically on mechanism of action and receptor pharmacology',se:'Focus on side effects, adverse reactions, toxicity, and what to monitor for',nursing:'Focus on nursing administration technique, patient teaching, hold parameters, safety monitoring',contra:'Focus on contraindications, drug interactions, and patients to avoid',monitoring:'Focus on monitoring parameters, therapeutic outcomes, and lab values to watch'};
+async function startDrill(){var drugKey=document.getElementById('dr-drug').value;if(drugKey==='random')drugKey=DRUG_KEYS[Math.floor(Math.random()*DRUG_KEYS.length)];var focus=document.getElementById('dr-focus').value;var diff=parseInt(document.getElementById('dr-diff').value)||2;var fmt=document.getElementById('dr-fmt').value;var count=parseInt(document.getElementById('dr-count').value)||5;var outId='qout-drill';if(!getKey()){document.getElementById(outId).innerHTML='<div class="emsg">Enter your Claude API key in the AI Infinite panel to use Medication Drill.</div>';return}startLoadAnim(outId);var drugCtx=MED_CTX[drugKey]||'A drug used in ophthalmic or oncology pharmacology';var focusPrmt=FOCUS_PRMTS[focus]||FOCUS_PRMTS.mixed;var fmtList=fmt==='mixed'?['mcq','scenario','sata']:Array(count).fill(fmt);var results=[];for(var qi=0;qi<count;qi++){var thisFmt=fmtList[qi%fmtList.length];var sataN=thisFmt==='sata'?'SATA: 5 options A-E, add "sataCorrIdx":[0,2].':'MCQ: exactly 4 options A-D.';var tklim={1:1200,2:1800,3:2500,4:2500}[diff]||1800;var prompt='DRUG: '+drugKey+'\nKEY FACTS: '+drugCtx+'\nFOCUS: '+focusPrmt+'\nDIFFICULTY '+diff+'/4\nFORMAT: '+thisFmt+'\n'+sataN+'\nABSOLUTE RULE: Every part of this question is ONLY about '+drugKey+'.\n\nReturn raw JSON only:\n{"stem":"?","scenario":"","options":["A. text","B. text","C. text","D. text"],"correct":0,"format":"'+thisFmt+'","adpie":"Implementation","system":"Sensory","difficulty":'+diff+',"topic_angle":"'+drugKey+' aspect","rationale":{"correct":"why","explanations":{"A":"a","B":"b","C":"c","D":"d"}}}';var lmsg=document.getElementById('ai-lmsg');if(lmsg)lmsg.textContent='Generating drug question '+(qi+1)+' of '+count+'…';try{var r=await callAIRetry(prompt,tklim);var os=r.indexOf('{'),oe=r.lastIndexOf('}');if(os===-1)continue;var q=parseAIJson(r.substring(os,oe+1));var sq=sanitizeQs([q]);if(sq.length&&validateQ(sq[0]).ok)results.push(sq[0])}catch(e){console.warn('Drill Q'+qi+':',e.message)}}stopLoadAnim();if(!results.length){document.getElementById(outId).innerHTML='<div class="emsg">Could not generate drill questions. Retry.</div><button class="rtb" onclick="startDrill()">🔄 Retry</button>';return}var el=document.getElementById(outId);var drillAIState={questions:results,score:0};var html=results.map(function(q,i){return renderOneQ(q,i)}).join('');el.innerHTML=html+'<div style="text-align:center;margin-top:16px"><button class="rdb" onclick="startDrill()">🔄 New Drill</button></div>';
+results.forEach(function(q,gi){var origSub=document.getElementById('qsub-'+gi);if(origSub){var newSub=origSub.cloneNode(true);newSub.onclick=function(){subAIMCQ(gi)};origSub.parentNode.replaceChild(newSub,origSub)}});aiState.questions=aiState.questions.concat(results)}
+// STUDY PLAN
+async function genPlan(){var outId='plan-out';var el=document.getElementById(outId);if(!getKey()){el.innerHTML='<div class="emsg">Enter your Claude API key (in Quiz Me → AI Infinite) to generate a study plan.</div>';return}var days=document.getElementById('pl-days').value;var focus=document.getElementById('pl-focus').value;var sessions=JSON.parse(localStorage.getItem('oncosensory_quiz_sessions')||'[]');var weakTopics=[];var topicTotals={};sessions.forEach(function(s){Object.keys(s.topics||{}).forEach(function(t){if(!topicTotals[t])topicTotals[t]={c:0,t:0};topicTotals[t].c+=s.topics[t].c||0;topicTotals[t].t+=s.topics[t].t||0})});Object.keys(topicTotals).forEach(function(t){var d=topicTotals[t];if(d.t>0){var acc=Math.round(d.c/d.t*100);if(acc<75)weakTopics.push(t+' ('+acc+'%)')}});var overallAcc=sessions.length?Math.round(sessions.reduce(function(s,x){return s+x.acc},0)/sessions.length):0;el.innerHTML='<div class="lmsg"><div class="spin"></div> Generating your personalized study plan…</div>';var prompt='Generate a '+days+'-day nursing study plan for: Oncology & Sensory Pharmacology (Glaucoma, Cataracts, Menieres, Lymphoma, Pancreatic Cancer, Cancer Biology, Chemotherapy).\nFocus: '+focus+'\nOverall accuracy: '+overallAcc+'%\nWeak topics: '+(weakTopics.join(', ')||'None identified yet')+'\n\nReturn ONLY a raw JSON array. No markdown. No backticks.\n[{"day":1,"theme":"Theme","focus_topic":"Topic","tasks":["Task with time estimate"],"weak_address":"weakness targeted","quick_tip":"NCLEX pearl"}]';try{var r=await callAIRetry(prompt,2000);var clean=r.replace(/^```(?:json)?[^\n]*\n?/,'').replace(/\s*```\s*$/,'').trim();var am=/\[\s*\{/.exec(clean);if(am)clean=clean.substring(am.index);var days_data=JSON.parse(clean);var colors=['#1a5c2a','#1a5c2a','#1a2a5c','#1a2a5c','#5c3a1a','#5c3a1a','#8b1a1a','#8b1a1a','#4a1a5c','#4a1a5c','#8b1a1a','#8b1a1a','#1a2a5c','#1a2a5c'];el.innerHTML=days_data.map(function(d,i){var col=colors[i%colors.length];var tasks=d.tasks.map(function(t,j){var pid='pc_'+i+'_'+j;var chk=localStorage.getItem('plancheck_'+pid)?'checked':'';return'<div class="ptk"><input type="checkbox" '+chk+' onchange="savePlanChk(\''+pid+'\',this.checked)"><label>'+t+'</label></div>'}).join('');return'<div class="pd" style="border-left-color:'+col+'"><div class="pdh"><div class="pdn">Day '+d.day+'</div><div class="pdt">'+d.theme+'</div><span class="pdto">'+d.focus_topic+'</span></div>'+tasks+(d.weak_address?'<div class="ptip">🎯 Targets: '+d.weak_address+'</div>':'')+(d.quick_tip?'<div class="ptip" style="margin-top:4px">💡 '+d.quick_tip+'</div>':'')+'</div>'}).join('')}catch(e){el.innerHTML='<div class="emsg">'+e.message+'</div><button class="rtb" onclick="genPlan()">🔄 Retry</button>'}}
+function savePlanChk(id,val){localStorage.setItem('plancheck_'+id,val?'1':'')}
+// CASE SIM
+var caseState={questions:[],score:0,idx:0};
+async function startCase(){var outId='case-out';var el=document.getElementById(outId);if(!getKey()){el.innerHTML='<div class="emsg">Enter your Claude API key (in Quiz Me → AI Infinite) to use Case Sim.</div>';return}var topic=document.getElementById('cs-topic').value;var qlen=parseInt(document.getElementById('cs-len').value)||5;var diff=parseInt(document.getElementById('cs-diff').value)||2;el.innerHTML='<div class="lmsg"><div class="spin"></div> Creating patient…</div>';
+var ptPrmt='Create a realistic nursing patient for a case simulation about: '+topic+'\nReturn ONLY raw JSON (no markdown):\n{"name":"Full Name","age":55,"chief_complaint":"brief CC","history":"PMH relevant to '+topic+'","vitals":"HR 78 BP 130/82 RR 16 SpO2 97% T 98.6F","labs":"Relevant lab findings or N/A"}';
+try{var ptR=await callAIRetry(ptPrmt,400);var pos=ptR.indexOf('{'),poe=ptR.lastIndexOf('}');if(pos===-1)throw new Error('Patient data generation failed');var pt=parseAIJson(ptR.substring(pos,poe+1));el.innerHTML='<div class="ptcard"><div class="ptn">'+pt.name+'</div><div class="ptm">'+pt.age+' yrs · Chief Complaint: '+pt.chief_complaint+'</div><div class="ptg"><div><div class="ptsl">History</div><div>'+pt.history+'</div></div><div><div class="ptsl">Vitals</div><div>'+pt.vitals+'</div></div><div><div class="ptsl">Labs / Findings</div><div>'+pt.labs+'</div></div></div></div>'+
+'<div class="adbar"><div class="ads act">Assessment</div><div class="ads">Diagnosis</div><div class="ads">Planning</div><div class="ads">Implementation</div><div class="ads">Evaluation</div></div>'+
+'<div id="case-qs"><div class="lmsg"><div class="spin"></div> Generating questions…</div></div>'}catch(e){el.innerHTML='<div class="emsg">Failed to create patient: '+e.message+'</div><button class="rtb" onclick="startCase()">🔄 Retry</button>';return}
+var qPrmt='Patient: '+JSON.stringify({topic:topic,age:pt.age,cc:pt.chief_complaint,history:pt.history})+'\nGenerate '+qlen+' NGN-style NCLEX questions as a JSON array for this '+topic+' case. Difficulty: '+diff+'/4. Progress through ADPIE phases.\nReturn ONLY raw JSON array:\n[{"stem":"?","patient_update":"New info before this question (empty for Q1)","options":["A. text","B. text","C. text","D. text"],"correct":0,"adpie":"Assessment","rationale":"Why correct"}]';var qsEl=document.getElementById('case-qs');
+try{var qR=await callAIRetry(qPrmt,qlen*450+500);var qClean=qR.replace(/^```(?:json)?[\s\S]*?\n/,'').replace(/\s*```\s*$/,'').trim();var qam=/\[\s*\{/.exec(qClean);if(qam)qClean=qClean.substring(qam.index);caseState.questions=JSON.parse(qClean);caseState.idx=0;caseState.score=0;renderCaseQ(0)}catch(e){if(qsEl)qsEl.innerHTML='<div class="emsg">Failed to generate questions: '+e.message+'</div><button class="rtb" onclick="startCase()">🔄 Retry</button>'}}
+function renderCaseQ(idx){var qsEl=document.getElementById('case-qs');if(!qsEl||!caseState.questions[idx])return;var q=caseState.questions[idx];var adpieSteps=['Assessment','Diagnosis','Planning','Implementation','Evaluation'];document.querySelectorAll('.ads').forEach(function(a,i){a.classList.remove('act','dn2');var sn=adpieSteps[i];if(sn===q.adpie)a.classList.add('act');else if(adpieSteps.indexOf(sn)<adpieSteps.indexOf(q.adpie))a.classList.add('dn2')});var upd=q.patient_update&&q.patient_update.trim()?'<div class="pu">📋 Update: '+q.patient_update+'</div>':'';qsEl.innerHTML=upd+'<div class="cq"><div class="cqs">Q'+(idx+1)+' of '+caseState.questions.length+' — '+q.stem+'</div>'+(q.options||[]).map(function(o,i){return'<div class="cqo" onclick="selCaseOpt(this)" data-i="'+i+'">'+o+'</div>'}).join('')+'<button class="csub" id="csub-btn" onclick="subCase()">Submit Answer</button><div class="rat" id="case-rat"></div></div>'}
+function selCaseOpt(el){document.querySelectorAll('.cqo').forEach(function(o){o.classList.remove('sel')});el.classList.add('sel')}
+function subCase(){var q=caseState.questions[caseState.idx];var sel=document.querySelector('.cqo.sel');if(!sel){alert('Select an answer');return}var chosen=parseInt(sel.dataset.i);var correct=chosen===(q.correct||0);if(correct)caseState.score++;document.querySelectorAll('.cqo').forEach(function(o){o.onclick=null;var i=parseInt(o.dataset.i);if(i===(q.correct||0))o.classList.add('correct');else if(i===chosen&&!correct)o.classList.add('wrong')});var csub=document.getElementById('csub-btn');if(csub)csub.style.display='none';var rat=document.getElementById('case-rat');if(rat){rat.innerHTML='<div class="rc">'+(correct?'✅ Correct!':'❌ Incorrect')+'</div><p>'+q.rationale+'</p>'+(caseState.idx+1<caseState.questions.length?'<button class="cnxt" onclick="nextCase()">Next Phase →</button>':'<button class="cnxt" onclick="endCase()">View Summary</button>');rat.classList.add('on')}}
+function nextCase(){caseState.idx++;renderCaseQ(caseState.idx)}
+function endCase(){var acc=caseState.questions.length?Math.round(caseState.score/caseState.questions.length*100):0;saveSess({score:caseState.score,total:caseState.questions.length,acc:acc,mode:'case',source:'Case Sim',topics:{},adpie:{},systems:{},subtopics:{},difficulty:2,flaggedOnly:false});document.getElementById('case-qs').innerHTML='<div class="sumc"><div class="sums">'+acc+'%</div><div class="sumsu">Case complete: '+caseState.score+'/'+caseState.questions.length+' correct</div></div><div style="text-align:center"><button class="rdb" onclick="startCase()">🏥 New Case</button></div>'}
+// INIT
+document.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem('dark')==='1')document.body.classList.add('dark');updateMastery();updateDueCt();updateSRS();initFlags();renderAllKeys();buildTOC();document.getElementById('tb').addEventListener('scroll',updateNavArrows);updateNavArrows();renderDrugs();renderQV()});
+</script>
+</body></html>
